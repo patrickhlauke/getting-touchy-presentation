@@ -114,7 +114,8 @@
 	color: #000;
 }
 
-.slide.impact small {
+.slide.impact small,
+.slide.statement small {
 	font-size: 0.55em;
 	font-weight: bold;
 }
