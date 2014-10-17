@@ -796,6 +796,7 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/android/chrome-force-enable-zoom-delay.png" alt="When 'Force enable zoom' is turned on, users can still zoom, but the 300ms delay - even with user-scalable=no - returns. A fair compromise?">
+	<p>"Force enable zoom" reintroduces delay</p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html">patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html</a></p>
 </div></section>
 
@@ -810,6 +811,7 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/sites/bugzilla-force-over-ride-zoom.png" alt="">
+	<p>Firefox/Android and Firefox OS currently lack this setting</p>
 	<p><a target=_blank href="https://bugzilla.mozilla.org/show_bug.cgi?id=852247">Bug 852247 - [a11y] Force over-ride zoom</a></p>
 </div></section>
 
@@ -817,15 +819,16 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/sites/html5rocks-300ms-tap-delay-removed.png" alt="">
-	<p>Chrome 32+ / Android: <code>... content="width=device-width"</code><br>
-	<a target=_blank href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away</a></p>
+	<p>Chrome 32+ / Android: <code>content="width=device-width"</code><br>suppresses double-tap-to-zoom, still allows pinch zoom</p>
+	<p><a target=_blank href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away</a></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/sites/bugzilla-remove-300ms-for-width-device-width.png" alt="">
-	<p><a target=_blank href="https://bugzilla.mozilla.org/show_bug.cgi?id=941995">Bug 941995 - Remove 300ms [...] on "responsive" pages</a><br><strong>[RESOLVED FIXED]</strong></p>
+	<p><a target=_blank href="https://bugzilla.mozilla.org/show_bug.cgi?id=941995">Bug 941995 - Remove 300ms [...] on "responsive" pages</a></p>
+	<p><strong>[RESOLVED FIXED]</strong></p>
 </div></section>
 
 <!-- -->
@@ -839,8 +842,8 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/sites/webkit-bugzilla-optimizations-to-remove-300ms-touch-mouse-events-delay.png" alt="">
-	<p>iOS/Safari designed themselves into a corner: “double-tap to scroll”<br>
-	<a target=_blank href="https://bugs.webkit.org/show_bug.cgi?id=122212">Bug 122212 - Optimizations to remove 300ms touch > mouse events delay</a></p>
+	<p>iOS/Safari designed themselves into a corner: “double-tap to scroll”</p>
+	<p><a target=_blank href="https://bugs.webkit.org/show_bug.cgi?id=122212">Bug 122212 - Optimizations to remove 300ms touch > mouse events delay</a></p>
 </div></section>
 
 <!-- -->
@@ -973,8 +976,7 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/android/chrome-particle-party-mouse-only.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/particle/2">patrickhlauke.github.io/touch/particle/2</a><br>
-	<small>(iOS7 bug: moving finger fires <code>mousemove</code> on scroll)</small></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/particle/2">patrickhlauke.github.io/touch/particle/2</a></p>
 </div></section>
 
 <!-- -->
@@ -1153,6 +1155,13 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
+<section class="slide"><div>
+	<img src="pictures/android/chrome-ratchet-swipe-carousel.png" alt="">
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/picture-slider">patrickhlauke.github.io/touch/picture-slider</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
 	<p>tracking finger movement over time ... <strong>swipe gestures</strong></p>
@@ -1171,13 +1180,6 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 <section class="slide"><div>
 	<img src="pictures/ios7/swipe-after.png" alt="">
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/swipe">patrickhlauke.github.io/touch/swipe</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/android/chrome-ratchet-swipe-carousel.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/picture-slider">patrickhlauke.github.io/touch/picture-slider</a></p>
 </div></section>
 
 <!-- -->
@@ -1812,9 +1814,10 @@ click</code></pre>
 
 <section class="slide code"><div>
 	<h2>CSS property</h2>
+	<p>what action should the browser handle?</p>
 	<pre><code class="css">touch-action: auto | <mark>none</mark> | [ pan-x || pan-y ] | <mark>manipulation</mark></code></pre>
 	<p><a target=_blank href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a><br>
-	only prevents default touch action (e.g. double-tap to zoom) does not stop synthetic mouse events nor <code>click</code></p>
+	only determines default touch action, does not stop synthetic mouse events nor <code>click</code></p>
 </div></section>
 
 <!-- -->
@@ -1829,6 +1832,7 @@ click</code></pre>
 <section class="slide statement"><div>
 <div>
 	<p><code>touch-action:manipulation</code></p>
+	<p><small>(suppress double-tap-to-zoom)</small></p>
 </div>
 </div></section>
 
@@ -1863,6 +1867,14 @@ click</code></pre>
 
 <!-- -->
 
+<section class="slide impact"><div>
+<div>
+	<p>browsers working to remove <strong>double-tap to zoom</strong> delay<br><small>(when page not zoomable)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
 	<img src="pictures/winphone8/ie11-8.1u1-userscalable-no-no-delay.png" alt="IE11/Windows Phone 8.1u1 support for user-scalable=no and click delay suppression">
 	<p><code class="html">&lt;meta name="viewport" content="user-scalable=no"></code></p>
@@ -1887,7 +1899,7 @@ click</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/winphone8/ie11-8.1u1-userscalable-no-force-zoom-delay.png" alt="IE11/Windows Phone 8.1u1 set to 'Allow zooming' - 300ms delay just before click event returns even when user-scalable=no">
-	<p><code class="html">&lt;meta name="viewport" content="user-scalable=no"></code></p>
+	<p>"Allow zooming on all web content" reintroduces delay</p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html">patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html</a></p>
 </div></section>
 
@@ -1895,7 +1907,7 @@ click</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/winphone8/ie11-8.1u1-min-max-scale-force-zoom-delay.png" alt="IE11/Windows Phone 8.1u1 set to 'Allow zooming' - 300ms delay just before click event returns even when minimum-scale/maximum-scale set to same">
-	<p><code class="html">... content="minimum-scale=1, maximum-scale=1"</code></p>
+	<p>"Allow zooming on all web content" reintroduces delay</p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html">patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html</a></p>
 </div></section>
 
@@ -1903,7 +1915,7 @@ click</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/winphone8/ie11-8.1u1-width-device-width-delay.png" alt="IE11/Windows Phone 8.1u1 - width=device-width has no effect on the 300ms delay">
-	<p><code class="html">... content="width=device-width"</code></p>
+	<p><code class="html">content="width=device-width"</code> still has delay</p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html">patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html</a></p>
 </div></section>
 
@@ -1931,6 +1943,7 @@ click</code></pre>
 <section class="slide"><div>
 	<img src="pictures/sites/msdn-using-aria-haspopup.png" alt="">
 	<p><a target=_blank href="http://msdn.microsoft.com/en-us/library/ie/jj152135(v=vs.85).aspx">MSDN: Using aria-haspopup to simulate hover on touch-enabled devices</a></p>
+	<p>dirty/inappropriate hack, but interesting experiment nonetheless</p>
 </div></section>
 
 <!-- -->
@@ -1945,6 +1958,7 @@ click</code></pre>
 <section class="slide"><div>
 	<img src="pictures/sites/msdn-channel9-ie11-touch-hover-movie.png" alt="">
 	<p><a target=_blank href="http://channel9.msdn.com/Blogs/IE/IE11-Using-Hover-Menus-with-Touch">Channel9 MSDN - IE11: Using Hover Menus with Touch</a></p>
+	<p>tap-and-hold to trigger hover menus...</p>
 </div></section>
 
 <!-- -->
@@ -1964,6 +1978,7 @@ click</code></pre>
 <section class="slide"><div>
 	<img src="pictures/win8/ie10-particle-party.png" alt="Particle party just with mouse event handlers has same issues under pointer events as with touch events - only a single mousemove is fired on first touching">
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/particle/2">patrickhlauke.github.io/touch/particle/2</a></p>
+	<p><code>mousemove</code>/<code>pointermove</code> fire, but browser scroll action takes over</p>
 </div></section>
 
 <!-- -->
@@ -2273,6 +2288,24 @@ click</code></pre>
 
 <!-- -->
 
+<section class="slide code"><div>
+	<h2>events fired on tap with HandJS</h2>
+	<pre><code class="json">touchstart > 
+	<mark>pointerover</mark> > <mark>pointerenter</mark> > <mark>pointerdown</mark> >
+	[touchmove > <mark>pointermove</mark>]+ >
+	touchend >
+	<mark>pointerup</mark> > <mark>pointerout</mark> > <mark>pointerleave</mark> >
+
+	[300ms delay]
+
+	<mark>pointerenter</mark> >
+	mouseenter > mousemove* > mousedown > mouseup >
+	click</code></pre>
+	<p><small>(not correct order, but close enough?)</small></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
 	<img src="pictures/sites/catuhe-handjs-demo-firefox.png" alt="Pointer events-based drawing application demo running in Firefox, which does not have native pointer events support yet">
 	<p><a target=_blank href="http://www.catuhe.com/msdn/handjs">www.catuhe.com/msdn/handjs/</a></p>
@@ -2313,10 +2346,36 @@ click</code></pre>
 <section class="slide"><div>
 	<img src="pictures/sites/github-ie-touch.png" alt="">
 	<p><a target=_blank href="https://github.com/WebReflection/ie-touch">GitHub - IE-Touch polyfill</a></p>
+	<p>opposite approach: polyfill touch events into IE</p>
 </div></section>
 
 <!-- -->
 
+<section class="slide"><div>
+	<img src="pictures/win8/ie11-all-events-ie-touch.png" alt="">
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/handjs/listener/event-listener.html">patrickhlauke.github.io/touch/ie-touch/listener/event-listener.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+	<h2>events fired on tap with ie-touch</h2>
+	<pre><code class="json">mousemove >
+pointerover > mouseover >
+pointerenter > mouseenter >
+pointerdown > <mark>touchstart</mark> > mousedown >
+<em>gotpointercapture</em> >
+focus >
+pointermove > <mark>touchmove</mark> mousemove >
+pointerup > <mark>touchend</mark> > mouseup >
+<em>lostpointercapture</em> >
+pointerout > mouseout >
+pointerleave > mouseleave >
+<mark>[300ms delay]</mark>
+click</code></pre>
+</div></section>
+
+<!-- -->
 
 <section class="slide impact"><div>
 <div>
@@ -2365,7 +2424,7 @@ var element = document.getElementById('test_el');
 
 <section class="slide"><div>
 	<img src="pictures/ios8/swipe-hammerjs.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/hammer/swipe/">patrickhlauke.github.io/touch/hammer/swipe</a><br><small>(but currently broken in IE?)</small></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/hammer/swipe/">patrickhlauke.github.io/touch/hammer/swipe</a><br><small>(but currently broken on Windows 8 + touchscreen)</small></p>
 </div></section>
 
 <!-- -->
@@ -2388,14 +2447,23 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
+	<img src="pictures/backgrounds/photo-device-testing.jpg" alt="Large number of mobile phone/tablet test devices">
+	<p>nothing beats having real devices...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
 	<img src="pictures/win8/chrome-remote-debug-monitorevents.png" alt="">
-	<p><a target=_blank href="https://developers.google.com/chrome-developer-tools/docs/console#monitoring_events">Chrome DevTools / Using the Console / Monitoring events</a></p>
+	<p><a target=_blank href="https://developer.chrome.com/devtools/docs/remote-debugging">Chrome DevTools / Remote Debugging on Android</a></p>
+	<p><a target=_blank href="https://developer.chrome.com/devtools/docs/console#monitoring-events">Chrome DevTools / Using the Console / Monitoring events</a></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/win8/chrome-flags-touch-events-enable.png" alt="Touch Events can be explicitly enabled in Chrome's chrome://flags to test for sites/code that does the naive 'if it supports touch events i won't listen for click' assumptions">
+	<p>enable touch events even without a touchscreen<br><small>(to test "naive" <code>'ontouchstart' in window</code> code)</small></p>
 	<p><a target=_blank href="chrome://flags/#touch-events">chrome://flags/#touch-events</a></p>
 </div></section>
 
@@ -2412,6 +2480,13 @@ var element = document.getElementById('test_el');
 <section class="slide"><div>
 	<img src="pictures/win8/chrome-devtools-emulate-touch.png" alt="">
 	<p><a target=_blank href="https://code.google.com/p/chromium/issues/detail?id=181204"><strike>Issue 181204: [...] event order different from real devices</strike></a><br><small><strong>Fixed</strong> in Chrome (Canary) 37</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+	<img src="pictures/win8/chrome-devtools-device-mode.png" alt="">
+	<p><a target=_blank href="https://developer.chrome.com/devtools/docs/device-mode">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
 </div></section>
 
 <!-- -->
