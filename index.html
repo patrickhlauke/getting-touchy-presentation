@@ -2062,6 +2062,13 @@ element.setPointerCapture(pointerId)
 
 <!-- -->
 
+<section class="slide"><div>
+	<img src="pictures/win8/ie11-chrome-implicit-explicit-pointer-capture.png" alt="">
+	<p><a target=_blank href="https://www.youtube.com/watch?v=iT0iJn19oZ0">YouTube: Implicit and explicit pointer/touch capture</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
 	<p>what about <strong>backwards-compatibility</strong>?</p>
@@ -2245,6 +2252,13 @@ click</code></pre>
 <!-- -->
 
 <section class="slide"><div>
+	<img src="pictures/winphone8/ie11-8.1u1-pointer-capture.png" alt="">
+	<p><a target=_blank href="https://www.youtube.com/watch?v=GcuLH1KkRaU">YouTube: IE11 / Windows Phone 8.1u1 Preview for Developers - implicit and explicit capture</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
 	<img src="pictures/sites/ieblog-making-the-web-just-work-with-any-input.png" alt="">
 	<p><a target=_blank href="http://blogs.msdn.com/b/ie/archive/2014/09/05/making-the-web-just-work-with-any-input.aspx">MSDN IEBlog: Making the web “just work” with any input: Mouse, Touch, and Pointer Events</a></p>
 </div></section>
@@ -2331,7 +2345,7 @@ click</code></pre>
 	<pre><code class="html">/* Polymer's PointerEvents are not fired unless
    an element has a (custom) touch-action attribute */
 
-&lt;div id="foo" <mark>touch-action="none"</mark>>&lt;/div></code></pre>
+   &lt;div id="foo" <mark>touch-action="none"</mark>>&lt;/div></code></pre>
 </div></section>
 
 <!-- -->
@@ -2373,6 +2387,21 @@ pointerout > mouseout >
 pointerleave > mouseleave >
 <mark>[300ms delay]</mark>
 click</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+	<pre><code class="html">/* some ie-touch peculiarities to be mindful of:
+
+   - event object has no <em>targetTouches</em> TouchList
+
+   - <em>touches</em> acts as if it were <em>targetTouches</em>
+     no touch points that didn't start on the element
+     we're listening to are reported
+
+   - <em>changedTouches</em> always contains all touch points
+     already in <em>touches</em> */</code></pre>
 </div></section>
 
 <!-- -->
