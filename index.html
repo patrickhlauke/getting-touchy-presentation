@@ -775,7 +775,7 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/firefox-os/event-listener-all-user-scalable-no-delay.png" alt="Firefox OS 1.1 currently does not have viewport click delay optimisations.">
-	<p><a target=_blank href="https://bugzilla.mozilla.org/show_bug.cgi?id=922896">Bug 922896 - Optimizations to remove 300ms [...] delay</a><br><strong>[RESOLVED FIXED]</strong></p>
+	<p><a target=_blank href="https://bugzilla.mozilla.org/show_bug.cgi?id=922896">Bug 922896 - Optimizations to remove 300ms [...] delay</a></p><p><strong>[RESOLVED FIXED]</strong></p>
 </div></section>
 
 <!-- -->
@@ -857,7 +857,7 @@ foo.addEventListener('click', someFunction, false);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/ios8/ios8-slowtap-heuristic-quicktap-slowtap.png" alt="">
-	<p><a target=_blank href="https://www.youtube.com/watch?v=k-UiuPp2CK0">YouTube: iOS8/Safari 300ms delay heuristics</a><br><small>(quick tap - with 300ms delay - vs slow tap)</small></p>
+	<p><a target=_blank href="https://www.youtube.com/watch?v=k-UiuPp2CK0">YouTube: iOS8/Safari 300ms delay heuristics</a></p><p><small>(quick tap - with 300ms delay - vs slow tap)</small></p>
 </div></section>
 
 <!-- -->
@@ -1407,19 +1407,33 @@ var angle = Math.atan2(...);</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-	<img src="pictures/android/chrome-touchevents-on-gesture.png" alt="">
-	<p>not defined in spec, but <em>de facto</em> yes, they do...</p>
+	<img src="pictures/ios8/safari-touch-events-scrolling-zooming.png" alt="">
+	<p>not defined in spec, but <em>de facto</em><br><strong>yes</strong> in <strong>most modern browsers</strong></p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/gesture-touch/">patrickhlauke.github.io/touch/gesture-touch</a></p>
 </div></section>
 
-<!-- MORE SLIDES TO COME HERE ABOUT OLD BROWSERS, INCONSISTENCIES -->
+<!-- -->
+
+<section class="slide"><div>
+	<img src="pictures/sites/youtube-touch-events-and-scrolling-zooming-playlist.png" alt="">
+	<p>different models and behaviours, particularly in old browsers</p>
+	<p><a target=_blank href="https://www.youtube.com/playlist?list=PLbPjl9UGMTycW_pCqnxCTHCy2MLl6HwDO">YouTube: Touch Events and scrolling/zooming (playlist)</a></p>
+</div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/sites/chrome-devrel-youtube-touchevents-on-gesture.png" alt="">
-	<p>previous version of Chrome tried cancelling touch sequence on scroll/zoom, but reverted for compatibility reasons</p>
+	<p>e.g. older versions of Chrome fire <code>touchcancel</code> on scroll/zoom</p>
 	<p><a target=_blank href="https://www.youtube.com/watch?v=h2djIdAFc5U#t=518">YouTube: Google Developers - Mobile Web Thursdays: Performance on Mobile</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+	<img src="pictures/sites/html5rocks-more-compatible-smoother-touch.png" alt="">
+	<p><a target=_blank href="http://updates.html5rocks.com/2014/05/A-More-Compatible-Smoother-Touch">HTML5 Rocks: A More Compatible, Smoother Touch</a></p>
+	<p><small>(lots more complexity / edge cases, particularly for old browsers/devices)</small></p>
 </div></section>
 
 <!-- -->
@@ -1623,6 +1637,7 @@ var angle = Math.atan2(...);</code></pre>
 <section class="slide"><div>
 	<img src="pictures/sites/chromium-issue162757-implement-pointer-events.png" alt="">
 	<p><a target=_blank href="https://code.google.com/p/chromium/issues/detail?id=162757">Issue 162757: Implement pointer events in Chrome behind experimental flag</a></p>
+	<p><small>(however, more on this later...)</small></p>
 </div></section>
 
 <!-- -->
@@ -1636,7 +1651,7 @@ var angle = Math.atan2(...);</code></pre>
 
 <section class="slide impact"><div>
 <div>
-	<p>...what about Apple?</p>
+	<p>...what about <strong>Apple</strong>?</p>
 </div>
 </div></section>
 
@@ -1644,8 +1659,15 @@ var angle = Math.atan2(...);</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/sites/webkit-bugzilla-implement-pointer-events-wontfix.png" alt="">
-	<p><a target=_blank href="https://bugs.webkit.org/show_bug.cgi?id=105463">Bug 105463 - Implement pointer events</a> <strong>RESOLVED WONTFIX</strong><br>
-	<small><a target=_blank href="https://lists.webkit.org/pipermail/webkit-dev/2012-December/023050.html">Maciej Stachowiak - [webkit-dev] pointer events specification - first editors draft</a></small></p>
+	<p><a target=_blank href="https://bugs.webkit.org/show_bug.cgi?id=105463">Bug 105463 - Implement pointer events</a> <strong>RESOLVED WONTFIX</strong></p><p><small><a target=_blank href="https://lists.webkit.org/pipermail/webkit-dev/2012-December/023050.html">Maciej Stachowiak - [webkit-dev] pointer events specification - first editors draft</a></small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+	<p>the anatomy of <strong>Pointer Events</strong><br><small>(sequence, event object, ...)</small></p>
+</div>
 </div></section>
 
 <!-- -->
@@ -1679,6 +1701,20 @@ focus >
 <mark>pointerleave</mark> > mouseleave >
 click</code></pre>
 <p>mouse events fired “inline” with pointer events<br><small>(for a primary pointer, e.g. first finger on screen)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<h2>current IE10/11 quirk</h2>
+<pre><code class="json">...
+pointerup > mouseup >
+<em>lostpointercapture</em> >
+pointerout > mouseout >
+pointerleave > mouseleave >
+<mark>click</mark></code></pre>
+<p>the fact that <code>click</code> comes last is a current IE10/11 quirk – according to spec it should come after <code>pointerup > mouseup</code>, and does already when using <code>touch-action</code></p>
+<p><a target=_blank href="http://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></p>
 </div></section>
 
 <!-- -->
@@ -1810,14 +1846,14 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
 
 <section class="slide"><div>
 	<img src="pictures/win8/codepen-3drotator-mouse-only.png" alt="">
-	<p><a target=_blank href="http://codepen.io/CreativePunch/full/sucHI/">3D Rotator by Creative Punch</a><br><small>coded to only use mouse events</small></p>
+	<p><a target=_blank href="http://codepen.io/CreativePunch/full/sucHI/">3D Rotator by Creative Punch</a></p><p><small>coded to only use mouse events</small></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/win8/codepen-3drotator-mouse-pointerevents.png" alt="">
-	<p><a target=_blank href="http://codepen.io/patrickhlauke/full/dzLcn/">3D Rotator modified to use Pointer Events</a><br><small>minimal code changes, as Pointer Events extend mouse events</small></p>
+	<p><a target=_blank href="http://codepen.io/patrickhlauke/full/dzLcn/">3D Rotator modified to use Pointer Events</a></p><p><small>minimal code changes, as Pointer Events extend mouse events</small></p>
 </div></section>
 
 <!-- -->
@@ -1899,7 +1935,7 @@ MSPOINTER_TYPE_MOUSE: 0x00000004</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/win8/ie11-click-delay2.png" alt="300ms click delay still present in IE on a touch device">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a><br><small>(IE/Win8 has double-tap to zoom, so problem on desktop too)</small></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p><p><small>(IE/Win8 has double-tap to zoom, so problem on desktop too)</small></p>
 </div></section>
 
 <!-- -->
@@ -1980,8 +2016,23 @@ click</code></pre>
 	<h2>CSS property</h2>
 	<p>what action should the browser handle?</p>
 	<pre><code class="css">touch-action: auto | <mark>none</mark> | [ pan-x || pan-y ] | <mark>manipulation</mark></code></pre>
-	<p><a target=_blank href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a><br>
-	only determines default touch action, does not stop synthetic mouse events nor <code>click</code></p>
+	<p><a target=_blank href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a></p><p>only determines default touch action, does not stop synthetic mouse events nor <code>click</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+	<p><code>touch-action:none</code></p>
+	<p><small>(suppress all default browser behaviour)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+	<img src="pictures/winphone8/ie11-touch-action-none-no-delay.png" alt="IE11/WinPhone8.1 shows no click delay with touch-action:none">
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-none.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
 </div></section>
 
 <!-- -->
@@ -2004,7 +2055,7 @@ click</code></pre>
 
 <section class="slide"><div>
 	<img src="pictures/winphone8/ie11-touch-action-manipulation-no-delay.png" alt="IE11/WinPhone8.1 shows no click delay with touch-action:manipulation">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-none.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-manipulation.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
 </div></section>
 
 <!-- -->
@@ -2199,7 +2250,7 @@ switch (e.type) {
 
 <section class="slide"><div>
 	<img src="pictures/win8/ie11-touch-tracker-multiple-primary-pointers.png" alt="Multiple pointers can be primary - first finger on a touchscreen and mouse used simultaneously">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html</a><br><small>(note multiple <code>isPrimary</code> pointers)</small></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html</a></p><small>(note multiple <code>isPrimary</code> pointers)</small></p>
 </div></section>
 
 <!-- -->
@@ -2379,7 +2430,7 @@ if ('onpointerdown' in window) {
 
 <section class="slide"><div>
 	<img src="pictures/sites/ieblog-mobile-web-should-just-work.png" alt="">
-	<p><a target=_blank href="http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx">MSDN IEBlog: The Mobile Web should just work for everyone</a><br><small>Windows Phone 8.1 Update now supports Pointer Events <strong>and</strong> Touch Events</small></p>
+	<p><a target=_blank href="http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx">MSDN IEBlog: The Mobile Web should just work for everyone</a></p><p><small>Windows Phone 8.1 Update now supports Pointer Events <strong>and</strong> Touch Events</small></p>
 </div></section>
 
 <!-- -->
@@ -2423,8 +2474,8 @@ click</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-	<img src="pictures/winphone8/chrome-ie11wp8.1u1dp-touchevents-on-gesture.jpg" alt="">
-	<p><a target=_blank href="https://www.youtube.com/watch?v=aVDK7dvsjGs">YouTube: Touch Events - touchmove/touchend and scrolling/zooming - IE11/WinPhone 8.1u1 Dev Preview</a></p>
+	<img src="pictures/winphone8/ie11-8.1u1dp-touch-events-scrolling-zooming.png" alt="">
+	<p><a target=_blank href="https://www.youtube.com/watch?v=gGK1UYz-4fk">YouTube:Touch Events and scrolling/zooming - IE11/Windows Phone 8.1u1 Dev Preview</a></p>
 </div></section>
 
 <!-- -->
@@ -2632,7 +2683,7 @@ var element = document.getElementById('test_el');
 
 <section class="slide"><div>
 	<img src="pictures/ios8/swipe-hammerjs.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/hammer/swipe/">patrickhlauke.github.io/touch/hammer/swipe</a><br><small>(currently broken on IE11/Win8 + touchscreen and IE11/Windows Phone 8)</small></p>
+	<p><a target=_blank href="https://patrickhlauke.github.io/touch/hammer/swipe/">patrickhlauke.github.io/touch/hammer/swipe</a></p><p><small>(currently broken on IE11/Win8 + touchscreen and IE11/Windows Phone 8)</small></p>
 </div></section>
 
 <!-- -->
@@ -2687,7 +2738,7 @@ var element = document.getElementById('test_el');
 
 <section class="slide"><div>
 	<img src="pictures/win8/chrome-devtools-emulate-touch.png" alt="">
-	<p><a target=_blank href="https://code.google.com/p/chromium/issues/detail?id=181204"><strike>Issue 181204: [...] event order different from real devices</strike></a><br><small><strong>Fixed</strong> in Chrome (Canary) 37</small></p>
+	<p><a target=_blank href="https://code.google.com/p/chromium/issues/detail?id=181204"><strike>Issue 181204: [...] event order different from real devices</strike></a></p><p><small><strong>Fixed</strong> in Chrome (Canary) 37</small></p>
 </div></section>
 
 <!-- -->
@@ -2751,14 +2802,14 @@ var element = document.getElementById('test_el');
 
 <section class="slide"><div>
 	<img src="pictures/backgrounds/leapmotion-tracker.jpg" alt="">
-	<p><a target=_blank href="https://www.youtube.com/watch?v=9ilOFivWoXU">YouTube: Leap Motion Controller tracker</a><br><a target=_blank href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
+	<p><a target=_blank href="https://www.youtube.com/watch?v=9ilOFivWoXU">YouTube: Leap Motion Controller tracker</a></p><p><a target=_blank href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/sites/w3c-gamepad-api.png" alt="">
-	<p><a target=_blank href="http://www.w3.org/TR/gamepad/">W3C Gamepad API</a><br><a target=_blank href="http://www.html5rocks.com/en/tutorials/doodles/gamepad/gamepad-tester/tester.html">HTML5 Rocks: Gamepad API tester</a></p>
+	<p><a target=_blank href="http://www.w3.org/TR/gamepad/">W3C Gamepad API</a></p><p><a target=_blank href="http://www.html5rocks.com/en/tutorials/doodles/gamepad/gamepad-tester/tester.html">HTML5 Rocks: Gamepad API tester</a></p>
 </div></section>
 
 <!-- -->
