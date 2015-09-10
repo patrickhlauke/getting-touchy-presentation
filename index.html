@@ -24,16 +24,8 @@
     	<h2>Getting <strong>touchy</strong></h2>
 		<p>An introduction to <strong>touch and pointer</strong> events</p>
     </div>
-	<p class="info">Patrick H. Lauke / Version 1.4.09092015</p>
+	<p class="info">Patrick H. Lauke / Version 1.4.10092015</p>
 	<img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-	<p>“how can I make my website<br>work on <strong>touch devices</strong>?”</p>
-</div>
 </div></section>
 
 <!-- -->
@@ -176,13 +168,6 @@
 <!-- -->
 
 <section class="slide"><div>
-	<img src="pictures/sites/steam-hover-to-reveal2.png" alt="">
-	<p><a target=_blank href="http://steamcommunity.com/id/redux_splintered/screenshots/?appid=258520">Steam's "hover to reveal screenshot" feature</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
 	<img src="pictures/win8/chrome-css-dropdown.png" alt="CSS dropdowns">
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-only.html">patrickhlauke.github.io/touch/css-dropdown/mouse-only.html</a></p>
 </div></section>
@@ -238,9 +223,7 @@
 	<p><code class="json">touchstart<br>
 touchmove<br>
 touchend<br>
-touchcancel<br>
-<del>touchenter</del><br>
-<del>touchleave</del></code><br></p>
+touchcancel</code></p>
 </div>
 </div></section>
 
@@ -1451,9 +1434,9 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 
 <!-- -->
 
-<section class="slide"><div>
+<section class="slide cover impact"><div>
 <div>
-	<p>iOS7+ Safari/WebView <code>preventDefault()</code> can't override<br>back/forward swipe gestures on edge of screen</p>
+	<p>iOS7+ Safari/WebView <code>preventDefault()</code> can't override edge swipes</p>
 </div>
 	<img src="pictures/backgrounds/photos-ios-iphone-safari-history-swipe-gestures.jpg" class="cover" alt="Multitouch tracker in iOS/Safari - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
 </div></section>
@@ -2357,7 +2340,7 @@ click
 <section class="slide"><div>
 	<img src="pictures/win8/ie10-particle-party2.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track' - mousemove is fired continuously as finger moves across canvas">
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/particle/2a">patrickhlauke.github.io/touch/particle/2a</a></p>
-	<p>does <strong>not</strong> work in Microsoft Edge/Windows 10 Mobile<br>(due to touch events support)</p>
+	<p>(does <strong>not</strong> work in Microsoft Edge/Windows 10 Mobile<br>due to touch events support)</p>
 </div></section>
 
 <!-- -->
@@ -2929,7 +2912,7 @@ mouseover > mouseenter > mousemove > mousedown >
 focus >
 mouseup > click > 
 <em>lostpointercapture</em> >
-pointerleave</code></pre>
+pointerout > pointerleave</code></pre>
 	<p>Microsoft Edge/Windows 10 Mobile closer to touch events<br>(note grouped mouse compatibility events)</p>
 </div></section>
 
@@ -3105,6 +3088,13 @@ if ('onpointerdown' in window) {
 <!-- -->
 
 <section class="slide"><div>
+	<img src="pictures/ios8/safari-pep.png" alt="A pointer events demo running in iOS/Safari thanks to PEP">
+	<p><a target=_blank href="http://jsbin.com/xemixu/2/edit?html,js,output">Alex Schmitz' PEP demo</strong></a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
 	<img src="pictures/sites/github-ie-touch.png" alt="">
 	<p><a target=_blank href="https://github.com/WebReflection/ie-touch">GitHub - IE-Touch polyfill</a></p>
 	<p>opposite approach: polyfill touch events into IE</p>
@@ -3236,6 +3226,13 @@ var element = document.getElementById('test_el');
 
 <!-- -->
 
+<section class="slide"><div>
+	<img src="pictures/win8/chrome-devtools-device-mode.png" alt="">
+	<p><a target=_blank href="https://developer.chrome.com/devtools/docs/device-mode">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide statement"><div>
 <div>
 	<p>beware <strong>inaccurate</strong> emulation</p>
@@ -3247,13 +3244,6 @@ var element = document.getElementById('test_el');
 <section class="slide"><div>
 	<img src="pictures/win8/chrome-devtools-emulate-touch.png" alt="">
 	<p><a target=_blank href="https://code.google.com/p/chromium/issues/detail?id=181204"><strike>Issue 181204: [...] event order different from real devices</strike></a></p><p><small><strong>Fixed</strong> in Chrome (Canary) 37</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/win8/chrome-devtools-device-mode.png" alt="">
-	<p><a target=_blank href="https://developer.chrome.com/devtools/docs/device-mode">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
 </div></section>
 
 <!-- -->
