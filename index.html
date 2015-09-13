@@ -129,9 +129,9 @@
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
+	<p><small>("evergreen" presentation also covers hover/mouseover)</small></p>
 </div>
 </div></section>
 
@@ -141,7 +141,6 @@
 <div>
 	<ol>
 		<li><strong>delayed event dispatch</strong></li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
 </div>
@@ -167,26 +166,6 @@
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li><strong>hover/mouseover interfaces</strong></li>
-		<li>mousemove doesn't track</li>
-	</ol>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/win8/chrome-css-dropdown.png" alt="CSS dropdowns">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-only.html">patrickhlauke.github.io/touch/css-dropdown/mouse-only.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement listing"><div>
-<div>
-	<ol>
-		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li><strong>mousemove doesn't track</strong></li>
 	</ol>
 </div>
@@ -317,7 +296,6 @@ touchend > mouseup > click</code></pre>
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
 </div>
@@ -329,7 +307,6 @@ touchend > mouseup > click</code></pre>
 <div>
 	<ol>
 		<li><strong>delayed event dispatch</strong></li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
 </div>
@@ -438,7 +415,11 @@ if (<mark>'ontouchstart' in window</mark>) {
 var clickEvent =
     (<mark>'ontouchstart' in window ? 'touchend' : 'click'</mark>);
 
-blah.addEventListener(<mark>clickEvent</mark>, function() { ... }, false);</code></pre>
+blah.addEventListener(<mark>clickEvent</mark>, function() { ... }, false);
+
+/* <mark>if touch events are supported,
+   only listen to touchend, not click</mark> */
+</code></pre>
 </div></section>
 
 <!-- -->
@@ -446,22 +427,6 @@ blah.addEventListener(<mark>clickEvent</mark>, function() { ... }, false);</code
 <section class="slide cover impact"><div>
 	<div><p>don't make it touch-exclusive</p></div>
 	<img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* common performance “trick” */
-
-var clickEvent =
-    (<mark>'ontouchstart' in window</mark> ? <mark>'touchend'</mark> : 'click');
-
-...
-
-/* <mark>if touch events are supported,
-   only listen to touchend, not click</mark> */
-
-</code></pre>
 </div></section>
 
 <!-- -->
@@ -576,21 +541,6 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <!-- -->
 
-<section class="slide"><div>
-	<img src="pictures/ios7/ipad-voiceover.png" alt="">
-	<p>VoiceOver enables full keyboard access on iOS</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/backgrounds/photo-ios-ipad-keyboard.jpg" alt=""><p>iOS + keyboard – similar to touch (TAB / ENTER)</p>
-	<p><code class="json">focus > touchstart > touchend > (mouseenter) > mouseover >
-mousemove > mousedown > blur > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide statement"><div>
 <div>
 	<p>mobile Assistive Technologies<br><small>(e.g. screen readers on touchscreen devices)</small></p></p>
@@ -632,20 +582,6 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 <div>
 	<p>no way to detect these cases...</p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/github-modernizr-detects-touch-events-not-touch-screens.png" alt="">
-	<p><a target=_blank href="https://github.com/modernizr/modernizr/issues/548"><code>Modernizr.touch</code> detects touch events not touch devices</a>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/stucox-you-cant-detect-a-touchscreen.png" alt="">
-	<p><a target=_blank href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">Stu Cox: You can't detect a touchscreen</a></p>
 </div></section>
 
 <!-- -->
@@ -701,21 +637,6 @@ foo.addEventListener('<mark>click</mark>', someFunction, false);
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* prevent mouse events + click for all touches */
-
-foo.addEventListener('<mark>touchstart</mark>', function(e) {
-    <mark>e.preventDefault();</mark>
-}, false);</mark>
-
-/* doubled-up event listeners */
-
-foo.addEventListener('touchend', someFunction, false);
-foo.addEventListener('click', someFunction, false);</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
 <pre><code class="js">/* doubled-up event listeners */
 
 foo.addEventListener('touchend', someFunction, false);
@@ -752,14 +673,6 @@ function someFunction(e) {
 <section class="slide"><div>
 	<img src="pictures/sites/github-fastclick.png" alt="">
 	<p><a target=_blank href="https://github.com/ftlabs/fastclick">github.com/ftlabs/fastclick</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios8/bootstrap-vanilla.png" alt="Bootstrap slide-down navigation button has 300ms delay in iOS by default">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/fastclick/">patrickhlauke.github.io/touch/fastclick</a></p>
-	<p><a target=_blank href="https://www.youtube.com/watch?v=5VCQjBi8m4U">YouTube: iOS/Safari 300ms click delay: vanilla Bootstrap and using fastclick.js</a></p>
 </div></section>
 
 <!-- -->
@@ -873,134 +786,6 @@ function someFunction(e) {
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li><strong>hover/mouseover interfaces</strong></li>
-		<li>mousemove doesn't track</li>
-	</ol>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/win8/chrome-css-dropdown.png" alt="CSS dropdowns">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-only.html">patrickhlauke.github.io/touch/css-dropdown/mouse-only.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-	<p>no concept of <code>hover</code><br>on <strong>touch devices</strong><br>
-	<small>iOS fakes it, Samsung Galaxy Note II/Pro + stylus, ...</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios7/css-dropdown-before.png" alt="CSS dropdowns in iOS">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-only.html">patrickhlauke.github.io/touch/css-dropdown/mouse-only.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios7/css-dropdown-after.png" alt="CSS dropdowns in iOS">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-only.html">patrickhlauke.github.io/touch/css-dropdown/mouse-only.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios7/ios-faked-hover.jpg" alt="Diagrammatic flow of iOS' faked hover support - stopping event sequence if there's a 'change' on the page">
-	<p>iOS "fakes" hover support: stops event sequence on content change</p>
-	<p><a target=_blank href="https://developer.apple.com/library/IOS/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html">iOS Developer Library - Safari Web Content Guide - Handling Events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
-	<p><a target=_blank href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
-	<p><small>...but you can't rely on this, as most devices don't have it...</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/github-modernizr-detecting-a-mouse-user.png" alt="">
-	<p><a target=_blank href="https://github.com/Modernizr/Modernizr/issues/869">Modernizr: Detecting a mouse user</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-	<p>what about CSS / Media Queries?</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/w3c-media-queries-level4.png" alt="">
-	<p><a href="https://drafts.csswg.org/mediaqueries-4/">W3C Media Queries Level 4 (Editor's Draft)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-	<pre><code class="css">/* MQ4 Interaction Media Features*/
-
-pointer: none | coarse | fine
-hover: none | on-demand | hover
-any-pointer: none | coarse | fine
-any-hover: none | coarse | fine
-
-/* Example (naive) use of hover */
-@media (hover:none), (hover:on-demand) {
-	/* suppress :hover-based menus */
-}</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/dev-opera-media-features.png" alt="">
-	<p><a target=_blank href="https://dev.opera.com/articles/media-features/">dev.opera - Interaction Media Features and their potential (for incorrect assumptions)</a></p>
-	<p><small>because of the concept of "primary" pointer, not useful in multi-input scenarios</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-	<p><strong>avoid</strong> hover/mouseover interfaces?</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-	<p><strong>complement</strong> for keyboard/touch!</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/win8/chrome-css-dropdown-kbd-touch-support.png"alt ="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/css-dropdown/mouse-keyboard-touch.html">patrickhlauke.github.io/touch/css-dropdown/mouse-keyboard-touch.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement listing"><div>
-<div>
-	<ol>
-		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li><strong>mousemove doesn't track</strong></li>
 	</ol>
 </div>
@@ -1191,13 +976,6 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-	<img src="pictures/android/chrome-particle-field-mouse-and-touch.png" alt="Particle field working on Android device">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/particle/4a">patrickhlauke.github.io/touch/particle/4a</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
 	<img src="pictures/sites/paranoid.png" alt="">
 	<p><a target=_blank href="http://www.splintered.co.uk/experiments/archives/paranoid_0.5">www.splintered.co.uk/experiments/archives/paranoid_0.5</a></p>
 </div></section>
@@ -1215,13 +993,6 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 <div>
 	<p>tracking finger movement over time ... <strong>swipe gestures</strong></p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios7/swipe-before.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/swipe">patrickhlauke.github.io/touch/swipe</a></p>
 </div></section>
 
 <!-- -->
@@ -1346,32 +1117,6 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 
 <section class="slide"><div>
 	<img src="pictures/android/chrome-multitracker.png" alt="">
-	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-<div>
-	<p>iOS/iPad <code>preventDefault()</code> can't override 4-finger gestures</p>
-</div>
-	<img src="pictures/backgrounds/photo-ios-ipad-4-finger-gesture.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-<div>
-	<p>iOS7+ Safari/WebView <code>preventDefault()</code> can't override edge swipes</p>
-</div>
-	<img src="pictures/backgrounds/photos-ios-iphone-safari-history-swipe-gestures.jpg" class="cover" alt="Multitouch tracker in iOS/Safari - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
-</div></section>
-
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/ios8/chrome-ios-swipe-history.png" alt="Multitouch tracker in iOS/Chrome - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html</a></p>
 </div></section>
 
@@ -1700,7 +1445,6 @@ if (<mark>navigator.maxTouchPoints > 1</mark>) {
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
 </div>
@@ -1712,7 +1456,6 @@ if (<mark>navigator.maxTouchPoints > 1</mark>) {
 <div>
 	<ol>
 		<li><strong>delayed event dispatch</strong></li>
-		<li>hover/mouseover interfaces</li>
 		<li>mousemove doesn't track</li>
 	</ol>
 </div>
@@ -1920,34 +1663,6 @@ click
 <div>
 	<ol>
 		<li>delayed event dispatch</li>
-		<li><strong>hover/mouseover interfaces</strong></li>
-		<li>mousemove doesn't track</li>
-	</ol>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/msdn-hover-touch-support.png" alt="">
-	<p><a target=_blank href="http://msdn.microsoft.com/en-us/library/ie/dn265029(v=vs.85).aspx">MSDN: Hover touch support</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/msdn-using-aria-haspopup.png" alt="">
-	<p><a target=_blank href="http://msdn.microsoft.com/en-us/library/ie/jj152135(v=vs.85).aspx">MSDN: Using aria-haspopup to simulate hover on touch-enabled devices</a></p>
-	<p>dirty/inappropriate hack, but interesting experiment nonetheless</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement listing"><div>
-<div>
-	<ol>
-		<li>delayed event dispatch</li>
-		<li>hover/mouseover interfaces</li>
 		<li><strong>mousemove doesn't track</strong></li>
 	</ol>
 </div>
@@ -2353,14 +2068,6 @@ partial interface Touch {
 <section class="slide"><div>
 	<img src="pictures/sites/w3c-touch-events-community-group.png" alt="">
 	<p><a target=_blank href="http://www.w3.org/community/touchevents">W3C Touch Events Community Group</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-	<img src="pictures/sites/w3c-webvents-wg-touch-events-errata.png" alt="">
-	<p><a target=_blank href="https://dvcs.w3.org/hg/webevents/">W3C Web Events WG - Touch Events errata</a></p>
-	<p>(early effort to clarify grey areas, simplify language used)</p>
 </div></section>
 
 <!-- -->
