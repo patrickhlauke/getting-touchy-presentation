@@ -110,9 +110,9 @@
 	<h2>subsequent taps</h2>
 	<pre><code class="json">mousemove > mousedown > mouseup > click</code></pre>
 	<h2>tapping away</h2>
-	<pre><code class="json">mouseout > (blur)</code></pre>
-	<p><code>focus</code>/<code>blur</code> only on focusable elements in <del>Opera Mobile and</del> Firefox<br>
-	<code>mouseout</code> not on iOS Safari/WebView (e.g. iOS Chrome)</p>
+	<pre><code class="json">(mouseout) > (blur)</code></pre>
+	<p><small><code>focus</code>/<code>blur</code> only on focusable elements; subtle differences between browsers<br>
+	<a target=_blank href="http://patrickhlauke.github.io/touch/tests/results/#mobile-tablet-touchscreen-events">Mobile/tablet touchscreen activation/tap event order</a></p>
 </div></section>
 
 <!-- -->
@@ -433,6 +433,13 @@ touchend > mouseup > click</code></pre>
 
 <!-- -->
 
+<section class="slide cover impact"><div>
+	<div><p>don't make it touch-exclusive</p></div>
+	<img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
 	<p>interlude: simple <strong>feature detection</strong> for touch events</p>
@@ -461,13 +468,6 @@ var clickEvent =
     (<mark>'ontouchstart' in window ? 'touchend' : 'click'</mark>);
 
 blah.addEventListener(<mark>clickEvent</mark>, function() { ... }, false);</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-	<div><p>don't make it touch-exclusive</p></div>
-	<img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
 </div></section>
 
 <!-- -->
@@ -593,7 +593,7 @@ mousedown > (focus) > mouseup > click</code></p>
 <section class="slide"><div>
 	<img src="pictures/backgrounds/photo-android-keyboard.jpg" alt="">
 	<p>Android + keyboard – <strong>like desktop keyboard</strong> (TAB / ENTER)</p>
-	<p><code class="json">focus > click</code></p>
+	<p><code class="json">focus / click</code></p>
 </div></section>
 
 <!-- -->
@@ -615,7 +615,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide"><div>
 	<img src="pictures/backgrounds/photo-ios-ipad-keyboard.jpg" alt=""><p>iOS + keyboard – similar to touch (TAB / ENTER)</p>
-	<p><code class="json">focus > touchstart > touchend > (mouseenter) > mouseover >
+	<p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover >
 mousemove > mousedown > blur > mouseup > click</code></p>
 </div></section>
 
@@ -632,15 +632,15 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 <section class="slide"><div>
 	<img src="pictures/ios7/voiceover-event-listener-all-no-timings-after.png" alt="">
 	<p>iOS + VoiceOver (with/without keyboard) – similar to touch</p>
-	<p><code class="json">focus > touchstart > touchend > (mouseenter) > mouseover > mousemove > mousedown > blur > mouseup > click</code></p>
+	<p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover > mousemove > mousedown > blur > mouseup > click</code></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
 	<img src="pictures/android/chrome-talkback-activate.png" alt="">
-	<p>Android + TalkBack – <strong>keyboard/mouse hybrid</strong></p>
-	<p><code class="json">focus > blur > mousedown > mouseup > click > focus(?)</code></p>
+	<p>Android 4.3 + TalkBack – <strong>keyboard/mouse hybrid</strong></p>
+	<p><code class="json">focus / blur > mousedown > mouseup > click > focus</code></p>
 </div></section>
 
 <!-- -->
@@ -1467,6 +1467,7 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 
 <section class="slide"><div>
 	<img src="pictures/ios8/chrome-ios-swipe-history.png" alt="Multitouch tracker in iOS/Chrome - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
+	<p>Chrome/iOS (WebView) custom swipe, also can't be prevented</p>
 	<p><a target=_blank href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html</a></p>
 </div></section>
 
