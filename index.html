@@ -288,12 +288,15 @@ mousemove > mousedown > mouseup > click</code></pre>
 <!-- -->
 
 <section class="slide code"><div>
-	<h2>Browser/Android 4.3 (AppleWebKit/534.30)</h2>
+	<h2>Browser/Android 4.3</h2>
 	<pre><code class="json"><mark>mouseover</mark> > <mark>mousemove</mark> > touchstart > touchend >
 mousedown > mouseup > click</code></pre>
-	<h2>Browser/Blackberry PlayBook 2.0 (AppleWebKit/536.2)</h2>
+	<h2>Browser/Blackberry PlayBook 2.0</h2>
 	<pre><code class="json">touchstart > <mark>mouseover</mark> > <mark>mousemove</mark> > <mark>mousedown</mark> >
 touchend > mouseup > click</code></pre>
+	<h2>UC Browser 10.8/Android 6</h2>
+	<pre><code class="json"><mark>mouseover</mark> > <mark>mousemove</mark> > touchstart > (touchmove)+ > touchend >
+mousedown > focus > mouseup > click</code></pre>
 </div></section>
 
 <!-- -->
