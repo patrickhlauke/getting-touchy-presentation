@@ -1283,6 +1283,17 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
+<section class="slide listing"><div>
+    <h2><code>TouchList</code> collections order</h2>
+    <ul>
+    <li>order of individual <code>Touch</code> objects in a <code>TouchList</code> can change</li>
+    <li>e.g. <code>targetTouches[0]</code> not guaranteed to always be the same finger when dealing with multitouch</li>
+    <li>not problematic for single-finger interactions, but use <code>identifier</code> property for each <code>Touch</code> to explicitly track a particular touch point / finger in multitouch</li>
+    </ul>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/android/chrome-particle-party-mouse-and-touch.png" alt="Particle party with touch working correctly with moving finger on Android device">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/particle/3">patrickhlauke.github.io/touch/particle/3</a></p>
