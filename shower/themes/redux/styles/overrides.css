@@ -66,6 +66,15 @@
 	font-weight: bold;
 }
 
+.slide dd ul li,
+.slide dd ol li {
+	text-indent: 0;
+}
+
+.slide p + ul {
+	margin-top: 2em;
+}
+
 .slide.listing {
 	text-align: left;
 }
