@@ -1257,6 +1257,7 @@ canvas.addEventListener('<mark>touchmove</mark>', positionHandler, false);
 <!-- -->
 
 <section class="slide listing"><div>
+    <h2><code>TouchList</code> differences</h2>
     <dl>
     <dt><code>touches</code></dt>
     <dd>all touch points on screen</dd>
@@ -1265,6 +1266,17 @@ canvas.addEventListener('<mark>touchmove</mark>', positionHandler, false);
     <dt><code>changedTouches</code></dt>
     <dd>touch points that caused the event to fire</dd>
     </dl>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+    <p><code>changedTouches</code> depending on event:</p>
+    <ul>
+    <li>for <code>touchstart</code>, all new touch points that became active</li>
+    <li>for <code>touchmove</code>, all touch points that changed/moved since last event</li>
+    <li>for <code>touchend</code> / <code>touchcancel</code>, touch points that were removed<br>(and are not active anymore at this point)</li>
+    </ul>
 </div></section>
 
 <!-- -->
