@@ -283,8 +283,10 @@ mousemove > mousedown > mouseup > click</code></pre>
 <section class="slide listing"><div>
     <ul>
     <li>too many <code>touchmove</code> events prevent mouse compatibility events after <code>touchend</code> (not considered a "clean" tap)</li>
-    <li>too many <code>touchmove</code> events on activatable elements can lead to touchcancel (in old Chrome/Browser versions)</li>
-    <li>not all browsers consistently send the <code>touchmove</code></li>
+    <li>too many <code>touchmove</code> events on activatable elements can lead to <code>touchcancel</code> (in old Chrome/Browser versions)</li>
+    <li>not all browsers consistently send <code>touchmove</code></li>
+    <li>differences in <code>focus</code> / <code>blur</code> and some mouse compatibility events (e.g. <code>mouseenter</code> / <code>mouseleave</code>)</li>
+    <li>some events may only fire when tapping away to another focusable element (e.g. <code>blur</code>)
     </ul>
     <p>some browsers outright weird...</p>
 </div></section>
