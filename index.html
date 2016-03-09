@@ -1438,23 +1438,48 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/github-limitjs.png" alt="">
+    <p><a target="_blank" href="https://github.com/m-gagne/limit.js">GitHub: m-gagne / limit.js</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide code"><div>
-<pre><code class="js">function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-        var context = this, args = arguments;
-        var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate &amp;&amp; !timeout;
-        clearTimeout(timeout); timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
+<pre><code class="js">Function.prototype.debounce = function (milliseconds, context) {
+  var baseFunction = this, timer = null, wait = milliseconds;
+  return function () {
+    var self = context || this, args = arguments;
+    function complete() {
+      baseFunction.apply(self, args);
+      timer = null;
+    }
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(complete, wait);
+  };
 };
-<mark>var myEfficientFn = debounce(function() { ... }, 250);</mark>
-window.addEventListener('touchmove', myEfficientFn);</code></pre>
-    <p><a target="_blank" href="http://davidwalsh.name/javascript-debounce-function">David Walsh: JavaScript Debounce Function</a></p>
+
+window.addEventListener('touchmove', <mark>myFunction.debounce(250)</mark>);</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">Function.prototype.throttle = function (milliseconds, context) {
+  var baseFunction = this, lastEventTimestamp = null,
+      limit = milliseconds;
+  return function () {
+    var self = context || this, args = arguments, now = Date.now();
+    if (!lastEventTimestamp || now - lastEventTimestamp >= limit) {
+      lastEventTimestamp = now;
+      baseFunction.apply(self, args);
+    }
+  };
+};
+
+window.addEventListener('touchmove', <mark>myFunction.throttle(250)</mark>);</code></pre>
 </div></section>
 
 <!-- -->
