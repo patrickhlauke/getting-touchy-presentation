@@ -1,6 +1,16 @@
+header h1 {
+	color: #2196F3;
+	text-transform: lowercase;
+}
+
+header p {
+	color: #ddd;
+	text-transform: uppercase;
+	font-size: 0.7em;
+}
 
 .list {
-	background: #242424;
+	background: #2c2c2c;
 }
 
 .list .slide:before {
@@ -26,7 +36,6 @@
 	text-align: center;
 	background: #fff;
 	color: #111;
-	/* background: radial-gradient(ellipse at center, #FFF 0%,#FFF 60%,#FFF 60%,#F7F7F7 100%); */
 }
 
 .list .slide {
@@ -91,13 +100,15 @@
 }
 
 .slide.impact div,
-.slide.statement div {
+.slide.statement div,
+.slide.singlepicture div {
 	padding-top: 0;
 	height: 100%;
 }
 
 .slide.impact>div div,
 .slide.statement>div div,
+.slide.singlepicture>div div,
 .slide.cover.impact>div div,
 .slide.cover.statement>div div {
 	height: auto;
@@ -135,12 +146,26 @@
 }
 
 .slide.code {
-	background: #242424;
+	background: #2c2c2c;
 	color: #fff;
 }
 
 .slide.code p strong {
 	color: #FDC301;
+}
+
+.slide.statement strong {
+    color: #3C96DB;
+}
+.slide.statement {
+	background-color: #2c2c2c;
+	color: #fff;
+}
+
+.slide.statement kbd,
+.slide.statement code,
+.slide.statement samp {
+	background: rgba(255,255,255,.15);
 }
 
 a, .slide a { text-decoration: none; border: none; }
@@ -150,7 +175,7 @@ del { opacity: 0.5;}
 
 section img {
 	max-height: 80%;
-	margin: 0 auto;
+	margin: 0 auto 0.25em auto;
 	display: block;
 	max-width: 90%;
 }
