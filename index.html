@@ -2674,7 +2674,7 @@ switch (e.type) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* Pointer Events - pressure*/
+<pre><code class="js">/* Pointer Events - pressure */
 
 interface PointerEvent : MouseEvent {
     readonly attribute long pointerId;
@@ -2687,7 +2687,7 @@ interface PointerEvent : MouseEvent {
     readonly attribute boolean isPrimary;
 }
 </code></pre>
-<p><code>pressure</code>: value in range [0,1]. if no hardware support,<br>0.5 in active button state, 0 otherwise</p>
+<p><code>pressure</code>: value in range <code>0</code> – <code>1</code>. if no hardware support,<br><code>0.5</code> in active button state, <code>0</code> otherwise</p>
 </div></section>
 
 <!-- -->
@@ -2713,6 +2713,33 @@ interface PointerEvent : MouseEvent {
 <!-- -->
 
 <section class="slide code"><div>
+<pre><code class="js">/* Pointer Events - contact geometry */
+
+interface PointerEvent : MouseEvent {
+    readonly attribute long pointerId;
+    readonly attribute long <mark>width</mark>;
+    readonly attribute long <mark>height</mark>;
+    readonly attribute float pressure;
+    readonly attribute long tiltX;
+    readonly attribute long tiltY;
+    readonly attribute DOMString pointerType;
+    readonly attribute boolean isPrimary;
+}
+</code></pre>
+    <p>if hardware can't detect contact geometry, either <code>0</code> or "best guess"<br>(e.g. for mouse/stylus, return <code>width</code> / <code>height</code> of <code>1</code>)</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/win10/pointer-events-width-height-surface3-touch-mouse-stylus.png" alt="In Microsoft Edge on Surface 3, touch pointers have accurate width/height based on contact geometry, while mouse and stylus have width/height of 1">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-width-height.html">patrickhlauke.github.io/touch/tracker/tracker-width-height.html</a></p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=3DxDdZdQzZo">YouTube: Pointer Events width and height ...</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
 <pre><code class="js">/* Pointer Events - tilt */
 
 interface PointerEvent : MouseEvent {
@@ -2726,7 +2753,7 @@ interface PointerEvent : MouseEvent {
     readonly attribute boolean isPrimary;
 }
 </code></pre>
-    <p><code>tiltX</code>/<code>tiltY</code>: value in degrees [-90, 90].<br>returns 0 if hardware does not support tilt</p>
+    <p><code>tiltX</code>/<code>tiltY</code>: value in degrees <code>-90</code> – <code>90</code>.<br>returns <code>0</code> if hardware does not support tilt</p>
 </div></section>
 
 <!-- -->
@@ -2741,7 +2768,7 @@ interface PointerEvent : MouseEvent {
 
 <section class="slide statement"><div>
 <div>
-    <p><code>pointermove</code> fires if <code>tiltX</code>, <code>tiltY</code> or <code>pressure</code> change<br><small>(even if x/y position doesn't...)</small></p>
+    <p><code>pointermove</code> fires if <strong>any property</strong> changes,<br> not just x/y position<br><small>(<code>width</code>, <code>height</code>, <code>tiltX</code>, <code>tiltY</code>, <code>pressure</code>)</small></p>
 </div>
 </div></section>
 
@@ -2844,7 +2871,7 @@ element.addEventListener('pointerdown', function(e) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* extension to touch objects */
+<pre><code class="js">/* Extension to touch objects */
 
 partial interface Touch {
   readonly  attribute float radiusX;
@@ -2863,9 +2890,60 @@ partial interface Touch {
 
 <!-- -->
 
+<section class="slide code"><div>
+<pre><code class="js">/* Touch Events – contact geometry */
+
+partial interface Touch {
+  readonly  attribute float <mark>radiusX</mark>;
+  readonly  attribute float <mark>radiusY</mark>;
+  readonly  attribute float <mark>rotationAngle</mark>;
+  readonly  attribute float force;
+};</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/android/nexus10-touch-events-radiusx-radiusy-rotationangle-firefox.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html">patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html</a></p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=fnSp8VFf-b8">YouTube: Touch Events: radiusX, radiusY and rotationAngle</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/sites/rbyers-net-paint-rotationangle-touchradius.png" alt="">
     <p><a href="http://rbyers.github.io/paint.html">Rick Byers - Paint (with rotationAngle and touchRadius)</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* Touch Events – force */
+
+partial interface Touch {
+  readonly  attribute float radiusX;
+  readonly  attribute float radiusY;
+  readonly  attribute float rotationAngle;
+  readonly  attribute float <mark>force</mark>;
+};</code></pre>
+ <p><code>force</code>: value in range <code>0</code> – <code>1</code>. if no hardware support <code>0</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/iphone6s-touch-events-force.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
+    <p>iPhone 6s with 3D Touch supports <code>force</code>...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/iphone5c-iphone6s-touch-events-force.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
+    <p>...while in non-3D Touch models (e.g. iPhone 5c) <code>force == 0</code></p>
 </div></section>
 
 <!-- -->
