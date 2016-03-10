@@ -1,3 +1,33 @@
+/* general */
+
+a, .slide a { text-decoration: none; border: none; }
+a:focus, a:hover, a:active { border-bottom: .1em solid; }
+
+del { opacity: 0.5;}
+
+section img {
+	max-height: 80%;
+	margin: 0 auto 0.25em auto;
+	display: block;
+	max-width: 90%;
+}
+section img.cover {
+	min-height: 100%;
+	min-width: 100%;
+}
+
+section dd {
+	margin-bottom: 1em;
+}
+
+p>a:only-child { font-size: 0.75em; }
+
+pre code.js,
+pre code.css,
+pre code.html { text-align:left; }
+
+/* shower slideshow overview */
+
 header h1 {
 	color: #2196F3;
 	text-transform: lowercase;
@@ -32,18 +62,20 @@ header p {
 	content: none;
 }
 
-.slide {
-	text-align: center;
-	background: #fff;
-	color: #111;
-}
-
 .list .slide {
 	text-align: center;
 }
 
+/* general slide styles */
+
 .slide:after {
 	content: none;
+}
+
+.slide {
+	text-align: center;
+	background: #fff;
+	color: #111;
 }
 
 .slide h2 {
@@ -84,10 +116,67 @@ header p {
 	margin-top: 2em;
 }
 
-.slide.listing {
+.slide p strong,
+.slide li strong {
+	color: #CC0000;
+}
+
+/* title slide */
+
+.slide.title h2 {
+	text-transform: lowercase;
+	font-weight: bold;
+	letter-spacing: -0.05em;
+	font-family: Roboto;
+	margin: 0;
+	padding: 0.1em 0 0.1em 0;
+	font-size: 3em;
+}
+
+.slide.title strong {
+	color: #CC0000;
+}
+
+.slide.title .titlestrap {
 	text-align: left;
-	background-color: #2c2c2c;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 0.5em;
+	margin: 0 -2em 0 -3em;
+	height: auto;
+	top: 50%;
+	-webkit-transform: translateY(-90%);
+	transform: translateY(-90%);
+	position: relative;
+	padding-top: 0;
+}
+
+.slide.title .titlestrap p {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-family: "Roboto";
+	letter-spacing: -0.05em;
+}
+
+.slide.title .info {
+	position: absolute;
+	bottom: 0;
+	background: #FFF;
+	padding: 1em 1em 1em 4em;
+	width: 100%;
+	left: 0;
+	text-align: left;
+	font-size: 0.75em;
+}
+
+/* specific content slide types */
+
+.slide.code {
+	background: #2c2c2c;
 	color: #fff;
+}
+
+.slide.code p strong {
+	color: #FDC301;
 }
 
 .slide.impact,
@@ -142,24 +231,12 @@ header p {
 	font-weight: bold;
 }
 
-.slide p strong,
-.slide li strong {
-	color: #CC0000;
-}
-
-.slide.code {
-	background: #2c2c2c;
-	color: #fff;
-}
-
-.slide.code p strong {
-	color: #FDC301;
-}
-
-.slide.statement strong {
+.slide.statement strong,
+.slide.listing strong {
     color: #3C96DB;
 }
-.slide.statement {
+.slide.statement,
+.slide.listing {
 	background-color: #2c2c2c;
 	color: #fff;
 }
@@ -173,75 +250,6 @@ header p {
 	background: rgba(255,255,255,.15);
 }
 
-a, .slide a { text-decoration: none; border: none; }
-a:focus, a:hover, a:active { border-bottom: .1em solid; }
-
-del { opacity: 0.5;}
-
-section img {
-	max-height: 80%;
-	margin: 0 auto 0.25em auto;
-	display: block;
-	max-width: 90%;
-}
-section img.cover {
-	min-height: 100%;
-	min-width: 100%;
-}
-
-section dd {
-	margin-bottom: 1em;
-}
-
-p>a:only-child { font-size: 0.75em;}
-
-pre code.js,
-pre code.css,
-pre code.html { text-align:left; }
-
-/* title slide */
-
-.slide.title h2 {
-	text-transform: lowercase;
-	font-weight: bold;
-	letter-spacing: -0.05em;
-	font-family: Roboto;
-	margin: 0;
-	padding: 0.1em 0 0.1em 0;
-	font-size: 3em;
-}
-
-.slide.title strong {
-	color: #CC0000;
-}
-
-.slide.title .titlestrap {
+.slide.listing {
 	text-align: left;
-	background: rgba(255, 255, 255, 0.8);
-	padding: 0.5em;
-	margin: 0 -2em 0 -3em;
-	height: auto;
-	top: 50%;
-	-webkit-transform: translateY(-90%);
-	transform: translateY(-90%);
-	position: relative;
-	padding-top: 0;
-}
-
-.slide.title .titlestrap p {
-	text-transform: uppercase;
-	font-weight: 700;
-	font-family: "Roboto";
-	letter-spacing: -0.05em;
-}
-
-.slide.title .info {
-	position: absolute;
-	bottom: 0;
-	background: #FFF;
-	padding: 1em 1em 1em 4em;
-	width: 100%;
-	left: 0;
-	text-align: left;
-	font-size: 0.75em;
 }
