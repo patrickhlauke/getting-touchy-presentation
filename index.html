@@ -3162,18 +3162,19 @@ click</code></pre>
 <!-- -->
 
 <section class="slide code"><div>
-    <h2>events fired on tap (Microsoft Edge)</h2>
-<pre><code class="json">pointerover > pointerenter > pointerdown >
+    <h2>events fired on tap (Microsoft Edge 13)</h2>
+<pre><code class="json">mousemove >
+pointerover > mouseover > pointerenter > mouseenter >
+pointerdown >
 <mark>touchstart</mark> >
+mousedown > focus
 <em>gotpointercapture</em>
-pointermove > <mark>touchmove</mark> > pointerup >
+pointermove > mousemove > pointerup >
 <mark>touchend</mark> >
-mouseover > mouseenter > mousemove > mousedown >
-focus >
-mouseup > click >
+mouseup > <mark>click</mark> >
 <em>lostpointercapture</em> >
-pointerout > pointerleave</code></pre>
-    <p>Microsoft Edge/Windows 10 Mobile closer to touch events<br>(note grouped mouse compatibility events)</p>
+pointerout > mouseout > pointerleave > mouseleave</code></pre>
+    <p>essentially, relevant Touch Events after <code>pointerdown</code> and <code>pointerup</code></p>
 </div></section>
 
 <!-- -->
@@ -3249,6 +3250,13 @@ if ('onpointerdown' in window) {
 <section class="slide"><div>
     <img src="pictures/sites/handjs-codeplex.png" alt="">
     <p><a target="_blank" href="http://handjs.codeplex.com">HandJS</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/safari-ios-event-listener-handjs.png" alt="Event listener with HandJS, running in iOS9/Safari">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/handjs/listener/event-listener.html">patrickhlauke.github.io/touch/handjs/listener/event-listener.html</a></p>
 </div></section>
 
 <!-- -->
@@ -3329,6 +3337,28 @@ if ('onpointerdown' in window) {
 <section class="slide"><div>
     <img src="pictures/ios8/safari-pep.png" alt="A pointer events demo running in iOS/Safari thanks to PEP">
     <p><a target="_blank" href="http://jsbin.com/xemixu/2/edit?html,js,output">Alex Schmitz' PEP demo</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/safari-ios-event-listener-pep.png" alt="Event listener with PEP, running in iOS9/Safari">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/pep/listener/event-listener.html">patrickhlauke.github.io/touch/pep/listener/event-listener.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <h2>events fired on tap with PEP</h2>
+<pre><code class="json">
+<mark>pointerover</mark> > <mark>pointerenter</mark> > <mark>pointerdown</mark> >
+touchstart >
+<mark>pointerup</mark> > <mark>pointerout</mark> > <mark>pointerleave</mark> >
+touchend >
+mouseover > mouseenter > mousemove >
+mousedown > mouseup >
+click</code></pre>
+    <p>essentially, relevant Pointer Events before <code>touchstart</code> and <code>touchend</code></p>
 </div></section>
 
 <!-- -->
