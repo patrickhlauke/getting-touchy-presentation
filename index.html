@@ -1087,7 +1087,7 @@ function someFunction(e) {
 
 <section class="slide statement"><div>
 <div>
-    <p>what about CSS / Media Queries?</p>
+    <p>what about <strong>CSS4 Media Queries</strong>?</p>
 </div>
 </div></section>
 
@@ -1107,11 +1107,7 @@ pointer: none | coarse | fine
 hover: none | on-demand | hover
 any-pointer: none | coarse | fine
 any-hover: none | coarse | fine
-
-/* Example (naive) use of hover */
-@media (hover:none), (hover:on-demand) {
-    /* suppress :hover-based menus */
-}</code></pre>
+</code></pre>
 </div></section>
 
 <!-- -->
@@ -1119,7 +1115,74 @@ any-hover: none | coarse | fine
 <section class="slide"><div>
     <img src="pictures/sites/dev-opera-media-features.png" alt="">
     <p><a target="_blank" href="https://dev.opera.com/articles/media-features/">dev.opera - Interaction Media Features and their potential (for incorrect assumptions)</a></p>
-    <p><small>because of the concept of "primary" pointer, not useful in multi-input scenarios</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/css4-interaction-media-features-phone-mouse.png" alt="CSS4 Interaction Media Features tests on a touchscreen phone, with and without a paired bluetooth mouse - primary input remains touchscreen (so pointer:coarse and hover:on-demand), but additional capabilities of mouse are detected (any-pointer:fine and hover:hover also evaluated to true)">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover/">patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover</a></p>
+    <p><small>primary input is unchanged (and Chrome/Android required a full restart)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <pre><code class="css">/* Naive uses of Interaction Media Features */
+
+@media (hover: hover) {
+    /* primary input has hover...so we can rely on it? */
+}
+
+@media (pointer: fine) {
+    /* primary input has fine pointer precision...
+       so make all buttons/controls small? */
+}
+
+/* hover and pointer only check "primary" input, but
+   what if there's a secondary input that lacks capabilities? */</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <pre><code class="css">/* Better uses of Interaction Media Features */
+
+@media (any-hover: none) {
+    /* at least one input lacks hover capability...
+       don't rely on it or avoid altogether */
+}
+
+@media (any-pointer: coarse) {
+    /* at least one input has coarse pointer precision...
+       provide larger buttons/controls for touch  */
+}
+
+/* test for presence of *any* "least capable"
+   input (primary or not) */
+</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p>detect which input the users is using <strong>right now</strong>...</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/github-what-input.png" alt="">
+    <p><a target="_blank" href="https://github.com/ten1seven/what-input">GitHub: ten1seven / what-input</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/what-input-demo.png" alt="">
+    <p><a target="_blank" href="http://ten1seven.github.io/what-input/">Demo: What Input?</a></p>
 </div></section>
 
 <!-- -->
