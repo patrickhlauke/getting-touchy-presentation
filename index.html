@@ -2990,7 +2990,7 @@ partial interface Touch {
   readonly  attribute float rotationAngle;
   readonly  attribute float <mark>force</mark>;
 };</code></pre>
- <p><code>force</code>: value in range <code>0</code> – <code>1</code>. if no hardware support <code>0</code></p>
+ <p><code>force</code>: value in range <code>0</code> – <code>1</code>. if no hardware support <code>0</code><br><small>(some devices, e.g. Nexus 10, "fake" <code>force</code> based on <code>radiusX</code> / <code>radiusY</code>)</small></p>
 </div></section>
 
 <!-- -->
