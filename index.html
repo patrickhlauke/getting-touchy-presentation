@@ -1918,6 +1918,151 @@ var angle = Math.atan2(...);</code></pre>
     <p><a target="_blank" href="http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html">Quirksmode: Mouse event bubbling in iOS</a></p>
 </div></section>
 
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>Touch Events extensions...</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-touch-events-extensions.png" alt="">
+    <p><a target="_blank" href="https://dvcs.w3.org/hg/webevents/raw-file/default/touchevents.html">W3C Touch Events Extensions WG Note</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* Extension to touch objects */
+
+partial interface Touch {
+  readonly  attribute float radiusX;
+  readonly  attribute float radiusY;
+  readonly  attribute float rotationAngle;
+  readonly  attribute float force;
+};</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/developers-google-rotationangle-touchradius.png" alt="">
+    <p><a target="_blank" href="https://developers.google.com/web/updates/2015/07/using-rotationAngle-and-touchRadius">Google Developers: Using rotationAngle and touchRadius</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* Touch Events – contact geometry */
+
+partial interface Touch {
+  readonly  attribute float <mark>radiusX</mark>;
+  readonly  attribute float <mark>radiusY</mark>;
+  readonly  attribute float <mark>rotationAngle</mark>;
+  readonly  attribute float force;
+};</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/android/nexus10-touch-events-radiusx-radiusy-rotationangle-firefox.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html">patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html</a></p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=fnSp8VFf-b8">YouTube: Touch Events: radiusX, radiusY and rotationAngle</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/rbyers-net-paint-rotationangle-touchradius.png" alt="">
+    <p><a href="http://rbyers.github.io/paint.html">Rick Byers - Paint (with rotationAngle and touchRadius)</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* Touch Events – force */
+
+partial interface Touch {
+  readonly  attribute float radiusX;
+  readonly  attribute float radiusY;
+  readonly  attribute float rotationAngle;
+  readonly  attribute float <mark>force</mark>;
+};</code></pre>
+ <p><code>force</code>: value in range <code>0</code> – <code>1</code>. if no hardware support <code>0</code><br><small>(some devices, e.g. Nexus 10, "fake" <code>force</code> based on <code>radiusX</code> / <code>radiusY</code>)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/iphone6s-touch-events-force.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
+    <p>iPhone 6s with 3D Touch supports <code>force</code>...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios9/iphone5c-iphone6s-touch-events-force.png" alt="">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
+    <p>...while in non-3D Touch models (e.g. iPhone 5c) <code>force == 0</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/developers-google-precision-touch-for-precise-gestures.png" alt="">
+    <p><a target="_blank" href="https://developers.google.com/web/updates/2014/09/Precision-Touch-for-Precise-Gestures">Google Developers: Precision Touch for Precise Gestures</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/webkit-bugzilla-fractional-touch-coordinates.png" alt="">
+    <p><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=133180">Bug 133180 - Consider exposing fractional Touch co-ordinates</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">interface Touch {
+    readonly attribute long identifier;
+    readonly attribute EventTarget target;
+    readonly attribute <mark><span class="strike">long</span> float</mark> screenX;
+    readonly attribute <mark><span class="strike">long</span> float</mark> screenY;
+    readonly attribute <mark><span class="strike">long</span> float</mark> clientX;
+    readonly attribute <mark><span class="strike">long</span> float</mark> clientY;
+    readonly attribute <mark><span class="strike">long</span> float</mark> pageX;
+    readonly attribute <mark><span class="strike">long</span> float</mark> pageY;
+};</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-touch-events-community-group.png" alt="">
+    <p><a target="_blank" href="http://www.w3.org/community/touchevents">W3C Touch Events Community Group</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-webvents-wg-touch-events-errata.png" alt="">
+    <p><a target="_blank" href="https://dvcs.w3.org/hg/webevents/">W3C Web Events WG - Touch Events errata</a></p>
+    <p>(early effort to clarify grey areas, simplify language used)</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-touch-events-level2-editors-draft.png" alt="">
+    <p><a target="_blank" href="http://w3c.github.io/touch-events/">W3C Touch Events - Level 2 (Editor's Draft)</a></p>
+    <p>(merges errata, touch events extensions, fractional touch coordinates)</p>
+</div></section>
+
 <!-- //////////////// POINTER EVENTS //////////////// -->
 
 <section class="slide impact"><div>
@@ -2955,155 +3100,25 @@ element.addEventListener('pointerdown', function(e) {
 
 <!-- -->
 
-<section class="slide statement"><div>
-<div>
-    <p>Google working instead to <strong>expand Touch Events</strong></p>
-</div>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
-    <img src="pictures/sites/w3c-touch-events-extensions.png" alt="">
-    <p><a target="_blank" href="https://dvcs.w3.org/hg/webevents/raw-file/default/touchevents.html">W3C Touch Events Extensions WG Note</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* Extension to touch objects */
-
-partial interface Touch {
-  readonly  attribute float radiusX;
-  readonly  attribute float radiusY;
-  readonly  attribute float rotationAngle;
-  readonly  attribute float force;
-};</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/developers-google-rotationangle-touchradius.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/updates/2015/07/using-rotationAngle-and-touchRadius">Google Developers: Using rotationAngle and touchRadius</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* Touch Events – contact geometry */
-
-partial interface Touch {
-  readonly  attribute float <mark>radiusX</mark>;
-  readonly  attribute float <mark>radiusY</mark>;
-  readonly  attribute float <mark>rotationAngle</mark>;
-  readonly  attribute float force;
-};</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/nexus10-touch-events-radiusx-radiusy-rotationangle-firefox.png" alt="">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html">patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html</a></p>
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=fnSp8VFf-b8">YouTube: Touch Events: radiusX, radiusY and rotationAngle</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/rbyers-net-paint-rotationangle-touchradius.png" alt="">
-    <p><a href="http://rbyers.github.io/paint.html">Rick Byers - Paint (with rotationAngle and touchRadius)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* Touch Events – force */
-
-partial interface Touch {
-  readonly  attribute float radiusX;
-  readonly  attribute float radiusY;
-  readonly  attribute float rotationAngle;
-  readonly  attribute float <mark>force</mark>;
-};</code></pre>
- <p><code>force</code>: value in range <code>0</code> – <code>1</code>. if no hardware support <code>0</code><br><small>(some devices, e.g. Nexus 10, "fake" <code>force</code> based on <code>radiusX</code> / <code>radiusY</code>)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios9/iphone6s-touch-events-force.png" alt="">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
-    <p>iPhone 6s with 3D Touch supports <code>force</code>...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios9/iphone5c-iphone6s-touch-events-force.png" alt="">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
-    <p>...while in non-3D Touch models (e.g. iPhone 5c) <code>force == 0</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/developers-google-precision-touch-for-precise-gestures.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/updates/2014/09/Precision-Touch-for-Precise-Gestures">Google Developers: Precision Touch for Precise Gestures</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/webkit-bugzilla-fractional-touch-coordinates.png" alt="">
-    <p><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=133180">Bug 133180 - Consider exposing fractional Touch co-ordinates</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">interface Touch {
-    readonly attribute long identifier;
-    readonly attribute EventTarget target;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageY;
-};</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-touch-events-community-group.png" alt="">
-    <p><a target="_blank" href="http://www.w3.org/community/touchevents">W3C Touch Events Community Group</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-webvents-wg-touch-events-errata.png" alt="">
-    <p><a target="_blank" href="https://dvcs.w3.org/hg/webevents/">W3C Web Events WG - Touch Events errata</a></p>
-    <p>(early effort to clarify grey areas, simplify language used)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-touch-events-level2-editors-draft.png" alt="">
-    <p><a target="_blank" href="http://w3c.github.io/touch-events/">W3C Touch Events - Level 2 (Editor's Draft)</a></p>
-    <p>(merges errata, touch events extensions, fractional touch coordinates)</p>
+    <img src="pictures/sites/bugs-chromium-extend-toucheventapi.png" alt="">
+    <p><a target="_blank" href="https://bugs.chromium.org/p/chromium/issues/detail?id=404128">Issue 404128: Extend TouchEvent API to have the power of PointerEvents...</a></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide statement"><div>
 <div>
-    <p>following developer outcry, Google reconsidered support for Pointer Events...</p>
+    <p>following developer outcry, Google <strong>reverted course</strong></p>
 </div>
+</div></section>
+
+<!-- -->
+
+<section class="slide singlepicture"><div>
+    <div>
+        <img src="pictures/sites/bugs-chromium-extend-toucheventapi-wontfix.png" alt="Rick Byers' comment closing issue 404128 in favor of Pointer Events again...">
+    </div>
 </div></section>
 
 <!-- -->
