@@ -2343,11 +2343,25 @@ click
 </div>
 </div></section>
 
+<!-- -->
+
 <section class="slide code"><div>
     <h2>CSS property</h2>
     <p>what action should the browser handle?</p>
     <pre><code class="css">touch-action: auto | <mark>none</mark> | [ pan-x || pan-y ] | <mark>manipulation</mark></code></pre>
     <p><a target="_blank" href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a></p><p>only determines default touch action, does not stop compatibility mouse events nor <code>click</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <h2>Pointer Events Level 2 (editor's draft)</h2>
+    <p>expanded set of values (useful for pull-to-refresh, carousels, etc)</p>
+    <pre><code class="css">touch-action: auto | none |
+              [ [ pan-x | <mark>pan-left</mark> | <mark>pan-right</mark> ] ||
+              [ pan-y | <mark>pan-up</mark> | <mark>pan-down</mark> ] ] |
+              manipulation</code></pre>
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#the-touch-action-css-property">w3c.github.io/pointerevents/#the-touch-action-css-property</a></p>
 </div></section>
 
 <!-- -->
