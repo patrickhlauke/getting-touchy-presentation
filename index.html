@@ -3622,8 +3622,58 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/rbyers-github-input-device-capabilities.png" alt="">
-    <p><a target="_blank" href="http://rbyers.github.io/InputDevice/">Input Device Capabilities (Unofficial Draft)</a></p>
+    <img src="pictures/sites/wicg-github-io-inputdevicecapabilities.png" alt="">
+    <p><a target="_blank" href="http://wicg.github.io/InputDeviceCapabilities/">Input Device Capabilities (Unofficial Draft)</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+<h2>Input Device Capabilities</h2>
+<ul>
+<li>currently limited usefulness - only has <code>firesTouchEvents</code> property</li>
+<li>limited use cases (see <a target="_blank" href="https://lists.w3.org/Archives/Public/public-touchevents/2015Jan/0002.html">Identifying touch events that will trigger a tap / click</a>, <a target="_blank" href="https://lists.w3.org/Archives/Public/public-touchevents/2014Sep/0000.html">Identifying mouse events derived from touch events</a> and <a target="_blank" href="https://developers.google.com/web/updates/2015/10/inputdevicecapabilities">Google Developer: Input Device Capabilities</a>)</li>
+<li>easier to switch to Pointer Events (and add PEP)?</li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
+myButton.addEventListener('touchend', removeHighlight, false);
+
+myButton.addEventListener('mousedown', addHighlight, false);
+myButton.addEventListener('mouseup', removeHighlight, false);
+
+<mark>myButton.addEventListener('click', someFunction, false);</mark>
+
+/* addHighlight/removeHighlight will fire twice for touch
+  (first for touch, then for mouse compatibility events);
+  can't use e.preventDefault(), as we want to rely on 'click' */
+</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
+myButton.addEventListener('touchend', removeHighlight, false);
+
+myButton.addEventListener('mousedown', <mark>function(e) {
+  if (!e.sourceCapabilities.firesTouchEvents) {
+    addHighlight(e);
+  } }</mark>, false);
+myButton.addEventListener('mouseup', <mark>function(e) {
+  if (!e.sourceCapabilities.firesTouchEvents) {
+    removeHighlight(e);
+  } }</mark>, false);
+
+myButton.addEventListener('click', someFunction, false);
+
+/* same function for touch and mouse, but if mouse check if source
+   input fires touch events (i.e. this is a mouse compat event) */
+</code></pre>
 </div></section>
 
 <!-- -->
