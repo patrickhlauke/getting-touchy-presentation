@@ -103,8 +103,7 @@ header p {
 }
 
 .slide small {
-	font-size: 0.85em;
-	font-weight: bold;
+	font-size: 0.75em;
 }
 
 .slide dd ul li,
@@ -228,7 +227,6 @@ header p {
 .slide.impact small,
 .slide.statement small {
 	font-size: 0.55em;
-	font-weight: bold;
 }
 
 .slide.statement strong,
