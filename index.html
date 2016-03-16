@@ -777,15 +777,14 @@ foo.addEventListener('<mark>click</mark>', someFunction, false);
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* prevent mouse events + click for all touches */
+<pre><code class="js">/* doubled-up event listeners */
 
-foo.addEventListener('<mark>touchstart</mark>', function(e) {
-    <mark>e.preventDefault();</mark>
+foo.addEventListener('touchend', function(e) {
+  /* prevent mouse events + click */
+  <mark>e.preventDefault();</mark>
+  /* then trigger the function */
+  someFunction(e);
 }, false);
-
-/* doubled-up event listeners */
-
-foo.addEventListener('touchend', someFunction, false);
 foo.addEventListener('click', someFunction, false);</code></pre>
 </div></section>
 
@@ -801,7 +800,7 @@ foo.addEventListener('click', someFunction, false);
 
 function someFunction(e) {
   ...
-  if (e.type == 'touchend') { e.preventDefault(); }
+  if (e.type == 'touchend') { <mark>e.preventDefault();</mark> }
   ...
 }
 
