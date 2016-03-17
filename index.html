@@ -1509,8 +1509,17 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <section class="slide impact"><div>
 <div>
-    <p>do absolute minimum on each <code>touchmove</code><br>
+    <p>do absolute <strong>minimum</strong> on each <code>touchmove</code><br>
     <small>(usually: store coordinates)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>do heavy lifting (drawing etc.) <strong>separately</strong>, avoid queueing<br>
+    <small>(e.g. using <code>setTimeout</code> and/or <code>requestAnimationFrame</code>)</small></p>
 </div>
 </div></section>
 
