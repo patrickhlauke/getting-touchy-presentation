@@ -531,8 +531,8 @@ var clickEvent =
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/ios7/naive-click-delay-optimisation.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay-naive-event-fix.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay-naive-event-fix.html</a>
+    <img src="pictures/ios9/safari-ios-naive-touch-or-mouse.png" alt="">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_naive-touch-or-mouse.html">patrickhlauke.github.io/touch/tests/event-listener_naive-touch-or-mouse.html</a></p>
 </div></section>
 
 <!-- -->
@@ -772,6 +772,7 @@ foo.addEventListener('<mark>click</mark>', someFunction, false);
 
 /* <mark>but this would fire our function twice for touch?</mark> */
 </code></pre>
+<p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling.html">patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling.html</a></p>
 </div></section>
 
 <!-- -->
@@ -786,6 +787,7 @@ foo.addEventListener('touchend', function(e) {
   someFunction(e);
 }, false);
 foo.addEventListener('click', someFunction, false);</code></pre>
+<p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html">patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html</a></p>
 </div></section>
 
 <!-- -->
