@@ -709,10 +709,20 @@ mousemove > mousedown > blur > mouseup > click</code></p>
     <h2>further scenarios?</h2>
     <ul>
     <li>desktop with external touchscreen</li>
-    <li>desktop with external touchpad</li>
     <li>touchscreen laptop with non-touch second screen</li>
     <li>touchscreen laptop with trackpad/mouse</li>
     <li>...and other permutations?</li>
+    </ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+    <h2>note on trackpad gestures</h2>
+    <ul>
+    <li>trackpads that allow multi-finger gestures (e.g. recent MacBooks, Magic Mouse/Trackpad, Windows precision trackpad, ASUS Smart Gesture, etc) don't fire touch events / expose touch points</li>
+    <li>these gestures are handled directly by the OS/driver and don't reach the browser as raw touches</li>
+    <li>OS X/Safari 9.1+ does fire <a target="_blank" href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">Apple's proprietary <code>gesture*</code> events</a> (for pinch-to-zoom, rotation)</li>
     </ul>
 </div></section>
 
@@ -1700,10 +1710,14 @@ gesturestart / gesturechange / gestureend
 function(e) {
     /* e.<strong>scale</strong>
        e.<strong>rotation</strong> */
+
+    /* values can be plugged directly into
+       CSS transforms etc */
 }
 
 /* <mark>not supported in Chrome/Firefox/Opera</mark> */
 </code></pre>
+<p><a target="_blank" href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">iOS Developer Library - Safari Web Content Guide - Handling gesture events</a></p>
 </div></section>
 
 <!-- -->
