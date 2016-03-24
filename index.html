@@ -720,8 +720,9 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 <section class="slide listing"><div>
     <h2>note on trackpad gestures</h2>
     <ul>
-    <li>trackpads that allow multi-finger gestures (e.g. recent MacBooks, Magic Mouse/Trackpad, Windows precision trackpad, ASUS Smart Gesture, etc) don't fire touch events / expose touch points</li>
+    <li>trackpads that allow multi-finger gestures (e.g. recent MacBooks, Magic Mouse/Trackpad, Windows precision trackpad, ASUS Smart Gesture, Wacom Intuos Pro gestures etc) <strong>don't fire touch events</strong> / expose touch points</li>
     <li>these gestures are handled directly by the OS/driver and don't reach the browser as raw touches</li>
+    <li>Wacom Intuos Pro touch input exposed as mouse to OS</li>
     <li>OS X/Safari 9.1+ does fire <a target="_blank" href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">Apple's proprietary <code>gesture*</code> events</a> (for pinch-to-zoom, rotation)</li>
     </ul>
 </div></section>
