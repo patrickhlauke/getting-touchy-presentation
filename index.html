@@ -28,7 +28,7 @@
         <h2>Getting <strong>touchy</strong></h2>
         <p>An introduction to <strong>touch and pointer</strong> events</p>
     </div>
-    <p class="info">Patrick H. Lauke / Last major changes: 23 March 2016</p>
+    <p class="info">Patrick H. Lauke / Last major changes: 28 March 2016</p>
     <img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
 </div></section>
 
@@ -3795,9 +3795,42 @@ myButton.addEventListener('click', someFunction, false);
 
 <!-- -->
 
+<section class="slide listing"><div>
+<h2>Leap Motion</h2>
+<ul>
+<li>requires custom code (JavaScript, Java, C++, ...) using proprietary API (e.g. <a target="_blank" href="https://developer.leapmotion.com/documentation/javascript/index.html">Leap Motion: JavaScript SDK Documentation</a>)</li>
+<li>does not fire touch nor mouse events (third party native apps in <a target="_blank" href="https://apps.leapmotion.com/">Leap Motion App Store</a> available to simulate native mouse)</li>
+<li>(personally find it quite inaccurate and horrible)</li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* rough proof of concept that fires programmatic
+   Pointer Events for each "pointable" (finger / tool) */
+
+e = new PointerEvent('pointermove', {
+    pointerId: ... , width: ... , height: ... ,
+    pressure: ... , tiltX: ... , tiltY: ... ,
+    pointerType: 'leap', isPrimary: false,
+    clientX: ... , clientY: ... ,
+    screenX: ... , screenY: ...
+});
+
+/* dispatch event to whatever element is at the coordinates
+   (no support for pointer capture at this stage) */
+
+document.elementFromPoint(x, y).dispatchEvent(e);
+</code></pre>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/backgrounds/leapmotion-tracker.jpg" alt="">
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=9ilOFivWoXU">YouTube: Leap Motion Controller tracker</a></p><p><a target="_blank" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=9ilOFivWoXU">YouTube: Leap Motion Controller tracker</a></p>
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
 </div></section>
 
 <!-- -->
