@@ -28,7 +28,7 @@
         <h2>Getting <strong>touchy</strong></h2>
         <p>An introduction to <strong>touch and pointer</strong> events</p>
     </div>
-    <p class="info">Patrick H. Lauke / Last major changes: 10 April 2016</p>
+    <p class="info">Patrick H. Lauke / Last major changes: 11 April 2016</p>
     <img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
 </div></section>
 
@@ -600,7 +600,7 @@ var clickEvent =
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-android-mouse.jpg" alt="">
-    <p>Android + mouse – behaves like touch</p>
+    <p>Android + mouse – <strong>like touch</strong> (mouse emulating touch)</p>
     <p><code class="json">touchstart > touchend > mouseover > mousemove >
 mousedown > (focus) > mouseup > click</code></p>
 </div></section>
@@ -609,7 +609,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-playbook-mouse.jpg" alt="">
-    <p>Blackberry PlayBook 2.0 + mouse - <strong>like desktop</strong></p>
+    <p>Blackberry PlayBook 2.0 + mouse – <strong>like desktop</strong></p>
     <p><code class="json">mouseover > mousedown > (mousemove)+ > mouseup > click</code></p>
 </div></section>
 
@@ -617,7 +617,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-blackberry-leap-mouse.jpg" alt="">
-    <p>Blackberry Leap (BBOS 10.1) + mouse - <strong>like desktop</strong></p>
+    <p>Blackberry Leap (BBOS 10.1) + mouse – <strong>like desktop</strong></p>
     <p><code class="json">mouseover > mousedown > (mousemove)+ > mouseup > click</code></p>
 </div></section>
 
@@ -625,16 +625,24 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-win10mobile-mouse.jpg" alt="">
-    <p>Windows 10 Mobile/Microsoft Edge + mouse - <strong>like desktop</strong></p>
-    <p><code class="json">mouseover > mousedown > (mousemove)+ > mouseup > click</code></p>
+    <p>Windows 10 Mobile/Microsoft Edge + mouse – <strong>like desktop</strong></p>
+    <p>mouse events (+ pointer events) + <code>click</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/backgrounds/photo-win10mobile-keyboard.jpg" alt="">
+    <p>Windows 10 Mobile/Microsoft Edge + keyboard – <strong>like desktop</strong></p>
+    <p><code class="json">focus > click</code></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-android-keyboard.jpg" alt="">
-    <p>Android + keyboard – <strong>like desktop keyboard</strong> (TAB / ENTER)</p>
-    <p><code class="json">focus / click</code></p>
+    <p>Android + keyboard – <strong>like desktop</strong></p>
+    <p><code class="json">focus > click</code></p>
 </div></section>
 
 <!-- -->
@@ -657,7 +665,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/backgrounds/photo-ios-ipad-keyboard.jpg" alt="">
-    <p>iOS + keyboard – similar to touch (TAB / ENTER)</p>
+    <p>iOS + keyboard – <strong>similar to touch</strong></p>
     <p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover >
 mousemove > mousedown > blur > mouseup > click</code></p>
 </div></section>
@@ -675,7 +683,7 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/ios7/voiceover-event-listener-all-no-timings-after.png" alt="">
-    <p>iOS + VoiceOver (with/without keyboard) – similar to touch</p>
+    <p>iOS + VoiceOver (with/without keyboard) – <strong>similar to touch</strong></p>
     <p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover > mousemove > mousedown > blur > mouseup > click</code></p>
 </div></section>
 
@@ -691,7 +699,7 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/android/android6.1-chrome-talkback-activate.png" alt="">
-    <p>Android 6.1/Chrome + TalkBack – simulates touch</p>
+    <p>Android 6.1/Chrome + TalkBack – <strong>like touch</strong></p>
     <p><code class="json">touchstart > touchend > mouseover > mouseenter > mousemove > mousedown > focus > mouseup > click</code></p>
 </div></section>
 
@@ -699,7 +707,7 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 
 <section class="slide"><div>
     <img src="pictures/android/android6.1-firefox-talkback-activate.png" alt="">
-    <p>Android 6.1/Firefox + TalkBack – similar to touch</p>
+    <p>Android 6.1/Firefox + TalkBack – <strong>similar to touch</strong></p>
     <p><code class="json">touchstart > mousedown > focus > <strong>touchend</strong> > mouseup > click</code></p>
 </div></section>
 
