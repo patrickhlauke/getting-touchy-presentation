@@ -2219,8 +2219,15 @@ partial interface Touch {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/html5labs-interoperabilitybridges.png" alt="">
-    <p><a target="_blank" href="http://html5labs.interoperabilitybridges.com/prototypes/pointer-events-for-webkit/pointer-events-for-webkit/info">html5labs.interoperabilitybridges.com/prototypes/...</a></p>
+    <img src="pictures/sites/bugzilla-implement-pointer-events.png" alt="">
+    <p><a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=822898">Bug 822898 - Implement pointer events</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/win10/firefox-about-config-pointer-events.png" alt="">
+    <p><code>about:config / dom.w3c_pointer_events.enabled</code></p>
 </div></section>
 
 <!-- -->
@@ -2234,24 +2241,18 @@ partial interface Touch {
 <!-- -->
 
 <section class="slide"><div>
+    <img src="pictures/sites/chrome-devrel-youtube-pointer-events.png" alt="">
+    <p><a target="_blank" href="https://www.youtube.com/watch?v=ngBy0H_q-GY">YouTube: Google Developers - HTTP 203: Pointer Events</a></p>
+    <p><small>for a while, Chrome wanted to abandon Pointer Events...</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
     <img src="pictures/chrome-flags-pointer-events.png" alt="">
     <p>Chrome 53 (stable) - enable pointer events</p>
     <p><a target="_blank" href="chrome://flags/#enable-pointer-events">chrome://flags/#enable-pointer-events</a></p>
     <p><a target="_blank" href="https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/UY1EfjaGF_E">blink-dev › Intent to Ship: Pointer Events</a> (Chrome 55 / December?)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/bugzilla-implement-pointer-events.png" alt="">
-    <p><a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=822898">Bug 822898 - Implement pointer events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/firefox-about-config-pointer-events.png" alt="">
-    <p><code>about:config / dom.w3c_pointer_events.enabled</code></p>
 </div></section>
 
 <!-- -->
@@ -2267,6 +2268,14 @@ partial interface Touch {
 <div>
     <p>...what about <strong>Apple</strong>?</p>
 </div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/html5labs-interoperabilitybridges.png" alt="">
+    <p>Microsoft submitted a proof of concept WebKit patch</p>
+    <p><a target="_blank" href="http://html5labs.interoperabilitybridges.com/prototypes/pointer-events-for-webkit/pointer-events-for-webkit/info">html5labs.interoperabilitybridges.com/prototypes/...</a></p>
 </div></section>
 
 <!-- -->
@@ -3201,80 +3210,6 @@ element.addEventListener('pointerdown', function(e) {
 <div>
     <p>pointer events as the <strong>future</strong>?</p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/chromium-issue162757-implement-pointer-events-WONTFIX.png" alt="">
-    <p><a target="_blank" href="https://bugs.chromium.org/p/chromium/issues/detail?id=162757"><span class="strike">Issue 162757: Implement pointer events in Chrome behind experimental flag</span> <strong>WontFix</strong></a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/chrome-devrel-youtube-pointer-events.png" alt="">
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=ngBy0H_q-GY">YouTube: Google Developers - HTTP 203: Pointer Events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <ol>
-    <li>performance issues (hit-testing)</li>
-    <li>unified event model not "mobile first"</li>
-    <li>difficult to implement "pull to refresh"</li>
-    <li>we already have touch events</li>
-    </ol>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <ol>
-    <li>performance issues (hit-testing)</li>
-    <li>unified event model not "mobile first"</li>
-    <li>difficult to implement "pull to refresh"</li>
-    <li>we already have touch events</li>
-    <li><strong>Apple won't implement them...</strong></li>
-    </ol>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/plus-google-jacob-rossi-http203-comment.png" alt="">
-    <p><a target="_blank" href="https://plus.google.com/+JacobRossiGT/posts/VLDTsgYzw9b">Jacob Rossi: comment on YouTube video 'HTTP 203: Pointer Events'</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/bugs-chromium-extend-toucheventapi.png" alt="">
-    <p><a target="_blank" href="https://bugs.chromium.org/p/chromium/issues/detail?id=404128">Issue 404128: Extend TouchEvent API to have the power of PointerEvents...</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>following developer outcry, Google <strong>reverted course</strong></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide singlepicture"><div>
-    <div>
-        <img src="pictures/sites/bugs-chromium-extend-toucheventapi-wontfix.png" alt="Rick Byers' comment closing issue 404128 in favor of Pointer Events again...">
-    </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/groups-google-blink-dev-intent-to-implement-pointer-events.png" alt="">
-    <p><a target="_blank" href="https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/ODWmcKNQl0I">blink-dev › Intent to Implement: Pointer Events</a></p>
 </div></section>
 
 <!-- -->
