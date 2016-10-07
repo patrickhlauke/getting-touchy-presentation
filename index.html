@@ -3406,6 +3406,21 @@ if ('onpointerdown' in window) {
 
 <!-- -->
 
+<section class="slide code"><div>
+    <h2>events fired on tap with PEP</h2>
+<pre><code class="json">
+<mark>pointerover</mark> > <mark>pointerenter</mark> > <mark>pointerdown</mark> >
+touchstart >
+<mark>pointerup</mark> > <mark>pointerout</mark> > <mark>pointerleave</mark> >
+touchend >
+mouseover > mouseenter > mousemove >
+mousedown > mouseup >
+click</code></pre>
+    <p>essentially, relevant Pointer Events before <code>touchstart</code> and <code>touchend</code></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/win10/3drotator-mouse-pointerevents.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/3d-jquery-rotator/index-pointerevents.html">3D Rotator modified to use Pointer Events</a></p>
@@ -3425,21 +3440,6 @@ if ('onpointerdown' in window) {
     <img src="pictures/sites/codepen-slider-exercise-pointer-events-only.png" alt="">
     <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/VapvZV">Basic pointer events-driven fake slider with setPointerCapture</a></p>
     <p><strong>Exercise/demo:</strong> make slider work in non-Pointer-Events browsers</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>events fired on tap with PEP</h2>
-<pre><code class="json">
-<mark>pointerover</mark> > <mark>pointerenter</mark> > <mark>pointerdown</mark> >
-touchstart >
-<mark>pointerup</mark> > <mark>pointerout</mark> > <mark>pointerleave</mark> >
-touchend >
-mouseover > mouseenter > mousemove >
-mousedown > mouseup >
-click</code></pre>
-    <p>essentially, relevant Pointer Events before <code>touchstart</code> and <code>touchend</code></p>
 </div></section>
 
 <!-- -->
