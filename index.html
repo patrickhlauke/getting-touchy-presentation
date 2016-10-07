@@ -3512,61 +3512,6 @@ click</code></pre>
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/sites/github-ie-touch.png" alt="">
-    <p><a target="_blank" href="https://github.com/WebReflection/ie-touch">GitHub - IE-Touch polyfill</a></p>
-    <p>opposite approach: polyfill touch events into IE (and Edge)</p>
-</div></section>
-
-<section class="slide listing"><div>
-<h2>ie-touch - useful or not?</h2>
-<ul>
-<li><strong>IE11/WinPhone8.1</strong> and <strong>Edge/Win10Mobile</strong> now include touch events</li>
-<li>only needed for <strong>IE11/Edge</strong> on <strong>desktop/laptop with touch (where touch events are not currently enabled by default)</strong></li>
-<li><strong>quick fix</strong> to enable existing/legacy touch events solutions(?)</li>
-<li>conceptually may make sense if you're supporting old/underpowered devices with touch events (rather than using pointer events and running PEP on these devices too)?</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win8/ie11-all-events-ie-touch.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/handjs/listener/event-listener.html">patrickhlauke.github.io/touch/ie-touch/listener/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>events fired on tap with ie-touch</h2>
-<pre><code class="json">mousemove >
-pointerover > mouseover >
-pointerenter > mouseenter >
-pointerdown > <mark>touchstart</mark> > mousedown >
-<em>gotpointercapture</em> >
-focus >
-pointermove > <mark>touchmove</mark> mousemove >
-pointerup > <mark>touchend</mark> > mouseup >
-<em>lostpointercapture</em> >
-pointerout > mouseout >
-pointerleave > mouseleave >
-<mark>[300ms delay]</mark>
-click</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>ie-touch peculiarities</h2>
-<ul>
-<li> event object has no <code>targetTouches</code> TouchList</li>
-<li><code>touches</code> acts as if it were <code>targetTouches</code>, so no touch points that didn't start on the element we're listening to are reported</li>
-<li><code>changedTouches</code> seems to always contain same touch points as the <code>touches</code> TouchList</li>
-</ul>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p><strong>utility</strong> libraries<br>
