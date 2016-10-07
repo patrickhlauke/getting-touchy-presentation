@@ -2405,14 +2405,15 @@ interface PointerEvent : <mark>MouseEvent</mark> {
     readonly attribute long width;
     readonly attribute long height;
     readonly attribute float pressure;
+    readonly attribute float tangentialPressure; /* Level 2 */
     readonly attribute long tiltX;
     readonly attribute long tiltY;
+    readonly attribute long twist; /* Level 2 */
     readonly attribute DOMString pointerType;
     readonly attribute boolean isPrimary;
 }
 
-/* plus all the classic MouseEvent attributes
-   like <mark>clientX</mark>, <mark>clientY</mark>, etc */
+/* plus all MouseEvent attributes: <mark>clientX</mark>, <mark>clientY</mark>, etc */
 
 </code></pre>
     <p><a target="_blank" href="http://www.w3.org/TR/pointerevents/#pointerevent-interface">www.w3.org/TR/pointerevents/#pointerevent-interface</a></p>
@@ -3035,8 +3036,10 @@ interface PointerEvent : MouseEvent {
     readonly attribute long width;
     readonly attribute long height;
     readonly attribute float <mark>pressure</mark>;
+    readonly attribute float tangentialPressure;
     readonly attribute long tiltX;
     readonly attribute long tiltY;
+    readonly attribute long twist;
     readonly attribute DOMString pointerType;
     readonly attribute boolean isPrimary;
 }
@@ -3074,8 +3077,10 @@ interface PointerEvent : MouseEvent {
     readonly attribute long <mark>width</mark>;
     readonly attribute long <mark>height</mark>;
     readonly attribute float pressure;
+    readonly attribute float tangentialPressure;
     readonly attribute long tiltX;
     readonly attribute long tiltY;
+    readonly attribute long twist;
     readonly attribute DOMString pointerType;
     readonly attribute boolean isPrimary;
 }
@@ -3109,8 +3114,10 @@ interface PointerEvent : MouseEvent {
     readonly attribute long width;
     readonly attribute long height;
     readonly attribute float pressure;
+    readonly attribute float tangentialPressure;
     readonly attribute long <mark>tiltX</mark>;
     readonly attribute long <mark>tiltY</mark>;
+    readonly attribute long twist;
     readonly attribute DOMString pointerType;
     readonly attribute boolean isPrimary;
 }
