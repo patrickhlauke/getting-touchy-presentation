@@ -486,26 +486,36 @@ if (<mark>'ontouchstart' in window</mark>) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* common performance “trick” */
+<pre><code class="js">/* common performance “trick”
+   conditional "touch OR mouse/keyboard" event binding */
 
-var clickEvent =
-    (<mark>'ontouchstart' in window ? 'touchend' : 'click'</mark>);
+<mark>if ('ontouchstart' in window)</mark> {
+  // set up event listeners for touch
+  foo.addEventListener('touchend', ...);
+  ...
+} <mark>else</mark> {
+  // set up event listeners for mouse/keyboard
+  foo.addEventListener('click', ...);
+  ...
+}
 
-blah.addEventListener(<mark>clickEvent</mark>, function() { ... }, false);</code></pre>
+/* <mark>if touch events are supported,
+   only listen to touchend, otherwise listen to click</mark> */
+</code></pre>
 </div></section>
 
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* common performance “trick” */
+<pre><code class="js">/* common performance “trick” (condensed) */
 
 var clickEvent =
     (<mark>'ontouchstart' in window</mark> ? <mark>'touchend'</mark> : 'click');
 
-...
+foo.addEventListener(<mark>clickEvent</mark>, ...);
 
 /* <mark>if touch events are supported,
-   only listen to touchend, not click</mark> */
+   only listen to touchend, otherwise listen to click</mark> */
 
 </code></pre>
 </div></section>
@@ -797,11 +807,32 @@ if ('ontouchstart' in window) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* doubled-up event listeners */
+<pre><code class="js">/* DON'T DO THIS:
+  conditional "touch OR mouse/keyboard" event binding */
 
-foo.addEventListener('<mark>touchend</mark>', someFunction, false);
-foo.addEventListener('<mark>click</mark>', someFunction, false);
+<mark>if ('ontouchstart' in window)</mark> {
+  // set up event listeners for touch
+  foo.addEventListener('touchend', ...);
+  ...
+} <mark>else</mark> {
+  // set up event listeners for mouse/keyboard
+  foo.addEventListener('click', ...);
+  ...
+}
+</code></pre>
+</div></section>
 
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* DO THIS:
+   doubled-up "touch AND mouse/keyboard" event binding */
+
+// set up event listeners for touch
+foo.addEventListener('touchend', ...);
+
+// set up event listeners for mouse/keyboard
+foo.addEventListener('click', ...);
 
 /* <mark>but this would fire our function twice for touch?</mark> */
 </code></pre>
@@ -811,35 +842,20 @@ foo.addEventListener('<mark>click</mark>', someFunction, false);
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* doubled-up event listeners */
+<pre><code class="js">/* DO THIS:
+   doubled-up "touch AND mouse/keyboard" event binding */
 
+// set up event listeners for touch
 foo.addEventListener('touchend', function(e) {
-  /* prevent mouse events + click */
+  <mark>// prevent compatibility mouse events and click</mark>
   <mark>e.preventDefault();</mark>
-  /* then trigger the function */
-  someFunction(e);
-}, false);
-foo.addEventListener('click', someFunction, false);</code></pre>
-<p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html">patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* doubled-up event listeners */
-
-foo.addEventListener('touchend', someFunction, false);
-foo.addEventListener('click', someFunction, false);
-
-/* prevent mouse events + click as part of the common handler */
-
-function someFunction(e) {
   ...
-  if (e.type == 'touchend') { <mark>e.preventDefault();</mark> }
-  ...
-}
+});
 
+// set up event listeners for mouse/keyboard
+foo.addEventListener('click', ...);
 </code></pre>
+<p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html">patrickhlauke.github.io/touch/tests/event-listener_naive-event-doubling-fixed.html</a></p>
 </div></section>
 
 <!-- -->
@@ -3354,7 +3370,7 @@ pointerout > mouseout > pointerleave > mouseleave</code></pre>
 <section class="slide code"><div>
 <pre><code class="js">/* cover all cases (hat-tip Stu Cox) */
 
-if ('onpointerdown' in window) {
+if (window.PointerEvent) {
 
     /* bind to Pointer Events: pointerdown, pointerup, etc */
 
