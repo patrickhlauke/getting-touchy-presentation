@@ -2056,6 +2056,17 @@ function(e) {
 
 <!-- -->
 
+<section class="slide listing"><div>
+    <h2>iOS quirks in a nutshell</h2>
+    <p>if your code does rely on handling mouse events:</p>
+    <ul>
+    <li>you <strong>don't</strong> need dummy <code>click</code> handlers to make arbitrary (non-interactive) elements react to mouse events (such as <code>mouseover</code>, <code>mousedown</code>, <code>mouseup</code> ...)</li>
+    <li>you <strong>do</strong> need to do extra work if you rely on event bubbling / event delegation of mouse events (<strong>including <code>click</code></strong>)</li>
+    </ul>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>Touch Events extensions...</p>
