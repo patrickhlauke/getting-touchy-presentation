@@ -1816,13 +1816,23 @@ function(e) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* with some trigonometry we can replicate
-   these from basic principles using coordinates
-   from two touch points */
+<pre><code class="js">/* Pinch/rotation detection from basic principles */
 
-var distance = Math.sqrt(Math.pow(...)+Math.pow(...));
+Δx = x2 - x1;
+Δy = y2 - y1;
 
-var angle = Math.atan2(...);</code></pre>
+
+/* pythagoras √( Δx² + Δy² ) to calculate distance */
+
+Δd = Math.sqrt( (Δx * Δx) + (Δy * Δy) );
+
+
+/* trigonometry to calculate angle */
+
+α = Math.atan2( Δy, Δx );
+
+</code></pre>
+<p><a target=_blank href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2">Mozilla Developer Network: <code>Math.atan2()</code></a></p>
 </div></section>
 
 <!-- -->
