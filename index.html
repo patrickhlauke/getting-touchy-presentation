@@ -1576,6 +1576,25 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
+<section class="slide code"><div>
+<pre><code class="js">/* Swipe detection from basic principles */
+
+Δt = end.time - start.time;
+Δx = end.x - start.x;
+Δy = end.y - start.y;
+
+if ((<mark>Δt > timeThreshold</mark>) || (<mark>(Δx + Δy) < distanceThreshold</mark>)) {
+  /* too slow or movement too small */
+} else {
+  /* it's a swipe!
+     - use Δx and Δy to determine direction
+     - pythagoras √( Δx² + Δy² ) for distance
+     - distance/Δt to determine speed */
+}</code></pre>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>don't forget <strong>mouse</strong>/<strong>keyboard</strong>!</p>
