@@ -1187,7 +1187,7 @@ hover: none | hover
 any-pointer: none | coarse | fine
 any-hover: none | hover
 </code></pre>
-<p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>on-demand</code> removed in recent drafts</a></small></p>
+<p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>hover: on-demand</code> / <code>any-hover: on-demand</code> removed in recent drafts</a></small></p>
 </div></section>
 
 <!-- -->
@@ -1210,16 +1210,16 @@ any-hover: none | hover
 <section class="slide code"><div>
     <pre><code class="css">/* Naive uses of Interaction Media Features */
 
-@media (hover: hover) {
-    /* primary input has hover...so we can rely on it? */
-}
-
 @media (pointer: fine) {
     /* primary input has fine pointer precision...
        so make all buttons/controls small? */
 }
 
-/* hover and pointer only check "primary" input, but
+@media (hover: hover) {
+    /* primary input has hover...so we can rely on it? */
+}
+
+/* pointer and hover only check "primary" input, but
    what if there's a secondary input that lacks capabilities? */</code></pre>
 </div></section>
 
@@ -1228,19 +1228,19 @@ any-hover: none | hover
 <section class="slide code"><div>
     <pre><code class="css">/* Better uses of Interaction Media Features */
 
-@media (any-hover: none) {
-    /* at least one input lacks hover capability...
-       don't rely on it or avoid altogether */
-}
-
 @media (any-pointer: coarse) {
     /* at least one input has coarse pointer precision...
        provide larger buttons/controls for touch  */
 }
 
-/* test for presence of *any* "least capable"
-   input (primary or not) */
+/* test for *any* "least capable" inputs (primary or not) */
+
+<del>@media (any-hover: none) {</del>
+    <del>/* at least one input lacks hover capability...</del>
+       <del>don't rely on it or avoid altogether */</del>
+<del>}</del>
 </code></pre>
+<p><small>Limitation: <a target=_blank href="https://github.com/w3c/csswg-drafts/issues/841">[mediaqueries-4] any-hover can't be used to detect mixed hover and non-hover capable pointers</a>. Also, <code>pointer</code>/<code>hover</code>/<code>any-pointer</code>/<code>any-hover</code> don't cover non-pointer inputs (e.g. keyboards) – <strong>always assume non-hover-capable inputs</strong></small></p>
 </div></section>
 
 <!-- -->
