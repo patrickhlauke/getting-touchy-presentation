@@ -1584,7 +1584,7 @@ window.addEventListener('touchmove', <mark>myFunction.throttle(250)</mark>);</co
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* iterate over touch array */
+<pre><code class="js">/* iterate over relevant TouchList */
 
 for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
     ...
@@ -2323,7 +2323,7 @@ navigator.msMaxTouchPoints
 
 <section class="slide code"><div>
 <pre><code class="js">/* Pointer Events <mark>extend</mark> Mouse Events
-   vs Touch Events and their completely new objects/arrays */
+   vs Touch Events and their new objects / TouchLists / Touches */
 
 interface PointerEvent : <mark>MouseEvent</mark> {
     readonly attribute long pointerId;
