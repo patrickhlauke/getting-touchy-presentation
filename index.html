@@ -345,128 +345,8 @@ mousedown > focus > mouseup > click</code></pre>
 
 <section class="slide impact"><div>
 <div>
-    <p>touch events<br><strong>vs</strong><br><strong>limitations</strong>/<strong>problems</strong></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement listing"><div>
-<div>
-    <ol>
-        <li>delayed event dispatch</li>
-        <li>hover/mouseover interfaces</li>
-        <li>mousemove doesn't track</li>
-    </ol>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement listing"><div>
-<div>
-    <ol>
-        <li><strong>delayed event dispatch</strong></li>
-        <li>hover/mouseover interfaces</li>
-        <li>mousemove doesn't track</li>
-    </ol>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/event-listener-show-delay-after.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>why the delay?<br><strong>double-tap to zoom</strong><br><small>(mostly anyway)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p><strong>when</strong> does the delay happen?</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/event-listener-all-before.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/event-listener-all-after.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>touch / mouse events delay</h2>
-    <pre><code class="json">touchstart > [touchmove]+ > touchend >
-
-<mark>[300ms delay]</mark>
-
-(mouseenter) > mouseover > mousemove > mousedown >
-(focus) > mouseup > click</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>“how can we make it feel <strong>responsive</strong> like a native app?”</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>react to events fired <strong>before</strong> the 300ms delay...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><code>touchstart</code> for an “immediate” control<br><small>(e.g. fire/jump button on a game)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><code>touchend</code> for a control that fires after finger lifted</p>
-    <p><small>(but this can result in events firing after zoom/scroll)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-    <div><p>don't make it touch-exclusive</p></div>
-    <img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>interlude: simple <strong>feature detection</strong> for touch events</p>
+    <p><code>&lt;interlude &gt;</code></p>
+    <p>simple <strong>feature detection</strong> for touch events</p>
 </div>
 </div></section>
 
@@ -493,38 +373,23 @@ if (<mark>'ontouchstart' in window</mark>) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* common performance “trick”
-   conditional "touch OR mouse/keyboard" event binding */
+<pre><code class="js">/* conditional "touch OR mouse/keyboard" event binding */
 
 <mark>if ('ontouchstart' in window)</mark> {
   // set up event listeners for touch
-  foo.addEventListener('touchend', ...);
   ...
 } <mark>else</mark> {
   // set up event listeners for mouse/keyboard
-  foo.addEventListener('click', ...);
   ...
 }
-
-/* <mark>if touch events are supported,
-   only listen to touchend, otherwise listen to click</mark> */
 </code></pre>
 </div></section>
 
 <!-- -->
 
-<section class="slide code"><div>
-<pre><code class="js">/* common performance “trick” (condensed) */
-
-var clickEvent =
-    (<mark>'ontouchstart' in window</mark> ? <mark>'touchend'</mark> : 'click');
-
-foo.addEventListener(<mark>clickEvent</mark>, ...);
-
-/* <mark>if touch events are supported,
-   only listen to touchend, otherwise listen to click</mark> */
-
-</code></pre>
+<section class="slide cover impact"><div>
+    <div><p>don't make it touch-exclusive</p></div>
+    <img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
 </div></section>
 
 <!-- -->
@@ -785,6 +650,13 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 <!-- -->
 
 <section class="slide"><div>
+    <img src="pictures/sites/github-modernizr-detecting-a-mouse-user.png" alt="">
+    <p><a target="_blank" href="https://github.com/Modernizr/Modernizr/issues/869">Modernizr: Detecting a mouse user</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
     <img src="pictures/sites/stucox-you-cant-detect-a-touchscreen.png" alt="">
     <p><a target="_blank" href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">Stu Cox: You can't detect a touchscreen</a></p>
 </div></section>
@@ -824,6 +696,248 @@ if ('ontouchstart' in window) {
 <div>
     <p>touch <strong>and</strong> mouse <strong>and</strong> keyboard</p>
 </div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p>what about<br><strong>CSS4 Media Queries</strong>?</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-media-queries-level4.png" alt="">
+    <p><a target="_blank" href="https://drafts.csswg.org/mediaqueries-4/">W3C Media Queries Level 4 (Editor's Draft)</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <pre><code class="css">/* MQ4 Interaction Media Features*/
+
+pointer: none | coarse | fine
+hover: none | hover
+
+any-pointer: none | coarse | fine
+any-hover: none | hover
+</code></pre>
+<p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>hover: on-demand</code> / <code>any-hover: on-demand</code> removed in recent drafts</a></small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/dev-opera-media-features.png" alt="">
+    <p><a target="_blank" href="https://dev.opera.com/articles/media-features/">dev.opera - Interaction Media Features and their potential (for incorrect assumptions)</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/css4-interaction-media-features-phone-mouse.png" alt="CSS4 Interaction Media Features tests on a touchscreen phone, with and without a paired bluetooth mouse - primary input remains touchscreen (so pointer:coarse and hover:on-demand), but additional capabilities of mouse are detected (any-pointer:fine and hover:hover also evaluated to true)">
+    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover/">patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover</a></p>
+    <p><small>primary input is unchanged (and Chrome/Android required a full restart)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <pre><code class="css">/* Naive uses of Interaction Media Features */
+
+@media (pointer: fine) {
+    /* primary input has fine pointer precision...
+       so make all buttons/controls small? */
+}
+
+@media (hover: hover) {
+    /* primary input has hover...so we can rely on it? */
+}
+
+/* pointer and hover only check "primary" input, but
+   what if there's a secondary input that lacks capabilities? */</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <pre><code class="css">/* Better uses of Interaction Media Features */
+
+@media (any-pointer: coarse) {
+    /* at least one input has coarse pointer precision...
+       provide larger buttons/controls for touch  */
+}
+
+/* test for *any* "least capable" inputs (primary or not) */
+
+<del>@media (any-hover: none) {</del>
+    <del>/* at least one input lacks hover capability...</del>
+       <del>don't rely on it or avoid altogether */</del>
+<del>}</del>
+</code></pre>
+<p><small>Limitation: <a target=_blank href="https://github.com/w3c/csswg-drafts/issues/841">[mediaqueries-4] any-hover can't be used to detect mixed hover and non-hover capable pointers</a>. Also, <code>pointer</code>/<code>hover</code>/<code>any-pointer</code>/<code>any-hover</code> don't cover non-pointer inputs (e.g. keyboards) – <strong>always assume non-hover-capable inputs</strong></small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p>detect which input the users is using <strong>right now</strong>...</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/github-what-input.png" alt="">
+    <p><a target="_blank" href="https://github.com/ten1seven/what-input">GitHub: ten1seven / what-input</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/what-input-demo.png" alt="">
+    <p><a target="_blank" href="http://ten1seven.github.io/what-input/">Demo: What Input?</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide singlepicture"><div>
+    <div>
+    <img src="pictures/win10/office-2013-mouse-touch-switch.png" alt="Office 2013 in Windows offers a 'Touch/Mouse mode' switch - shown by default on touch-capable devices, but can be accessed even on mouse-only devices; switching to touch mode increases spacing and touch target of all ribbon controls">
+    <p>if in doubt, offer a way to switch interfaces...<br>or just <strong>always use a touch-optimised interface</strong></p>
+    </div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><code>&lt;/ interlude &gt;</code></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>touch events<br><strong>vs</strong><br><strong>limitations</strong>/<strong>problems</strong></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement listing"><div>
+<div>
+    <ol>
+        <li>delayed event dispatch</li>
+        <li>hover/mouseover interfaces</li>
+        <li>mousemove doesn't track</li>
+    </ol>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement listing"><div>
+<div>
+    <ol>
+        <li><strong>delayed event dispatch</strong></li>
+        <li>hover/mouseover interfaces</li>
+        <li>mousemove doesn't track</li>
+    </ol>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios7/event-listener-show-delay-after.png" alt="">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>why the delay?<br><strong>double-tap to zoom</strong><br><small>(mostly anyway)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p><strong>when</strong> does the delay happen?</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios7/event-listener-all-before.png" alt="">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios7/event-listener-all-after.png" alt="">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <h2>touch / mouse events delay</h2>
+    <pre><code class="json">touchstart > [touchmove]+ > touchend >
+
+<mark>[300ms delay]</mark>
+
+(mouseenter) > mouseover > mousemove > mousedown >
+(focus) > mouseup > click</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>“how can we make it feel <strong>responsive</strong> like a native app?”</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide impact"><div>
+<div>
+    <p>react to events fired <strong>before</strong> the 300ms delay...</p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><code>touchstart</code> for an “immediate” control<br><small>(e.g. fire/jump button on a game)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><code>touchend</code> for a control that fires after finger lifted</p>
+    <p><small>(but this can result in events firing after zoom/scroll)</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide cover impact"><div>
+    <div><p>don't make it touch-exclusive</p></div>
+    <img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
 </div></section>
 
 <!-- -->
@@ -1135,126 +1249,6 @@ foo.addEventListener('click', ...);
     <img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
     <p><a target="_blank" href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
     <p><small>...but you can't rely on this, as most devices don't have it...</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-modernizr-detecting-a-mouse-user.png" alt="">
-    <p><a target="_blank" href="https://github.com/Modernizr/Modernizr/issues/869">Modernizr: Detecting a mouse user</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>what about<br><strong>CSS4 Media Queries</strong>?</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-media-queries-level4.png" alt="">
-    <p><a target="_blank" href="https://drafts.csswg.org/mediaqueries-4/">W3C Media Queries Level 4 (Editor's Draft)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <pre><code class="css">/* MQ4 Interaction Media Features*/
-
-pointer: none | coarse | fine
-hover: none | hover
-
-any-pointer: none | coarse | fine
-any-hover: none | hover
-</code></pre>
-<p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>hover: on-demand</code> / <code>any-hover: on-demand</code> removed in recent drafts</a></small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/dev-opera-media-features.png" alt="">
-    <p><a target="_blank" href="https://dev.opera.com/articles/media-features/">dev.opera - Interaction Media Features and their potential (for incorrect assumptions)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/css4-interaction-media-features-phone-mouse.png" alt="CSS4 Interaction Media Features tests on a touchscreen phone, with and without a paired bluetooth mouse - primary input remains touchscreen (so pointer:coarse and hover:on-demand), but additional capabilities of mouse are detected (any-pointer:fine and hover:hover also evaluated to true)">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover/">patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover</a></p>
-    <p><small>primary input is unchanged (and Chrome/Android required a full restart)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <pre><code class="css">/* Naive uses of Interaction Media Features */
-
-@media (pointer: fine) {
-    /* primary input has fine pointer precision...
-       so make all buttons/controls small? */
-}
-
-@media (hover: hover) {
-    /* primary input has hover...so we can rely on it? */
-}
-
-/* pointer and hover only check "primary" input, but
-   what if there's a secondary input that lacks capabilities? */</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <pre><code class="css">/* Better uses of Interaction Media Features */
-
-@media (any-pointer: coarse) {
-    /* at least one input has coarse pointer precision...
-       provide larger buttons/controls for touch  */
-}
-
-/* test for *any* "least capable" inputs (primary or not) */
-
-<del>@media (any-hover: none) {</del>
-    <del>/* at least one input lacks hover capability...</del>
-       <del>don't rely on it or avoid altogether */</del>
-<del>}</del>
-</code></pre>
-<p><small>Limitation: <a target=_blank href="https://github.com/w3c/csswg-drafts/issues/841">[mediaqueries-4] any-hover can't be used to detect mixed hover and non-hover capable pointers</a>. Also, <code>pointer</code>/<code>hover</code>/<code>any-pointer</code>/<code>any-hover</code> don't cover non-pointer inputs (e.g. keyboards) – <strong>always assume non-hover-capable inputs</strong></small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide singlepicture"><div>
-    <div>
-    <img src="pictures/win10/office-2013-mouse-touch-switch.png" alt="Office 2013 in Windows offers a 'Touch/Mouse mode' switch - shown by default on touch-capable devices, but can be accessed even on mouse-only devices; switching to touch mode increases spacing and touch target of all ribbon controls">
-    <p>if in doubt, offer a way to switch interfaces...<br>or just <strong>always use a touch-optimised interface</strong></p>
-    </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>detect which input the users is using <strong>right now</strong>...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-what-input.png" alt="">
-    <p><a target="_blank" href="https://github.com/ten1seven/what-input">GitHub: ten1seven / what-input</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/what-input-demo.png" alt="">
-    <p><a target="_blank" href="http://ten1seven.github.io/what-input/">Demo: What Input?</a></p>
 </div></section>
 
 <!-- -->
