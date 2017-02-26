@@ -1354,12 +1354,12 @@ mouseup > click</code></pre>
 
 <section class="slide code"><div>
 <pre><code class="js">var posX, posY;
-...
+
 function positionHandler(e) {
     posX = <mark>e.clientX</mark>;
     posY = <mark>e.clientY</mark>;
 }
-...
+
 canvas.addEventListener('<mark>mousemove</mark>', positionHandler, false);</code></pre>
 </div></section>
 
@@ -1367,12 +1367,12 @@ canvas.addEventListener('<mark>mousemove</mark>', positionHandler, false);</code
 
 <section class="slide code"><div>
 <pre><code class="js">var posX, posY;
-...
+
 function positionHandler(e) {
     posX = <mark>e.clientX</mark>;
     posY = <mark>e.clientY</mark>;
 }
-...
+
 canvas.addEventListener('<mark>mousemove</mark>', positionHandler, false);
 canvas.addEventListener('<mark>touchmove</mark>', positionHandler, false);
 
@@ -1489,7 +1489,7 @@ canvas.addEventListener('<mark>touchmove</mark>', positionHandler, false);
 
 <section class="slide code"><div>
 <pre><code class="js">var posX, posY;
-...
+
 function positionHandler(e) {
     <mark>if ((e.clientX)&amp;&amp;(e.clientY))</mark> {
         posX = e.clientX; posY = e.clientY;
@@ -1499,7 +1499,7 @@ function positionHandler(e) {
         <mark>e.preventDefault()</mark>;
     }
 }
-...
+
 canvas.addEventListener('mousemove', positionHandler, false );
 canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 </div></section>
@@ -2954,6 +2954,27 @@ foo.addEventListener('<mark>pointermove</mark>', ... , false);</code></pre>
     <p>no need for <strong>separate</strong> mouse <strong>or</strong> touch code to get x / y coords</p>
 </div>
 </div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* Reminder: Touch Events need separate code for x / y coords */
+
+function positionHandler(e) {
+    <mark>if ((e.clientX)&amp;&amp;(e.clientY))</mark> {
+        posX = e.clientX; posY = e.clientY;
+    } <mark>else if (e.targetTouches)</mark> {
+        posX = e.targetTouches[0].clientX;
+        posY = e.targetTouches[0].clientY;
+        ...
+    }
+}
+
+canvas.addEventListener('mousemove', positionHandler, false );
+canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
+</div></section>
+
+<!-- -->
 
 <section class="slide code"><div>
 <pre><code class="js">/* Pointer Events <mark>extend</mark> Mouse Events */
