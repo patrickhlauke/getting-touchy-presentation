@@ -2646,14 +2646,6 @@ touch-action: auto | none |
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/winphone8/ie11-8.1u1-min-max-scale-no-delay.png" alt="IE11/Windows Phone 8.1u1 support for minimum-scale/maximum-scale set to same and click delay suppression">
-    <p><code class="html">... content="minimum-scale=1, maximum-scale=1"</code></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html">patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/winphone8/settings-force-zoom.png" alt="Windows Phone 8's 'Allow zooming on all web content' setting to override unzoomable viewports">
 </div></section>
 
@@ -2668,14 +2660,6 @@ touch-action: auto | none |
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/winphone8/ie11-8.1u1-min-max-scale-force-zoom-delay.png" alt="IE11/Windows Phone 8.1u1 set to 'Allow zooming' - 300ms delay just before click event returns even when minimum-scale/maximum-scale set to same">
-    <p>"Allow zooming on all web content" reintroduces delay</p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html">patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10mobile/win10mobile-ease-of-access.png" alt="Windows 10 Mobile lacks 'Allow zooming on all web content' setting to override unzoomable viewports">
     <p>"Allow zooming..." option currently missing in Win 10 Mobile</p>
 </div></section>
@@ -2685,6 +2669,7 @@ touch-action: auto | none |
 <section class="slide"><div>
     <img src="pictures/sites/developer-microsoft-edge-changelog-mobile-zoom.png" alt="New web platform features announcement: On Windows 10 Mobile devices, the user can now zoom into the page regardless of zoom settings defined by meta viewport">
     <p><a target="_blank" href="https://developer.microsoft.com/en-us/microsoft-edge/platform/changelog/desktop/15007/">Windows 10 build 15007 on Mobile ignores unscalable viewports</a></p>
+    <p>no delay <strong>until user zooms</strong> for first time...</p>
 </div></section>
 
 <!-- -->
@@ -2701,6 +2686,13 @@ touch-action: auto | none |
     <img src="pictures/win10mobile/win10mob-edge-pointer-mouse-event-sequence-timings.png" alt="Microsoft Edge removes the 300ms delay for width=device-width">
     <p>Microsoft Edge removes delay for <code class="html">width=device-width</code></p>
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html">patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/patrickhlauke-github-touch-results-300ms-delay.png" alt="">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay">patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay</a></p>
 </div></section>
 
 <!-- -->
