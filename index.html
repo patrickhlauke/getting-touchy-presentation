@@ -167,6 +167,7 @@
 <section class="slide"><div>
     <img src="pictures/ios7/event-listener-show-delay-before.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
+    <p><small>less of a problem in modern browsers, but for <strong>iOS < 9.3 or older Androids</strong> still relevant</small></p>
 </div></section>
 
 <!-- -->
@@ -825,6 +826,7 @@ any-hover: none | hover
 <section class="slide"><div>
     <img src="pictures/ios7/event-listener-show-delay-after.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
+    <p><small>less of a problem in modern browsers, but for <strong>iOS < 9.3 or older Androids</strong> still relevant</small></p>
 </div></section>
 
 <!-- -->
@@ -1012,7 +1014,15 @@ foo.addEventListener('click', ...);
 
 <section class="slide impact"><div>
 <div>
-    <p>browsers working to remove <strong>double-tap to zoom</strong> delay<br><small>(when page not zoomable)</small></p>
+    <p>browsers working to remove <strong>double-tap to zoom</strong> delay</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><strong>non-scalable/zoomable</strong> viewport and<br> <strong>"double-tap to zoom"</strong></p>
 </div>
 </div></section>
 
@@ -1167,6 +1177,19 @@ foo.addEventListener('click', ...);
 <section class="slide"><div>
     <img src="pictures/sites/patrickhlauke-github-touch-results-300ms-delay.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay">patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+    <h2>suppressing 300ms delay</h2>
+    <p>if your code does rely on handling <code>click</code> / mouse events:</p>
+    <ul>
+    <li>"mobile optimised" <code>&lt;meta name="viewport" content="width=device-width"&gt;</code></li>
+    <li>add <code>touch-action:manipulation</code> in CSS (part of Pointer Events)</li>
+    <li>use helper library like <a target="_blank" href="https://github.com/ftlabs/fastclick">fastclick.js</a> for older browsers</li>
+    <li><del>make your viewport non-scalable...</del></li>
+    </ul>
 </div></section>
 
 <!-- -->
