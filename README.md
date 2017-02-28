@@ -8,3 +8,8 @@ simple single-tap interactions are as responsive as possible, all the way to exa
 gesture-enabled elements.
 
 http://patrickhlauke.github.io/getting-touchy-presentation/
+
+## Repository structure
+
+- `gh-pages` contains the "evergreen" version of this presentation – a fairly complete/up-to-date brain-dump of all things relating to touch/pointer events
+- individual workshops/conference talks which use a shortened or adapted version of these slides live in their own separate branches – these are usually left dangling/unmerged
