@@ -3111,9 +3111,13 @@ interface PointerEvent : MouseEvent {
 
 <section class="slide listing"><div>
     <ul>
-    <li><strong>touch events</strong> have <strong>implicit</strong> capture: once you start a touch movement on an element, events keep firing to the element even when moving outside the element's boundaries</li>
-    <li><strong>pointer events</strong> behave like mouse events: only fire events to an element while pointer (e.g. finger on touchscreen) inside element, but you can <strong>explicitly</strong> capture pointers</li>
+    <li><strong>touch events</strong> have <em>implicit capture</em>: once you start a touch movement on an element, events keep firing to the element even when moving outside the element's boundaries</li>
     </ul>
+    <ul>
+    <li><strong>for mouse / stylus:</strong> <strong>pointer events</strong> like mouse events: only fire events to an element while pointer inside it (but allow <em>explicit capture</em>)</li>
+    <li><strong>for touch:</strong> <strong>pointer events level 2</strong> use <em>implicit capture</em> (for compatibility with touch events)</li>
+    </ul>
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#implicit-pointer-capture">Pointer Events Level 2: Implicit Pointer Capture</a></p>
 </div></section>
 
 <!-- -->
@@ -3139,8 +3143,8 @@ element.addEventListener('pointerdown', function(e) {
 
 <section class="slide statement"><div>
 <div>
-    <p><code>setPointerCapture</code> also works for mouse input</p>
-    <p><small>can be used instead of traditional "bind <code>mousemove</code> to <code>document</code>/<code>body</code> on <code>mousedown</code>" approach</small></p>
+    <p><code>setPointerCapture</code><br> can simplify mouse input</p>
+    <p><small>e.g. draggable interfaces/sliders, use instead of<br>"bind <code>mousemove</code> to <code>document</code>/<code>body</code> on <code>mousedown</code>"</small></p>
 </div>
 </div></section>
 
