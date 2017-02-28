@@ -2297,6 +2297,44 @@ click >
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-github-pointerevents-compatibility-mapping-with-mouse-events-note.png" alt="Compatibility mapping note for devices that support both Pointer Events and Touch Events">
+    <p><small>Chrome, Edge (on mobile), <a target=")_blank" href="https://blogs.msdn.microsoft.com/ie/2014/07/31/the-mobile-web-should-just-work-for-everyone/">IE11 (Windows Phone 8.1update1)</a> support<br><strong>both</strong> Touch Events and Pointer Events</small></p>
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#mapping-for-devices-that-do-not-support-hover">w3c.github.io/pointerevents/#mapping-for-devices-that-do-not-support-hover</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/win10mobile/win10mobile-edge15-pointer-touch.png" alt="Windows 10 Mobile / Edge with both touch and pointer events enabled shows different event order...">
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/win10/ms-edge-about-flags-touch.png" alt="">
+    <p><small><code>about:flags</code> in Microsoft Edge to turn on touch events on desktop<br>(e.g. touch-enabled laptops) – off by default for site compatibility</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<h2>... when touch events also supported (Edge)</h2>
+<pre><code class="json">pointerover > pointerenter > pointerdown >
+<mark>touchstart</mark> >
+pointerup >
+<mark>touchend</mark> >
+<mark>mouseover</mark> > <mark>mouseenter</mark> > <mark>mousemove</mark> > <mark>mousedown</mark> >
+focus >
+<mark>mouseup</mark> >
+click >
+pointerout > pointerleave</code></pre>
+<p><small>Specific order of events is not defined in the spec in this case – will vary between browsers...<br>only problem if handling both pointer events and mouse events (which is nonsensical)</small></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide code"><div>
 <pre><code class="js">/* Pointer Events <mark>extend</mark> Mouse Events
    vs Touch Events and their new objects / TouchLists / Touches */
@@ -3084,128 +3122,7 @@ element.addEventListener('pointerdown', function(e) {
 
 <!-- -->
 
-<section class="slide impact"><div>
-<div>
-    <p><strong>touch events</strong> in <strong>IE/Edge</strong></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/ieblog-mobile-web-should-just-work.png" alt="">
-    <p><a target="_blank" href="http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx">MSDN IEBlog: The Mobile Web should just work for everyone</a></p><p><small>Windows Phone 8.1 Update now supports Pointer Events <strong>and</strong> Touch Events</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/ieblog-making-the-web-just-work-with-any-input.png" alt="">
-    <p><a target="_blank" href="http://blogs.msdn.com/b/ie/archive/2014/09/05/making-the-web-just-work-with-any-input.aspx">MSDN IEBlog: Making the web “just work” with any input: Mouse, Touch, and Pointer Events</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide statement"><div>
-<div>
-    <p>"frankensteining"<br><strong>pointer</strong> and <strong>touch</strong> events</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="json">touchstart > [touchmove]+ > touchend >
-<mark>[300ms delay]</mark> >
-mouseover > mousemove > mousedown > mouseup > click</code></pre>
-vs
-<pre><code class="json">pointerover > mouseover > pointerdown > mousedown >
-pointermove > mousemove > pointerup > mouseup >
-<mark>[300ms delay]</mark> > click >
-pointerout > mouseout > pointerleave > mouseleave</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/winphone8/ie11-8.1u1-pointer-and-touch.png" alt="IE11/Windows Phone 8.1 Update 1 fires Pointer Events *and* Touch Events">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>events fired on tap (IE11)</h2>
-<pre><code class="json">mousemove* > pointerover > mouseover >
-pointerenter > mouseenter > pointerdown >
-<mark>touchstart</mark> >
-mousedown > <em>gotpointercapture</em> > focus >
-pointermove > <mark>touchmove</mark> > mousemove >
-pointerup >
-<mark>touchend</mark> >
-mouseup > <em>lostpointercapture</em> > pointerout > mouseout >
-pointerleave > mouseleave >
-click</code></pre>
-    <p>IE11/Windows Phone 8.1u1<br>with "frankensteined" Pointer/Touch Events support<br><small>(but <strong>not</strong> on desktop)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10mobile/win10mobile-edge-pointer-touch.png" alt="Windows 10 Mobile / Edge fires Pointer Events *and* Touch Events">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>events fired on tap (Edge 13)</h2>
-<pre><code class="json">mousemove >
-pointerover > mouseover > pointerenter > mouseenter >
-pointerdown >
-<mark>touchstart</mark> >
-mousedown > focus
-<em>gotpointercapture</em>
-pointermove > mousemove > pointerup >
-<mark>touchend</mark> >
-mouseup > <mark>click</mark> >
-<em>lostpointercapture</em> >
-pointerout > mouseout > pointerleave > mouseleave</code></pre>
-    <p>essentially, relevant Touch Events after <code>pointerdown</code> and <code>pointerup</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10mobile/win10-edge-touch-scroll.png" alt="Microsoft Edge on Windows 10 Mobile does fire touch events on scroll/zoom like Chrome etc do now">
-    <p>correctly fires touch events on scroll/zoom<br><a target="_blank" href="https://patrickhlauke.github.io/touch/gesture-touch/">patrickhlauke.github.io/touch/gesture-touch/</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>touch events <strong>only turned on for mobile</strong></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/list-w3c-jacob-rossi-enabling-touch-events-everywhere.png" alt="Hightlighted email text: In testing the top 100 sites, we found 10 sites with broken mouse functionality when Touch Events is exposed">
-    <p><a target="_blank" href="http://lists.w3.org/Archives/Public/public-touchevents/2014Sep/0010.html">W3C Touch Events WG mailing list<br>Jacob Rossi - Enabling Touch Events everywhere</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/ms-edge-about-flags-touch.png" alt="">
-    <p><code>about:flags</code> in Microsoft Edge to turn on touch events on desktop (e.g. touch-enabled laptops)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
 <div>
     <p><strong>transitional</strong> event handling<br>
     <small>(until all browsers support pointer events)</small></p>
