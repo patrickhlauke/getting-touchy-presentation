@@ -1813,6 +1813,16 @@ function(e) {
 
 <!-- -->
 
+<section class="slide listing"><div>
+    <h2><code>touchmove</code> and scroll</h2>
+    <ul>
+    <li>useful for common interactions like pull to refresh – let browser (over)scroll and track movement</li>
+    <li>has scroll performance impact, as browser is blocked on event listener in case it cancels the scroll (see <a href="https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md">passive event listeners</a>)</li>
+    </ul>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/sites/developers-google-smoother-touch.png" alt="">
     <p><a target="_blank" href="https://developers.google.com/web/updates/2014/05/A-More-Compatible-Smoother-Touch">Google Developers: A More Compatible, Smoother Touch</a></p>
