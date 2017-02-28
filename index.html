@@ -2262,53 +2262,6 @@ partial interface Touch {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win8/ie11-all-events.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win8/ie11-all-events2.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>events fired on tap (IE10/IE11)</h2>
-<pre><code class="json">mousemove* >
-<mark>pointerover</mark> > mouseover >
-<mark>pointerenter</mark> > mouseenter >
-<mark>pointerdown</mark> > mousedown >
-<em>gotpointercapture</em> >
-focus >
-<mark>pointermove</mark> > mousemove >
-<mark>pointerup</mark> > mouseup >
-<em>lostpointercapture</em> >
-<mark>pointerout</mark> > mouseout >
-<mark>pointerleave</mark> > mouseleave >
-click</code></pre>
-    <p>mouse events fired “inline” with pointer events<br><small>(for a primary pointer, e.g. first finger on screen)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-    <h2>current IE10/11 quirk</h2>
-<pre><code class="json">...
-pointerup > mouseup >
-<em>lostpointercapture</em> >
-pointerout > mouseout >
-pointerleave > mouseleave >
-<mark>click</mark></code></pre>
-<p>the fact that <code>click</code> comes last is a current IE10/11 quirk – according to spec it should come after <code>pointerup > mouseup</code>, and does already when using <code>touch-action</code></p>
-    <p><a target="_blank" href="http://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/ms-edge-event-sequence-no-timing.png" alt="Microsoft Edge / Windows 10 pointer events / mouse events sequence">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
 </div></section>
@@ -2329,17 +2282,17 @@ focus
 click >
 <mark>pointerout</mark> > mouseout >
 <mark>pointerleave</mark> > mouseleave</code></pre>
-    <p>note <code>click</code> fired correctly after <code>pointerup</code> in Microsoft Edge</p>
+<p>mouse events fired “inline” with pointer events<br><small>(for a primary pointer, e.g. first finger on screen)</small></p>
 </div></section>
 
 <!-- -->
 
-<section class="slide code"><div>
-    <h2>vendor-prefixed in IE10</h2>
-<pre><code class="json">MSPointerDown etc
-navigator.msMaxTouchPoints
--ms-touch-action</code></pre>
-    <p>unprefixed in IE11 <small>(but prefixed versions still mapped for compatibility)</small></p>
+<section class="slide listing"><div>
+    <h2>IE10/IE11 quirks</h2>
+    <ul>
+    <li>vendor-prefixed in IE10 (<code>MSPointerDown</code> ..., <code>navigator.msMaxTouchPoints</code>, <code>-ms-touch-action</code>)</li>
+    <li>unprefixed in IE11 (but prefixed versions mapped for compatibility)</li>
+    <li>event order (when <code>click</code> is fired) incorrect in IE10/IE11<br>see <a target="_blank" href="http://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></li>
 </div></section>
 
 <!-- -->
