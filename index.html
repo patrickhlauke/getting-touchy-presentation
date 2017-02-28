@@ -2436,10 +2436,25 @@ if (<mark>navigator.maxTouchPoints > 1</mark>) {
 
 <!-- -->
 
-<section class="slide impact"><div>
+<section class="slide statement"><div>
 <div>
-    <p>are pointer events <strong>better</strong>?</p>
+    <p>do pointer events fire during <strong>scroll</strong>/<strong>zoom</strong>?</p>
 </div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-github-pointerevents-pointercancel-pan-zoom.png" alt="Non-normative note on situations when pointercancel is fired, including 'The user agent interprets the input as a pan or zoom gesture'">
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#the-pointercancel-event">w3c.github.io/pointerevents/#the-pointercancel-event</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/win10mobile/win10-edge-pointer-events-scroll.png" alt="">
+    <p>once a browser handles scrolling, it sends <code>pointercancel</code></p>
+    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/gesture-touch/pointerevents.html">patrickhlauke.github.io/touch/gesture-touch/pointerevents.html</a></p>
 </div></section>
 
 <!-- -->
