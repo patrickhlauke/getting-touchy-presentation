@@ -28,7 +28,7 @@
         <h2>Getting <strong>touchy</strong></h2>
         <p>An introduction to <strong>touch and pointer</strong> events</p>
     </div>
-    <p class="info">Patrick H. Lauke / Last major changes: 28 February 2017</p>
+    <p class="info">Patrick H. Lauke / Frontend NE / 2 March 2017</p>
     <img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
 </div></section>
 
@@ -242,13 +242,6 @@ touchcancel</code></p>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/ios7/event-listener-all-no-timings-before.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/ios7/event-listener-all-no-timings-after.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
     <p><small><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=128534"><span class="strike">Bug 128534 - 'mouseenter' mouse compat event not fired...</span></a></small></p>
@@ -391,14 +384,6 @@ if (<mark>'ontouchstart' in window</mark>) {
 
 <section class="slide singlepicture"><div>
 <div>
-    <img src="pictures/chrome-os/photo-chromebook-pixel.jpg" alt="Chromebook Pixel touchscreen laptop">
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide singlepicture"><div>
-<div>
     <img src="pictures/backgrounds/window-touch-desktop.jpg" alt="All-in-one windows desktop device with touchscreen">
 </div>
 </div></section>
@@ -453,15 +438,6 @@ if (<mark>'ontouchstart' in window</mark>) {
 <section class="slide singlepicture"><div>
 <div>
     <img src="pictures/android/photo-android-laptops.jpg" alt="Android tablet-based laptops">
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-<div>
-    <img src="pictures/backgrounds/windows-continuum.jpg" alt="Windows 10 Mobile phone using 'Continuum' - with a connected screen, mouse and keyboard">
-    <p><a target="_blank " href="https://www.microsoft.com/en-us/windows/Continuum">Windows 10 "Continuum"</a></p>
 </div>
 </div></section>
 
@@ -541,47 +517,6 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 
 <!-- -->
 
-<section class="slide statement"><div>
-<div>
-    <p>mobile Assistive Technologies<br>
-    <small>(e.g. screen readers on touchscreen devices)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/voiceover-event-listener-all-no-timings-after.png" alt="">
-    <p>iOS + VoiceOver (with/without keyboard) – <strong>similar to touch</strong></p>
-    <p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover > mousemove > mousedown > blur > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/android4.3-chrome-talkback-activate.png" alt="">
-    <p>Android 4.3/Chrome + TalkBack – <strong>keyboard/mouse hybrid</strong></p>
-    <p><code class="json">focus / blur > mousedown > mouseup > click > focus</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/android6.1-chrome-talkback-activate.png" alt="">
-    <p>Android 6.1/Chrome + TalkBack – <strong>like touch</strong></p>
-    <p><code class="json">touchstart > touchend > mouseover > mouseenter > mousemove > mousedown > focus > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/android6.1-firefox-talkback-activate.png" alt="">
-    <p>Android 6.1/Firefox + TalkBack – <strong>similar to touch</strong></p>
-    <p><code class="json">touchstart > mousedown > focus > <strong>touchend</strong> > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide listing"><div>
     <h2>further scenarios?</h2>
     <ul>
@@ -589,18 +524,6 @@ mousemove > mousedown > blur > mouseup > click</code></p>
     <li>touchscreen laptop with non-touch second screen</li>
     <li>touchscreen laptop with trackpad/mouse</li>
     <li>...and other permutations?</li>
-    </ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2>note on trackpad gestures</h2>
-    <ul>
-    <li>trackpads that allow multi-finger gestures (e.g. recent MacBooks, Magic Mouse/Trackpad, Windows precision trackpad, ASUS Smart Gesture, Wacom Intuos Pro gestures etc) <strong>don't fire touch events</strong> / expose touch points</li>
-    <li>these gestures are handled directly by the OS/driver and don't reach the browser as raw touches</li>
-    <li>Wacom Intuos Pro touch input exposed as mouse to OS</li>
-    <li>OS X/Safari 9.1+ does fire <a target="_blank" href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">Apple's proprietary <code>gesture*</code> events</a> (for pinch-to-zoom, rotation)</li>
     </ul>
 </div></section>
 
@@ -617,13 +540,6 @@ mousemove > mousedown > blur > mouseup > click</code></p>
 <section class="slide"><div>
     <img src="pictures/sites/github-modernizr-detects-touch-events-not-touch-screens.png" alt="">
     <p><a target="_blank" href="https://github.com/modernizr/modernizr/issues/548"><code>Modernizr.touch</code> detects touch events not touch devices</a>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-modernizr-detecting-a-mouse-user.png" alt="">
-    <p><a target="_blank" href="https://github.com/Modernizr/Modernizr/issues/869">Modernizr: Detecting a mouse user</a></p>
 </div></section>
 
 <!-- -->
@@ -848,13 +764,6 @@ any-hover: none | hover
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/ios7/event-listener-all-before.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/ios7/event-listener-all-after.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
 </div></section>
@@ -1037,30 +946,6 @@ foo.addEventListener('click', ...);
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/android/firefox-event-listener-all-user-scalable-no-after.png" alt="Firefox/Android support for user-scalable=no and click delay suppression.">
-    <p><code class="html">&lt;meta name="viewport" content="user-scalable=no"></code></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html">patrickhlauke.github.io/touch/tests/event-listener_user-scalable-no.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-event-listener-all-minimum-scale-maximum-scale.png" alt="">
-    <p><code class="html">... content="minimum-scale=1, maximum-scale=1"</code></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html">patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/firefox-event-listener-all-minimum-maximum-scale-after.png" alt="Firefox/Android support for minimum-scale=1/maximum-scale=1 and click delay suppression.">
-    <p><code class="html">... content="minimum-scale=1, maximum-scale=1"</code></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html">patrickhlauke.github.io/touch/tests/event-listener_minimum-maximum-scale.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/sites/trac-webkit-remove300ms-viewport-unscalable.png" alt="">
     <p><a target="_blank" href="https://trac.webkit.org/changeset/191072">Changeset 191072 - Web pages with unscalable viewports shouldn't have a single tap delay</a></p>
     <p><small>(from iOS 9.3 onwards)</small></p>
@@ -1147,22 +1032,6 @@ foo.addEventListener('click', ...);
     <img src="pictures/sites/bugzilla-remove-300ms-for-width-device-width.png" alt="">
     <p><a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=941995">Bug 941995 - Remove 300ms [...] on "responsive" pages</a></p>
     <p><strong>[RESOLVED FIXED]</strong></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/webkit-bugzilla-fast-click-viewport-width.png" alt="">
-    <p><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=150604">Bug 150604 - Implement viewport-width-based fast-click heuristic</a></p>    
-    <p><small>(from iOS 9.3 onwards)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/webkit-bugzilla-fast-click-when-initial-scale.png" alt="">
-    <p><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=151077">Bug 151077 - Fast-clicking should trigger when scale is equal to explicitly set initial scale</a></p>
-    <p><small>(from iOS 9.3 onwards)</small></p>
 </div></section>
 
 <!-- -->
@@ -1356,17 +1225,6 @@ canvas.addEventListener('<mark>touchmove</mark>', positionHandler, false);
 
 <!-- -->
 
-<section class="slide listing"><div>
-    <p><code>changedTouches</code> depending on event:</p>
-    <ul>
-    <li>for <code>touchstart</code>, all new touch points that became active</li>
-    <li>for <code>touchmove</code>, all touch points that changed/moved since last event</li>
-    <li>for <code>touchend</code> / <code>touchcancel</code>, touch points that were removed<br>(and are not active anymore at this point)</li>
-    </ul>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
     <img src="pictures/ios7/touchlist-objects.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/touchlist-objects">patrickhlauke.github.io/touch/touchlist-objects</a></p>
@@ -1393,27 +1251,9 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
-<section class="slide listing"><div>
-    <h2><code>TouchList</code> collections order</h2>
-    <ul>
-    <li>order of individual <code>Touch</code> objects in a <code>TouchList</code> can change</li>
-    <li>e.g. <code>targetTouches[0]</code> not guaranteed to always be the same finger when dealing with multitouch</li>
-    <li>not problematic for single-finger interactions, but use <code>identifier</code> property for each <code>Touch</code> to explicitly track a particular touch point / finger in multitouch</li>
-    </ul>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
     <img src="pictures/android/chrome-particle-party-mouse-and-touch.png" alt="Particle party with touch working correctly with moving finger on Android device">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/particle/3">patrickhlauke.github.io/touch/particle/3</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-particle-field-mouse-and-touch.png" alt="Particle field working on Android device">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/particle/4a">patrickhlauke.github.io/touch/particle/4a</a></p>
 </div></section>
 
 <!-- -->
@@ -1433,25 +1273,10 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-mouse-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">Basic mouse-driven fake slider</a></p>
-    <p><strong>Exercise/demo:</strong> expand mouse-driven code to also work with touch</p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>tracking finger movement over time ... <strong>swipe gestures</strong></p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/swipe-before.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/swipe">patrickhlauke.github.io/touch/swipe</a></p>
 </div></section>
 
 <!-- -->
@@ -1486,13 +1311,6 @@ if ((<mark>Δt > timeThreshold</mark>) || (<mark>(Δx + Δy) < distanceThreshold
 <div>
     <p>don't forget <strong>mouse</strong>/<strong>keyboard</strong>!</p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/bradfrostweb-demo-mobile-first.png" alt="Brad Frost's responsive demo site, featuring a combination of swipe-able image carousel in addition to image thumbnails, allowing BOTH swipe and click/keyboard interaction">
-    <p><a target="_blank" href="http://bradfrostweb.com/demo/mobile-first">bradfrostweb.com/demo/mobile-first</a></p>
 </div></section>
 
 <!-- -->
@@ -1533,45 +1351,6 @@ if ((<mark>Δt > timeThreshold</mark>) || (<mark>(Δx + Δy) < distanceThreshold
 <section class="slide"><div>
     <img src="pictures/sites/github-limitjs.png" alt="">
     <p><a target="_blank" href="https://github.com/m-gagne/limit.js">GitHub: m-gagne / limit.js</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">Function.prototype.debounce = function (milliseconds, context) {
-  var baseFunction = this, timer = null, wait = milliseconds;
-  return function () {
-    var self = context || this, args = arguments;
-    function complete() {
-      baseFunction.apply(self, args);
-      timer = null;
-    }
-    if (timer) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(complete, wait);
-  };
-};
-
-window.addEventListener('touchmove', <mark>myFunction.debounce(250)</mark>);</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">Function.prototype.throttle = function (milliseconds, context) {
-  var baseFunction = this, lastEventTimestamp = null,
-      limit = milliseconds;
-  return function () {
-    var self = context || this, args = arguments, now = Date.now();
-    if (!lastEventTimestamp || now - lastEventTimestamp >= limit) {
-      lastEventTimestamp = now;
-      baseFunction.apply(self, args);
-    }
-  };
-};
-
-window.addEventListener('touchmove', <mark>myFunction.throttle(250)</mark>);</code></pre>
 </div></section>
 
 <!-- -->
@@ -1644,21 +1423,6 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/ios8/safari-edge-swipe-gestures.png" alt="Multitouch tracker in iOS/Safari - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=TwJYBZvp4Bs">YouTube: iOS/Safari (iPhone) can't prevent edge swipe gestures</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/chrome-ios-swipe-history.png" alt="Multitouch tracker in iOS/Chrome - starting a finger movement on the edge of the screen starts a back/forward gesture that can't be overridden">
-    <p>Chrome/iOS (WebView) custom swipe, also can't be prevented</p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker.html</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>multitouch gestures</p>
@@ -1688,20 +1452,6 @@ foo.addEventListener('gesturechange', function(e) {
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/ios7/ios-gestures-after.png" alt="iOS7/Safari two-finger getures demo - showing raw scale/rotation numbers">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/iosgestures">patrickhlauke.github.io/touch/iosgestures</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/ios-gestures-applied.png" alt="iOS7/Safari two-finger getures demo - showing scale/rotation applied to an image">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/iosgestures/image.html">patrickhlauke.github.io/touch/iosgestures/image.html</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide code"><div>
 <pre><code class="js">/* Pinch/rotation detection from basic principles */
 
@@ -1725,50 +1475,8 @@ foo.addEventListener('gesturechange', function(e) {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/android/chrome-gestures.png" alt="Android/Chrome demo of two-finger scale/rotation calculated from basic principles">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/pinch-zoom-rotate">patrickhlauke.github.io/touch/pinch-zoom-rotate</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/ios7/ipad-picture-organiser.png" alt="Picture Organiser demo on iOS7/iPad, with four images freely moved/scaled/rotated">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/picture-organiser">patrickhlauke.github.io/touch/picture-organiser</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>not all old/cheap devices/OSs <strong>support</strong> multitouch!</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-<div>
-    <p>HTC Hero – Android 2.1</p>
-</div>
-    <img src="pictures/htc-hero-android-2.1/photo-htc-hero-multitouch-single-point.jpg" alt="HTC Hero - Android 2.1/Browser two fingers on the screen, but only the first registers as a touch point" class="cover">
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-<div>
-    <p>LG Optimus 2X – Android 2.3.7</p>
-</div>
-    <img src="pictures/lg-optimus2x-android-2.3.7/photo-multitouch-two-fingers-single-point.jpg" alt="LG Optimus 2X - Android 2.3.7/Browser two fingers on the screen are averaged as a single touch point only" class="cover">
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-<div>
-    <p>ZTE Open – Firefox OS 1.1</p>
-</div>
-    <img src="pictures/firefox-os/photo-zte-multitouch-2-fingers-only.jpg" alt="ZTE Open Firefox OS 1.1 only supports 2 fingers" class="cover">
 </div></section>
 
 <!-- -->
@@ -1790,176 +1498,9 @@ foo.addEventListener('gesturechange', function(e) {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/youtube-touch-events-and-scrolling-zooming-playlist.png" alt="">
-    <p>different models and behaviours, particularly in old browsers</p>
-    <p><a target="_blank" href="https://www.youtube.com/playlist?list=PLbPjl9UGMTycW_pCqnxCTHCy2MLl6HwDO">YouTube: Touch Events and scrolling/zooming (playlist)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/chrome-devrel-youtube-touchevents-on-gesture.png" alt="">
-    <p>e.g. older versions of Chrome fire <code>touchcancel</code> on scroll/zoom</p>
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=h2djIdAFc5U#t=518">YouTube: Google Developers - Mobile Web Thursdays: Performance on Mobile</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/ios8/safari-touch-events-scrolling-zooming.png" alt="">
     <p>not defined in spec (yet), but <em>de facto</em><br><strong>yes</strong> in <strong>most modern browsers</strong></p>
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/gesture-touch/">patrickhlauke.github.io/touch/gesture-touch</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2><code>touchmove</code> and scroll</h2>
-    <ul>
-    <li>useful for common interactions like pull to refresh – let browser (over)scroll and track movement</li>
-    <li>has scroll performance impact, as browser is blocked on event listener in case it cancels the scroll (see <a href="https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md">passive event listeners</a>)</li>
-    </ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/developers-google-smoother-touch.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/updates/2014/05/A-More-Compatible-Smoother-Touch">Google Developers: A More Compatible, Smoother Touch</a></p>
-    <p><small>(lots more complexity / edge cases, particularly for old browsers/devices)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>non-standard <strong>iOS quirks</strong>...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>making generic elements clickable...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/developer-apple-safari-web-content-guide-handling-events-making-elements-clickable.png" alt="">
-    <p><small>Historically (until end of 2016?), Apple suggested adding dummy <code>onclick=""</code> handlers<br>
-    <a target="_blank" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW1">iOS Developer Library - Safari Web Content Guide - Handling Events</a></small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios6/ios-clickable-after.png" alt="">
-    <p><small>dummy <code>onclick=""</code> handlers are unnecessary (at least since iOS6)<br>Apple quietly dropped this from their documentation...</small></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/ios-clickable/">patrickhlauke.github.io/touch/ios-clickable/</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>mouse + <code>click</code> event bubbling on touch<br><small>(important when using event delegation)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/quirksmode-mouse-event-bubbling-ios.png" alt="">
-    <p><a target="_blank" href="http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html">Quirksmode: Mouse event bubbling in iOS</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-button.png" alt="if target is a button, the touch, mouse and click events all bubble like normal">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/button.html">patrickhlauke.github.io/touch/bubbling/button.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-link.png" alt="if target is a link, the touch, mouse and click events all bubble like normal">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/link.html">patrickhlauke.github.io/touch/bubbling/link.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div.png" alt="if target is a div, only the touch events bubble">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div.html">patrickhlauke.github.io/touch/bubbling/div.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-onclick-target.png" alt="adding an empty onclick attribute on the target div makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-onclick-target.html">patrickhlauke.github.io/touch/bubbling/div-onclick-target.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-onclick-ancestor.png" alt="adding an empty onclick attribute on any of the target's ancestors (between the target and the actual event listener) makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-onclick-ancestor.html">patrickhlauke.github.io/touch/bubbling/div-onclick-ancestor.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-addeventlistener-target.png" alt="adding an empty click event listner on the target div makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-addeventlistener-target.html">patrickhlauke.github.io/touch/bubbling/div-addeventlistener-target.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-addeventlistener-ancestor.png" alt="adding an empty click event listner on any of the target's ancestors (between the target and the actual event listener) makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-addeventlistener-ancestor.html">patrickhlauke.github.io/touch/bubbling/div-addeventlistener-ancestor.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-cursorpointer-target.png" alt="adding cursor:pointer CSS on the target div makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-cursorpointer-target.html">patrickhlauke.github.io/touch/bubbling/div-cursorpointer-target.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/event-bubbling-div-cursorpointer-ancestor.png" alt="adding cursor:pointer CSS on any of the target's ancestors (between the target and the actual event listener) makes touch, mouse and click events bubble as normal again">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/bubbling/div-cursorpointer-ancestor.html">patrickhlauke.github.io/touch/bubbling/div-cursorpointer-ancestor.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2>mouse + <code>click</code> bubbling in iOS</h2>
-    <ul>
-    <li>target element is a link or form control</li>
-    <li>target or any ancestor (up to but not including <code>body</code>) has explicit mouse or <code>click</code> handler (even if only empty function)</li>
-    <li>target or any ancestor (up to and including <code>document</code>) has <code>cursor:pointer</code></li>
-    </ul>
-    <p><a target="_blank" href="http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html">Quirksmode: Mouse event bubbling in iOS</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2>iOS quirks in a nutshell</h2>
-    <p>if your code does rely on handling mouse events:</p>
-    <ul>
-    <li>you <strong>don't</strong> need dummy <code>click</code> handlers to make arbitrary (non-interactive) elements react to mouse events (such as <code>mouseover</code>, <code>mousedown</code>, <code>mouseup</code> ...)</li>
-    <li>you <strong>do</strong> need to do extra work if you rely on event bubbling / event delegation of mouse events (<strong>including <code>click</code></strong>)</li>
-    </ul>
 </div></section>
 
 <!-- -->
@@ -1992,13 +1533,6 @@ partial interface Touch {
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/sites/developers-google-rotationangle-touchradius.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/updates/2015/07/using-rotationAngle-and-touchRadius">Google Developers: Using rotationAngle and touchRadius</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide code"><div>
 <pre><code class="js">/* Touch Events – contact geometry */
 
@@ -2016,13 +1550,6 @@ partial interface Touch {
     <img src="pictures/android/nexus10-touch-events-radiusx-radiusy-rotationangle-firefox.png" alt="">
     <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html">patrickhlauke.github.io/touch/tracker/tracker-radius-rotationangle.html</a></p>
     <p><a target="_blank" href="https://www.youtube.com/watch?v=fnSp8VFf-b8">YouTube: Touch Events: radiusX, radiusY and rotationAngle</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/rbyers-net-paint-rotationangle-touchradius.png" alt="">
-    <p><a href="http://rbyers.github.io/paint.html">Rick Byers - Paint (with rotationAngle and touchRadius)</a></p>
 </div></section>
 
 <!-- -->
@@ -2046,71 +1573,6 @@ partial interface Touch {
     <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
     <p>iPhone 6s with 3D Touch supports <code>force</code>...</p>
     <p><small>(<strong>Safari and WKWebView</strong>, e.g. Chrome/iOS, but <strong>not UIWebView</strong>, e.g. Firefox/iOS)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios9/iphone5c-iphone6s-touch-events-force.png" alt="">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
-    <p>...while in non-3D Touch models (e.g. iPhone 5c) <code>force == 0</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2>3D Touch ≠ Force Touch</h2>
-    <ul>
-    <li>Force Touch is Apple's proprietary extension to mouse events</li>
-    <li>only aimed at force-enabled trackpads (new Apple models)</li>
-    <li>new events: <code>webkitmouseforcewillbegin</code>, <code>webkitmouseforcedown</code>, <code>webkitmouseforceup</code>, <code>webkitmouseforcechanged</code></li>
-    <li>mouse events have additional <code>webkitForce</code> property</li>
-    </ul>
-    <p><a target="_blank" href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html#//apple_ref/doc/uid/TP40016162">Safari Developer Library: Responding to Force Touch Events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/developers-google-precision-touch-for-precise-gestures.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/updates/2014/09/Precision-Touch-for-Precise-Gestures">Google Developers: Precision Touch for Precise Gestures</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/webkit-bugzilla-fractional-touch-coordinates.png" alt="">
-    <p><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=133180">Bug 133180 - Touch events should allow for device-pixel accuracy</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">interface Touch {
-    readonly attribute long identifier;
-    readonly attribute EventTarget target;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageY;
-};</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-touch-events-community-group.png" alt="">
-    <p><a target="_blank" href="http://www.w3.org/community/touchevents">W3C Touch Events Community Group</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/w3c-webvents-wg-touch-events-errata.png" alt="">
-    <p><a target="_blank" href="https://dvcs.w3.org/hg/webevents/">W3C Web Events WG - Touch Events errata</a></p>
-    <p>(early effort to clarify grey areas, simplify language used)</p>
 </div></section>
 
 <!-- -->
@@ -2548,13 +2010,6 @@ click
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/win8/ie11-event-series-preventdefault.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener.html">patrickhlauke.github.io/touch/tests/event-listener.html</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>a more declarative approach<br>with <code>touch-action</code></p>
@@ -2610,13 +2065,6 @@ touch-action: auto | none |
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/winphone8/ie11-touch-action-none-no-delay.png" alt="IE11/WinPhone8.1 shows no click delay with touch-action:none">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-none.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/ms-edge-events-touch-action-none.png" alt="Microsoft Edge/Windows 10 shows no click delay after tap on touchscreen with touch-action:none">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-none.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
 </div></section>
@@ -2635,13 +2083,6 @@ touch-action: auto | none |
     <p><code>touch-action:manipulation</code></p>
     <p><small>(suppress double-tap-to-zoom)</small></p>
 </div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/winphone8/ie11-touch-action-manipulation-no-delay.png" alt="IE11/WinPhone8.1 shows no click delay with touch-action:manipulation">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_touch-action-manipulation.html">patrickhlauke.github.io/touch/tests/event-listener_touch[...]</a></p>
 </div></section>
 
 <!-- -->
@@ -2739,33 +2180,9 @@ touch-action: auto | none |
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/win8/ie10-particle-party.png" alt="Particle party just with mouse event handlers has same issues under pointer events as with touch events - only a single mousemove is fired on first touching">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/particle/2">patrickhlauke.github.io/touch/particle/2</a></p>
-    <p><code>mousemove</code>/<code>pointermove</code> fire, but browser scroll action takes over</p>
-</div></section>
-
-<!-- -->
-
 <section class="slide statement"><div>
 <div>
-    <p>you can "fake" it with<br><code>touch-action:none</code><br>and listen for mouse events...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win8/ie10-particle-party2.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track' - mousemove is fired continuously as finger moves across canvas">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/particle/2a">patrickhlauke.github.io/touch/particle/2a</a></p>
-    <p>(does <strong>not</strong> work in Microsoft Edge/Windows 10 Mobile<br>due to touch events support)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>better: just listen to <code>pointermove</code>...</p>
+    <p>just listen to <code>pointermove</code>...</p>
 </div>
 </div></section>
 
@@ -2850,14 +2267,6 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-mouse-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">Basic mouse-driven fake slider</a></p>
-    <p><strong>Exercise/demo:</strong> convert mouse-driven code to use Pointer Events</p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>but you can <strong>distinguish</strong><br>mouse <strong>or</strong> touch <strong>or</strong> stylus</p>
@@ -2883,19 +2292,6 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
     }
     ...
 } , false);</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">
-/* in IE11/Edge, <mark>pointerType</mark> returns a <mark>string</mark>
-   in IE10, the return type is <mark>long</mark> */
-
-MSPOINTER_TYPE_TOUCH: 0x00000002
-MSPOINTER_TYPE_PEN:   0x00000003
-MSPOINTER_TYPE_MOUSE: 0x00000004</code></pre>
-    <p><a target="_blank" href="http://msdn.microsoft.com/en-gb/library/ie/hh772359(v=vs.85).aspx">MSDN: IE Dev Center - API reference - pointerType property</a></p>
 </div></section>
 
 <!-- -->
@@ -2930,32 +2326,9 @@ switch (e.type) {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win10/ms-edge-multitouch-mouse-touch.png" alt="Multiple pointers can be primary - first finger on a touchscreen and mouse used simultaneously">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer.html</a></p>
-    <p><small>(note multiple <code>isPrimary</code> pointers, per pointer type)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/ms-edge-tracker-pointer-hud-touch-mouse-surface3.png" alt="Touch and mouse used simultaneously, with extra information being displayed for each pointer (type, coordinates, whether it's a primary pointer, force, width, height">
     <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer-hud.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer-hud.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>simultaneous use of inputs is hardware-dependent<br>
-    <small>(e.g. Surface 3 "palm blocking" prevents concurrent touch/stylus/mouse, but not<br>touch/external mouse/external stylus)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/surface-pen-and-wacom-stylus-ms-edge.jpg" alt="">
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=gRWbmAGh8Q0">YouTube: Pointer Events support multiple stylus/pen inputs simultaneously</a></p>
+    <p><small>(note multiple <code>isPrimary</code> pointers, per pointer type)</small></p>
 </div></section>
 
 <!-- -->
@@ -3048,14 +2421,6 @@ interface PointerEvent : MouseEvent {
 
 <!-- -->
 
-<section class="slide"><div>
-    <img src="pictures/win10/tracker-pointer-hud-touch-nokia-lumia-520.png" alt="On a non-pressure-sensitive touchscreen with no contact geometry sensor - e.g. Nokia Lumia 520 - touch pointers have pressure 0.5, as they're in active button state, but width and height is 0">
-    <p><a target="_blank" href="http://patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer-hud.html">patrickhlauke.github.io/touch/tracker/multi-touch-tracker-pointer-hud.html</a></p>
-    <p><small>(Nokia Lumia 520: <code>pressure</code> is <code>0.5</code> - active state - and <code>width</code> / <code>height</code> is <code>0</code>)</small></p> 
-</div></section>
-
-<!-- -->
-
 <section class="slide code"><div>
 <pre><code class="js">/* Pointer Events - tilt */
 
@@ -3096,55 +2461,6 @@ interface PointerEvent : MouseEvent {
 <section class="slide statement"><div>
 <div>
     <p><code>pointermove</code> fires if <strong>any property</strong> changes,<br> not just x/y position<br><small>(<code>width</code>, <code>height</code>, <code>tiltX</code>, <code>tiltY</code>, <code>pressure</code>)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p>pointer capture<br>(<strong>implicit</strong> vs <strong>explicit</strong>)</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <ul>
-    <li><strong>touch events</strong> have <em>implicit capture</em>: once you start a touch movement on an element, events keep firing to the element even when moving outside the element's boundaries</li>
-    </ul>
-    <ul>
-    <li><strong>for mouse / stylus:</strong> <strong>pointer events</strong> like mouse events: only fire events to an element while pointer inside it (but allow <em>explicit capture</em>)</li>
-    <li><strong>for touch:</strong> <strong>pointer events level 2</strong> use <em>implicit capture</em> (for compatibility with touch events)</li>
-    </ul>
-    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#implicit-pointer-capture">Pointer Events Level 2: Implicit Pointer Capture</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* events related to pointer capture */
-
-gotpointercapture / lostpointercapture
-
-/* example of how to capture a pointer explicitly */
-
-element.addEventListener('pointerdown', function(e) {
-  this.<mark>setPointerCapture(e.pointerId)</mark>;
-}, false }
-
-/* capture automatically released on pointerup / pointercancel
-   or explicitly with releasePointerCapture() */
-</code></pre>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/pointercapture.html">patrickhlauke.github.io/touch/tests/pointercapture.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><code>setPointerCapture</code><br> can simplify mouse input</p>
-    <p><small>e.g. draggable interfaces/sliders, use instead of<br>"bind <code>mousemove</code> to <code>document</code>/<code>body</code> on <code>mousedown</code>"</small></p>
 </div>
 </div></section>
 
@@ -3230,96 +2546,6 @@ if (window.PointerEvent) {
 
 <!-- -->
 
-<section class="slide code"><div>
-    <h2>events fired on tap with PEP</h2>
-<pre><code class="json">
-<mark>pointerover</mark> > <mark>pointerenter</mark> > <mark>pointerdown</mark> >
-touchstart >
-<mark>pointerup</mark> > <mark>pointerout</mark> > <mark>pointerleave</mark> >
-touchend >
-mouseover > mouseenter > mousemove >
-mousedown > mouseup >
-click</code></pre>
-    <p>essentially, relevant Pointer Events before <code>touchstart</code> and <code>touchend</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/3drotator-mouse-pointerevents.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/3d-jquery-rotator/index-pointerevents.html">3D Rotator modified to use Pointer Events</a></p>
-    <p><small>minimal code changes, as Pointer Events extend mouse events</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios9/3drotator-mouse-pointerevents-pep.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/3d-jquery-rotator/index-pointerevents-pep.html">3D Rotator modified to use Pointer Events (and PEP)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-pointer-events-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/VapvZV">Basic pointer events-driven fake slider with setPointerCapture</a></p>
-    <p><strong>Exercise/demo:</strong> make slider work in non-Pointer-Events browsers</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p><strong>utility</strong> libraries<br>
-    <small>(because life is too short to hand-code gesture support)</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/hammer.js.png" alt="">
-    <p><a target="_blank" href="http://eightmedia.github.io/hammer.js">Hammer.js</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/hammer.js2.png" alt="">
-    <p><a target="_blank" href="http://eightmedia.github.io/hammer.js">Hammer.js</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/swipe-after.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/swipe">patrickhlauke.github.io/touch/swipe</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* Hammer's high-level events example */
-
-var element = document.getElementById('test_el');
-
-<mark>var hammertime = new Hammer(element);</mark>
-
-<mark>hammertime.on("swipe",
-  function(event) {
-    /* handle horizontal swipes */
-});</mark></code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios8/swipe-hammerjs.png" alt="">
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/hammer/swipe/">patrickhlauke.github.io/touch/hammer/swipe</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p><strong>debugging</strong>/<strong>testing</strong></p>
@@ -3336,53 +2562,9 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/browserstack.png" alt="">
-    <p><a target="_blank" href="https://www.browserstack.com/">BrowserStack (includes Physical Devices)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/browserstack-android.png" alt="Android Google Nexus 6 physical device running in BrowserStack">
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win8/chrome-remote-debug-monitorevents.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/">Chrome DevTools / Remote Debugging Android Devices</a></p>
-    <p><a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/console/events">Chrome DevTools / Using the Console / Monitor events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win8/chrome-flags-touch-events-enable.png" alt="Touch Events can be explicitly enabled in Chrome's chrome://flags to test for sites/code that does the naive 'if it supports touch events i won't listen for click' assumptions">
-    <p>enable touch events even without a touchscreen<br><small>(to test "naive" <code>'ontouchstart' in window</code> code)</small></p>
-    <p><a target="_blank" href="chrome://flags/#touch-events">chrome://flags/#touch-events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/chrome-devtools-device-mode-pointer-events.png" alt="">
     <p><a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/device-mode/">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
     <p>correctly emulates touch and pointer events</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/chrome-devtools-device-mode-pointer-events-pointertype.png" alt="">
-    <p><a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/device-mode/">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
-    <p>correctly emulates pointer events (with <code>pointerType=="touch"</code>)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/chrome-devtools-sensors-touch-force-enabled.png" alt="New 'Touch > Force enabled' option in the 'Sensors' section of Chrome Developer Tools">
-    <p>emulate a touch interface (even without mobile emulation)</p>
 </div></section>
 
 <!-- -->
@@ -3405,315 +2587,6 @@ var element = document.getElementById('test_el');
 <section class="slide"><div>
     <img src="pictures/osx/safari-responsive-design-mode-no-touch.png" alt="">
     <p>no touch emulation in Safari "Responsive Design Mode"</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p><strong>bonus</strong> material</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/wicg-github-io-inputdevicecapabilities.png" alt="">
-    <p><a target="_blank" href="http://wicg.github.io/InputDeviceCapabilities/">Input Device Capabilities (Draft Community Group Report)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Input Device Capabilities</h2>
-<ul>
-<li>currently limited usefulness - only has <code>firesTouchEvents</code> property</li>
-<li>limited use cases (see <a target="_blank" href="https://lists.w3.org/Archives/Public/public-touchevents/2015Jan/0002.html">Identifying touch events that will trigger a tap / click</a>, <a target="_blank" href="https://lists.w3.org/Archives/Public/public-touchevents/2014Sep/0000.html">Identifying mouse events derived from touch events</a> and <a target="_blank" href="https://developers.google.com/web/updates/2015/10/inputdevicecapabilities">Google Developer: Input Device Capabilities</a>)</li>
-<li>easier to switch to Pointer Events (and add PEP)?</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', addHighlight, false);
-myButton.addEventListener('mouseup', removeHighlight, false);
-
-<mark>myButton.addEventListener('click', someFunction, false);</mark>
-
-/* addHighlight/removeHighlight will fire twice for touch
-  (first for touch, then for mouse compatibility events);
-  can't use e.preventDefault(), as we want to rely on 'click' */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    addHighlight(e);
-  } }</mark>, false);
-myButton.addEventListener('mouseup', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    removeHighlight(e);
-  } }</mark>, false);
-
-myButton.addEventListener('click', someFunction, false);
-
-/* same function for touch and mouse, but if mouse check if source
-   input fires touch events (i.e. this is a mouse compat event) */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-passive-event-listeners.png" alt="">
-    <p><a target="_blank" href="https://github.com/WICG/EventListenerOptions">Passive Event Listeners (EventListenerOptions)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-    <div><a target="_blank" href="https://www.leapmotion.com/product">Leap Motion Controller</a></div>
-    <img src="pictures/backgrounds/leapmotion.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Leap Motion</h2>
-<ul>
-<li>requires custom code (JavaScript, Java, C++, ...) using proprietary API (e.g. <a target="_blank" href="https://developer.leapmotion.com/documentation/javascript/index.html">Leap Motion: JavaScript SDK Documentation</a>)</li>
-<li>does not fire touch nor mouse events (third party native apps in <a target="_blank" href="https://apps.leapmotion.com/">Leap Motion App Store</a> available to simulate native mouse)</li>
-<li>(personally find it quite inaccurate and horrible)</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* rough proof of concept that fires programmatic
-   Pointer Events for each "pointable" (finger / tool) */
-
-e = new PointerEvent('pointermove', {
-    pointerId: ... , width: ... , height: ... ,
-    pressure: ... , tiltX: ... , tiltY: ... ,
-    pointerType: 'leap', isPrimary: false,
-    clientX: ... , clientY: ... ,
-    screenX: ... , screenY: ...
-});
-
-/* dispatch event to whatever element is at the coordinates
-   (no support for pointer capture at this stage) */
-
-document.elementFromPoint(x, y).dispatchEvent(e);
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/backgrounds/leapmotion-tracker.jpg" alt="">
-    <p><a target="_blank" href="https://www.youtube.com/watch?v=aCqSW-chteM">YouTube: Leap Motion generating programmatic Pointer Events</a></p>
-    <p><a target="_blank" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p><strong>further</strong> reading...</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://blog.gauntface.co.uk/2013/06/25/touch-feedback-for-mobile-sites/">Matt Gaunt – Touch Feedback for Mobile Sites</a></li>
-<li><a target="_blank" href="https://github.com/jonathanstark/FastActive ">Jonathan Stark – FastActive</a></li>
-<li><a target="_blank" href="http://www.slideshare.net/ysaw/html5-touch-interfaces-sxsw-extended-version">Stephen Woods – HTML5 Touch Interfaces</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=lcD9CF0bxyk">YouTube: Stephen Woods – Responsive HTML5 Touch Interfaces</a></li>
-<li><a target="_blank" href="http://www.html5rocks.com/en/mobile/touchandmouse/">Chris Wilson + Paul Kinlan – Touch And Mouse: Together Again For The First Time</a></li>
-<li><a target="_blank" href="https://developers.google.com/mobile/articles/fast_buttons">Ryan Fioravanti – Creating Fast Buttons for Mobile Web Applications</a></li>
-<li><a target="_blank" href="http://www.html5rocks.com/en/mobile/touch/">Boris Smus – Multi-touch Web Development</a></li>
-<li><a target="_blank" href="http://smus.com/mouse-touch-pointer/">Boris Smus – Generalized input on the cross-device web</a></li>
-<li><a target="_blank" href="http://smus.com/touch-laptop-experiments/">Boris Smus – Interactive touch laptop experiments</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://developers.google.com/events/io/sessions/361772634">Rick Byers + Boris Smus (Google I/O) – Point, Click, Tap, Touch - Building Multi-Device Web Interfaces</a></li>
-<li><a target="_blank" href="http://www.w3.org/conf/2011/#Touch_Events">Grant Goodale – Touch Events</a></li>
-<li><a target="_blank" href="http://www.w3.org/TR/2013/NOTE-touch-events-extensions-20131031/">W3C – Touch Events Extensions</a></li>
-<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Touch_events">Mozilla Developer Network – Touch Events</a></li>
-<li><a target="_blank" href="http://docs.webplatform.org/wiki/concepts/Pointer_Events">WebPlatform.org – Pointer Events</a></li>
-<li><a target="_blank" href="https://plus.google.com/+RickByers/posts/ej7nsuoaaDa">Rick Byers – The best way to avoid the dreaded 300ms click delay is to disable double-tap zoom</a></li>
-<li><a target="_blank" href="https://bugs.chromium.org/p/chromium/issues/detail?id=152149">Chromium Issue 152149: All touch-event related APIs should exist if touch support is enabled at runtime</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://timkadlec.com/2013/11/Avoiding-the-300ms-click-delay-accessibly/">Tim Kadlec – Avoiding the 300ms Click Delay, Accessibly</a></li>
-<li><a target="_blank" href="http://blogs.msdn.com/b/davrous/archive/2013/02/20/handling-touch-in-your-html5-apps-thanks-to-the-pointer-events-of-ie10-and-windows-8.aspx">David Rousset - Unifying touch and mouse [...]</a></li>
-<li><a target="_blank" href="http://msdn.microsoft.com/en-us/library/ie/dn304886(v=vs.85).aspx">Microsoft – Pointer events updates (differences between IE10-IE11)</a></li>
-<li><a target="_blank" href="http://webkrauts.de/artikel/2012/einfuehrung-touch-events">Patrick H. Lauke – Webseiten zum Anfassen</a></li>
-<li><a target="_blank" href="http://webkrauts.de/artikel/2013/drei-unter-einem-dach">Patrick H. Lauke – Drei unter einem Dach: Pointer-Events für Maus, Stylus und Touchscreen</a></li>
-<li><a target="_blank" href="http://webkrauts.de/artikel/2015/touch-und-pointer-events">Patrick H. Lauke – Erweiterte Interaktionsmöglichkeiten mit Touchscreens</a></li>
-<li><a target="_blank" href="http://www.creativebloq.com/javascript/make-your-site-work-touch-devices-51411644">Patrick H. Lauke – Make your site work on touch devices</a></li>
-<li><a target="_blank" href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">Stu Cox – You can't detect a touchscreen</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://msdn.microsoft.com/en-us/library/ie/dn265029(v=vs.85).aspx">Microsoft – Hover touch support (IE10/IE11)</a></li>
-<li><a target="_blank" href="http://dev.w3.org/csswg/mediaqueries4/#pointer">W3C Media Queries Level 4 – pointer</a></li>
-<li><a target="_blank" href="http://www.stucox.com/blog/the-good-and-bad-of-level-4-media-queries/">Stu Cox – The Good &amp; Bad of Level 4 Media Queries</a></li>
-<li><a target="_blank" href="http://www.quirksmode.org/mobile/tableTouch.html">Peter-Paul Koch – Touch table</a></li>
-<li><a target="_blank" href="http://www.quirksmode.org/mobile/default.html">Peter-Paul Koch – Preventing the touch default</a></li>
-<li><a target="_blank" href="http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html">Peter-Paul Koch – Mouse event bubbling in iOS</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=zxuA-wyajhY">YouTube: Edge Conference (Feb 2013 London) – Panel: Input</a></li>
-<li><a target="_blank" href="http://edgeconf.com/2014-london?v=lRY8jHmiIIw#videos">Edge Conference (Mar 2014 London) – Panel: Pointers and Interactions</a></li>
-<li><a target="_blank" href="http://trentwalton.com/2014/03/10/device-agnostic/">Trent Walton – Device-Agnostic</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://www.stucox.com/blog/the-golden-pattern-for-handling-touch-input/">Stu Cox – The Golden Pattern for Handling Touch Input</a></li>
-<li><a target="_blank" href="http://blog.gauntface.co.uk/2013/12/09/focusing-on-the-web-today/">Matt Gaunt – ‘Focusing’ on the Web Today</a></li>
-<li><a target="_blank" href="http://blog.mobiscroll.com/working-with-touch-events/">Mobiscroll – Working with touch events</a></li>
-<li><a target="_blank" href="http://www.quirksmode.org/blog/archives/2014/02/the_ios_event_c.html">Peter-Paul Koch – The iOS event cascade and innerHTML</a></li>
-<li><a target="_blank" href="http://www.creativebloq.com/javascript/make-your-site-work-touch-devices-51411644">Patrick H. Lauke – Make your site work on touch devices</a></li>
-<li><a target="_blank" href="http://www.filamentgroup.com/lab/tappy.html">Scott Jehl (Filament Group) – Tappy: A custom tap event handler</a></li>
-<li><a target="_blank" href="https://plus.google.com/+YehudaKatz/posts/PBxtaphMDGJ">Yehuda Katz – Touch events on the web are fundamentally unfinished</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://webreflection.blogspot.co.uk/2014/08/pointerevents-no-more.html">Andrea Giammarchi – PointerEvents No More</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=Rwc4fHUnGuU">YouTube: Matt Gaunt (Google) - Touch in a Web App? No Problem</a></li>
-<li><a target="_blank" href="http://www.lukew.com/ff/entry.asp?1877">Luke Wroblewski – How to Communicate Hidden Gestures</a></li>
-<li><a target="_blank" href="http://dwcares.com/custom-touch-interactions/">David Washington - Designing custom touch interactions</a></li>
-<li><a target="_blank" href="http://dwcares.com/pull-to-refresh-2/">David Washington - Building pull-to-refresh</a></li>
-<li><a target="_blank" href="http://apeatling.com/2014/javascript-pull-to-refresh-web/">Andy Peatling - JavaScript Pull to Refresh for the Web</a></li>
-<li><a target="_blank" href="https://speakerdeck.com/tilomitra/the-state-of-gestures">Tilo Mitra – The State of Gestures</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=3vZiKThHv4Q">YouTube: Tilo Mitra (YUI) – The State of Gestures</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://htmlcssjavascript.com/web/the-uncertain-web-pointer-event-polyfill-and-chrome-fragmentation/">Rob Larsen - The Uncertain Web: Pointer Event Polyfill and Chrome Fragmentation</a></li>
-<li><a target="_blank" href="http://www.incobs.de/articles/items/implications-of-new-input-modes-touch-speech-gestures-on-the-web-content-accessibility-guidelines.html">Detlev Fisher - Implications of new input modes (touch, speech, gestures) for the Web Content Accessibility Guidelines</a></li>
-<li><a target="_blank" href="http://iamralpht.github.io/constraints/">Ralph Thomas - Towards declarative touch interactions</a></li>
-<li><a target="_blank" href="https://msdn.microsoft.com/en-us/library/windows/desktop/dn742463(v=vs.85).aspx">Windows Dev Center: Windows desktop applications > Guidelines > Interaction (touch, keyboard, mouse, pen)</a></li>
-<li><a target="_blank" href="https://msopentech.com/blog/2014/12/17/jquery-adopts-pointer-events/">Microsoft Open Technologies - jQuery Adopts Pointer Events</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="http://blog.jquery.com/2015/02/24/getting-on-point/">jQuery blog - Getting on Point</a></li>
-<li><a target="_blank" href="http://blogs.msdn.com/b/ie/archive/2015/02/24/pointer-events-w3c-recommendation-interoperable-touch-and-removing-the-dreaded-300ms-tap-delay.aspx">IEBlog - Pointer Events W3C Recommendation, Interoperable Touch, and Removing the Dreaded 300ms Tap Delay</a></li>
-<li><a target="_blank" href="https://msopentech.com/blog/2015/02/24/pointer-events-w3c-standard/">Microsoft Open Technologies - Pointer Events is now a W3C Standard</a></li>
-<li><a target="_blank" href="http://www.paciellogroup.com/blog/2015/02/pointer-events-advance-to-w3c-recommendation/">Patrick H. Lauke (The Paciello Group) - Pointer Events advance to W3C Recommendation</a></li>
-<li><a target="_blank" href="https://speakerdeck.com/jacobrossi/the-input-shouldnt-matter-building-for-adaptive-input-experiences">Jacob Rossi - The Input Shouldn't Matter</a></li>
-<li><a target="_blank" href="https://hacks.mozilla.org/2015/08/pointer-events-now-in-firefox-nightly/">hacks.mozilla.org - Pointer Events now in Firefox Nightly</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://docs.google.com/presentation/d/1pOZ8ppcxEsJ6N8KfnfrI0EXwPEvHwg3BHyxzXXw8lRE/edit#slide=id.ge729048e2_3_47">Rick Byers – Interoperability Case Studies at BlinkOn 5 (touch-action)</a></li>
-<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">Mozilla Developer Network – Pointer Events</a></li>
-<li><a target="_blank" href="http://www.universalmind.com/blog/technology/a-touch-of-brilliance-why-3d-touch-matters/">Christian Saylor – A Touch of Brilliance: Why 3D Touch Matters</a></li>
-<li><a target="_blank" href="http://ignorethecode.net/blog/2015/11/12/usability_on_mobile_getting_worse/">Lukas Mathis – Usability on Mobile Is Getting Worse</a></li>
-<li><a target="_blank" href="http://blog.rocketinsights.com/3d-touch/">Rocket Insights – Initial thoughts on 3D Touch</a></li>
-<li><a target="_blank" href="http://wisercoder.com/disable-pull-to-refresh-in-chrome-for-android/">Wiser Coder – Disable “pull to refresh” in Chrome for Android</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://developers.google.com/web/fundamentals/design-and-ui/input/touch/">Google Developers / Web Fundamentals: Add touch to your site</a></li>
-<li><a target="_blank" href="https://alxgbsn.co.uk/2011/12/23/different-ways-to-trigger-touchcancel-in-mobile-browsers/">Alex Gibson – Different ways to trigger touchcancel in mobile browsers</a></li>
-<li><a target="_blank" href="http://www.bbc.co.uk/gel/guidelines/how-to-design-for-touch">BBC Global Experience Language: How to design for touch</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=gb9WgXn-BYw&feature=youtu.be&t=2832">Google BlinkOn 5: Lightning talks / Mustaq Ahmed – Pointer Events in Chrome implementation update</a></li>
-<li><a target="_blank" href="https://abookapart.com/products/designing-for-touch">A Book Apart: Josh Clark – Designing for Touch</a></li>
-<li><a target="_blank" href="https://www.kickstarter.com/projects/1152958674/the-sensel-morph-interaction-evolved">Kickstarter – The Sensel Morph: Interaction Evolved</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://mobiforge.com/design-development/html5-pointer-events-api-combining-touch-mouse-and-pen">Ruadhán O'Donoghue – The HTML5 Pointer Events API: Combining touch, mouse, and pen</a></li>
-<li><a target="_blank" href="https://medium.com/instacart-design/hover-is-dead-long-live-hover-37a89d3795df">Jordan Staniscia – Hover is dead. Long live hover.</a></li>
-<li><a target="_blank" href="https://cloudfour.com/thinks/four-truths-about-input/">Jason Grigsby – Four Truths About Input</a></li>
-<li><a target="_blank" href="http://alistapart.com/article/adapting-to-input">Jason Grigsby – Adapting to Input</a></li>
-<li><a target="_blank" href="https://css-tricks.com/debouncing-throttling-explained-examples/">David Corbacho – Debouncing and Throttling Explained</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=YO7jy1GXkmY">YouTube: Pre-Touch Sensing for Mobile Interaction (Microsoft)</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=l8upftEWslM">YouTube: HTML5DevConf: Jacob Rossi, "Pointer Events, Panning &amp; Zooming, and Gestures"</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=SCfVn4JY5yk">YouTube: Jacob Rossi, "Pointing Forward" at W3Conf 2013</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=vzOy_ldZNXQ">YouTube: Tim Park: Pointing Forward (updated) – JSConf.Asia 2013</a></li>
-<li><a target="_blank" href="http://flickity.metafizzy.co/">Flickity – touch, responsive, flickable carousels</a></li>
-<li><a target="_blank" href="https://developers.google.com/web/updates/2016/10/addeventlistener-once">Google Developers / Update: Once Upon an Event Listener</a></li>
-<li><a target="_blank" href="https://developers.google.com/web/updates/2016/06/passive-event-listeners">Google Developers / Update: Improving Scroll Performance with Passive Event Listeners</a></li>
-<li><a target="_blank" href="https://developers.google.com/web/updates/2017/01/scrolling-intervention">Google Developers / Update: Making touch scrolling fast by default</a></li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<ul>
-<li><a target="_blank" href="https://developers.google.com/web/updates/2016/10/pointer-events">Google Developers / Update: Pointing the Way Forward</a></li>
-<li><a target="_blank" href="https://developers.google.com/web/updates/2016/10/touch-action">Google Developers / Update: Touch Action Options</a></li>
-<li><a target="_blank" href="http://www.universalstylus.org/">Universal Stylus Initiative (USI)</a></li>
-<li><a target="_blank" href="https://blogs.adobe.com/creativecloud/holistic-adaptive-design/">Adobe Creative Cloud: Andrew Smyk – Holistic Adaptive Design: Factors to Consider in a Multi-Screen World</a></li>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=lwsu6lN5M8k">YouTube: Drawboard on Surface Studio with Surface Dial</a></li>
-<li><a target="_blank" href="http://www.air.bar/">AirBar – Touch without a touchscreen</a></li>
-<li><a target="_blank" href="https://github.com/rafrex/detect-it">GitHub: Rafael Pedicini (Rafrex) – Detect It</a></li>
-</ul>
 </div></section>
 
 <!-- -->
