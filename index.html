@@ -1671,19 +1671,19 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 <pre><code class="js">/* <mark>iOS/Safari/WebView</mark> has gesture events for size/rotation,
 <mark>not part</mark> of the W3C Touch Events spec. */
 
-gesturestart / gesturechange / gestureend
+/* gesturestart / gesturechange / gestureend */
 
-function(e) {
+foo.addEventListener('gesturechange', function(e) {
     /* e.<strong>scale</strong>
        e.<strong>rotation</strong> */
 
     /* values can be plugged directly into
        CSS transforms etc */
-}
+});
 
 /* <mark>not supported in Chrome/Firefox/Opera</mark> */
 </code></pre>
-<p><a target="_blank" href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">iOS Developer Library - Safari Web Content Guide - Handling gesture events</a></p>
+<p><a target="_blank" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">iOS Developer Library - Safari Web Content Guide - Handling gesture events</a></p>
 </div></section>
 
 <!-- -->
