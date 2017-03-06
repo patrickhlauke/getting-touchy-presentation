@@ -1,5 +1,5 @@
 # Getting touchy
-## an introduction to touch and pointer events
+## Everything you (n)ever wanted to know about **touch and pointer** events</p>
 
 Beyond smartphones and tablets, touchscreens are finding their way into laptops and even desktop computers.
 With hardware support for touch becoming increasingly ubiquitous, it's time to explore what new possibilities
