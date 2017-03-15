@@ -1676,7 +1676,7 @@ for (i=0; i&lt;<mark>e.targetTouches</mark>.length; i++) {
 
 <section class="slide code"><div>
 <pre><code class="js">/* <mark>iOS/Safari/WebView</mark> has gesture events for size/rotation,
-<mark>not part</mark> of the W3C Touch Events spec. */
+<mark>not part</mark> of the W3C Touch Events spec */
 
 /* gesturestart / gesturechange / gestureend */
 
@@ -1688,7 +1688,8 @@ foo.addEventListener('gesturechange', function(e) {
        CSS transforms etc */
 });
 
-/* <mark>not supported in Chrome/Firefox/Opera</mark> */
+/* not supported in other browsers, but potentially
+   useful for iOS exclusive content (hybrid apps/webviews) */
 </code></pre>
 <p><a target="_blank" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">iOS Developer Library - Safari Web Content Guide - Handling gesture events</a></p>
 </div></section>
@@ -2968,10 +2969,20 @@ switch (e.type) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="js">/* like iOS/Safari, IE/Win has <mark>higher-level gestures</mark>,
-   but these are <mark>not part of the W3C Pointer Events</mark> spec.
+<pre><code class="js">/* like iOS/Safari, IE/Edge have <mark>higher-level gestures</mark>,
+   but these are <mark>not part of the W3C Pointer Events</mark> spec */
 
-   Replicate these from basic principles again... */</code></pre>
+foo.addEventListener("MSGestureStart", ... , false)
+foo.addEventListener("MSGestureEnd", ... , false)
+foo.addEventListener("MSGestureChange", ... , false)
+foo.addEventListener("MSInertiaStart", ... , false)
+foo.addEventListener("MSGestureTap", ... , false)
+foo.addEventListener("MSGestureHold", ... , false)
+
+/* not supported in other browsers, but potentially
+   useful for IE/Edge exclusive content
+   (e.g. <abbr title="Universal Windows Platform">UWP</abbr> packaged/hosted/hybrid web app);
+   for web, replicate these from basic principles again... */</code></pre>
    <p><a target="_blank" href="http://msdn.microsoft.com/en-gb/library/ie/hh673557(v=vs.85).aspx#Gesture_object_events">MSDN IE10 Developer Guide: Gesture object and events</a></p>
 </div></section>
 
