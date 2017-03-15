@@ -3143,8 +3143,22 @@ interface PointerEvent : MouseEvent {
 <section class="slide code"><div>
 <pre><code class="js">/* events related to pointer capture */
 
-gotpointercapture / lostpointercapture
+foo.addEventListener("gotpointercapture", ... , false)
+foo.addEventListener("lostpointercapture", ... , false)
 
+/* methods related to pointer capture */
+
+element.setPointerCapture(pointerId)
+element.releasePointerCapture(pointerId)
+
+if (element.hasPointerCapture(pointerId)) { ... }
+</code></pre>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">
 /* example of how to capture a pointer explicitly */
 
 element.addEventListener('pointerdown', function(e) {
