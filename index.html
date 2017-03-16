@@ -739,25 +739,36 @@ if ('ontouchstart' in window) {
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/caniuse-interaction-media-features.png" alt="">
+    <p><a target="_blank" href="http://caniuse.com/#search=interaction%20media%20features">caniuse.com: Can I use <strong>interaction media features</strong>?</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide code"><div>
     <h2>Media Features and JavaScript</h2>
-    <p><code>window.matchMedia(...)</code> evaluates media queries programmatically</p>
     <pre><code class="js">
-if (window.matchMedia("(pointer:coarse)").matches) {
-    ...
-} else if (window.matchMedia("(pointer:fine)").matches) {
-    ...
-} else {
-    /* no primary pointing input */
-}
+if (window.matchMedia("(any-pointer:coarse)").matches) { ... }
+
+/* listen for dynamic changes */
+
+window.matchMedia("(any-pointer:coarse)")↵
+      .onchange = function(e) { ... }
+
+window.matchMedia("(any-pointer:coarse)")↵
+      .addEventListener("change", function(e) { ... } , false }
+
+window.matchMedia("(any-pointer:coarse)")↵
+      .removeEventListener("change", function(e) { ... } , false }
 </code></pre>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/caniuse-interaction-media-features.png" alt="">
-    <p><a target="_blank" href="http://caniuse.com/#search=interaction%20media%20features">caniuse.com: Can I use <strong>interaction media features</strong>?</a></p>
+    <img src="pictures/sites/caniuse-matchmedia.png" alt="">
+    <p><a target="_blank" href="http://caniuse.com/#search=matchMedia">caniuse.com: Can I use <strong><code>matchMedia</code></strong>?</a></p>
 </div></section>
 
 <!-- -->
