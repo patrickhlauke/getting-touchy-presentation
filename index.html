@@ -2572,11 +2572,17 @@ click
 <!-- -->
 
 <section class="slide code"><div>
-    <h2>CSS property</h2>
+    <h2><code>touch-action</code></h2>
     <p>what action should the browser handle?</p>
     <pre><code class="css">
-touch-action: auto | <mark>none</mark> | [ pan-x || pan-y ] | <mark>manipulation</mark></code></pre>
-    <p><a target="_blank" href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a></p><p>only determines default touch action, does not stop compatibility mouse events nor <code>click</code></p>
+touch-action: auto /* default */
+touch-action: none
+touch-action: pan-x
+touch-action: pan-y
+touch-action: manipulation /* pan/zoom */
+
+touch-action: pan-x pan-y  /* can be combined */</code></pre>
+    <p><a target="_blank" href="http://www.w3.org/TR/pointerevents/#the-touch-action-css-property">www.w3.org/TR/pointerevents/#the-touch-action-css-property</a></p><p><small>only determines default touch action, does not stop compatibility mouse events nor <code>click</code></small></p>
 </div></section>
 
 <!-- -->
@@ -2585,18 +2591,22 @@ touch-action: auto | <mark>none</mark> | [ pan-x || pan-y ] | <mark>manipulation
     <h2>Pointer Events Level 2</h2>
     <p>expanded set of values (useful for pull-to-refresh, carousels, etc)</p>
     <pre><code class="css">
-touch-action: auto | none |
-              [ [ pan-x | <mark>pan-left</mark> | <mark>pan-right</mark> ] ||
-              [ pan-y | <mark>pan-up</mark> | <mark>pan-down</mark> ] ] |
-              manipulation</code></pre>
+touch-action: pan-left
+touch-action: pan-right
+touch-action: pan-up
+touch-action: pan-down
+
+touch-action: pan-left pan-down /* can be combined */
+touch-action: pan-x pan-down    /* can be combined */</code></pre>
     <p><a target="_blank" href="https://w3c.github.io/pointerevents/#the-touch-action-css-property">w3c.github.io/pointerevents/#the-touch-action-css-property</a></p>
+    <p><small>new values only determine allowed pan direction at the <strong>start</strong> of the interaction;<br>once panning starts, user can also move in opposite direction along same axis</small></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
     <img src="pictures/sites/compat-spec-whatwg-touch-action.png" alt="">
-    <p><a target="_blank" href="https://compat.spec.whatwg.org/#touch-action">compat.spec.whatwg.org</a> add extra value <code>pinch-zoom</code></p>
+    <p><small><a target="_blank" href="https://compat.spec.whatwg.org/#touch-action">compat.spec.whatwg.org</a> adds extra value <code>pinch-zoom</code></small></p>
 </div></section>
 
 <!-- -->
@@ -2604,6 +2614,14 @@ touch-action: auto | none |
 <section class="slide"><div>
     <img src="pictures/android/chrome-touch-action-scrolling.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/touch-action-scrolling/">patrickhlauke.github.io/touch/touch-action-scrolling</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/w3c-pointer-events-touch-action-notes.png" alt="">
+    <p><small>although it's called "<em>touch</em>-action", it applies to any pointer type that pans/zooms<br>(e.g. Samsung Note + stylus, Chrome &lt;58/Android + mouse)</small></p>
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors">w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors</p>
 </div></section>
 
 <!-- -->
