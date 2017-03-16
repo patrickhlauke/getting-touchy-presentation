@@ -688,13 +688,35 @@ if ('ontouchstart' in window) {
 <!-- -->
 
 <section class="slide code"><div>
-    <pre><code class="css">/* MQ4 Interaction Media Features*/
+    <h2>Interaction Media Features</h2>
+    <p><code>pointer</code> / <code>hover</code> relate to  “primary” pointing device<br><code>any-pointer</code> / <code>any-hover</code> relate to all pointing devices</p>
+    <pre><code class="css">
+/* the <mark><strong>primary input</strong></mark> is ... */
 
-pointer: none | coarse | fine
-hover: none | hover
+@media (pointer: fine)   { /* a mouse, stylus, ... */ }
+@media (pointer: coarse) { /* a touchscreen, ... */ }
+@media (pointer: none)   { /* not a pointer (e.g. d-pad) */ }
 
-any-pointer: none | coarse | fine
-any-hover: none | hover
+@media (hover: hover) { /* hover-capable */ }
+@media (hover: none)  { /* not hover-capable */ }
+</code></pre>
+<p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>hover: on-demand</code> / <code>any-hover: on-demand</code> removed in recent drafts</a></small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+    <h2>Interaction Media Features</h2>
+    <p><code>pointer</code> / <code>hover</code> relate to  “primary” pointing device<br><code>any-pointer</code> / <code>any-hover</code> relate to all pointing devices</p>
+    <pre><code class="css">
+/* across <mark><strong>all detected pointing devices</strong></mark> at least one is ... */
+
+@media (any-pointer: fine)   { /* a mouse, stylus, ... */ }
+@media (any-pointer: coarse) { /* a touchscreen, ... */ }
+@media (any-pointer: none)   { /* <mark><strong>none of them</strong></mark> are pointers */ }
+
+@media (any-hover: hover) { /* hover-capable */ }
+@media (any-hover: none)  { /* <mark><strong>none of them</strong></mark> are hover-capable */ }
 </code></pre>
 <p><small><a target="_blank" href="https://lists.w3.org/Archives/Public/www-style/2016Feb/0041.html"><code>hover: on-demand</code> / <code>any-hover: on-demand</code> removed in recent drafts</a></small></p>
 </div></section>
