@@ -74,6 +74,13 @@
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-collection.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/collection/AOyMpJ/">CodePen: Basic slider - from mouse-only to mouse/touch/stylus enabled</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide cover impact"><div>
     <div><p>my JavaScript sucks...<br><small>(but will hopefully convey the right concepts)</small></p></div>
     <img src="pictures/backgrounds/background-danger-415-volts.jpg" class="cover" alt="">
@@ -1497,10 +1504,35 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 
 <!-- -->
 
+<section class="slide listing"><div>
+    <h2>implicit capture</h2>
+    <ul>
+    <li>touch events have <em>implicit capture</em>: once you start a touch movement on an element, events keep firing to the element even when moving outside the element's boundaries</li>
+    <li>compare to mouse events, which require tricks to track mouse</li>
+    </ul>
+</div></section>
+
+<!-- -->
+
 <section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-mouse-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">Basic mouse-driven fake slider</a></p>
+    <img src="pictures/sites/codepen-slider-3-naive-mouse-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/yMpbXa">(3) Naive mouse-driven fake slider (doesn't "capture")</a></p>
+    <p><strong>Demo:</strong> without tricks, slider won't work when moving mouse outside</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-4-basic-mouse-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">(4) Basic mouse-driven fake slider</a></p>
     <p><strong>Exercise/demo:</strong> expand mouse-driven code to also work with touch</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-5-basic-mouse-and-touch-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/WwRVEy">(5) Basic mouse- and touch-driven fake slider</a></p>
 </div></section>
 
 <!-- -->
@@ -2934,9 +2966,16 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-mouse-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">Basic mouse-driven fake slider</a></p>
+    <img src="pictures/sites/codepen-slider-4-basic-mouse-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/eZgqRo">(4) Basic mouse-driven fake slider</a></p>
     <p><strong>Exercise/demo:</strong> convert mouse-driven code to use Pointer Events</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-6-basic-pointer-events-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/ZWeGge">(6) Basic pointer events-driven fake slider</a></p>
 </div></section>
 
 <!-- -->
@@ -3257,6 +3296,21 @@ element.addEventListener('pointerdown', function(e) {
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-6-basic-pointer-events-driven.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/ZWeGge">(6) Basic pointer events-driven fake slider</a></p>
+    <p><strong>Exercise/demo:</strong> simplify code to use pointer capture</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-7-basic-pointer-events-driven-setpointercapture.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/VapvZV">(7) Basic pointer events-driven fake slider with setPointerCapture</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>pointer events as the <strong>future</strong>?</p>
@@ -3368,9 +3422,16 @@ click</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-exercise-pointer-events-only.png" alt="">
-    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/VapvZV">Basic pointer events-driven fake slider with setPointerCapture</a></p>
+    <img src="pictures/sites/codepen-slider-7-basic-pointer-events-driven-setpointercapture.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/VapvZV">(7) Basic pointer events-driven fake slider with setPointerCapture</a></p>
     <p><strong>Exercise/demo:</strong> make slider work in non-Pointer-Events browsers</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-8-basic-pointer-events-driven-setpointercapture-pep.png" alt="">
+    <p><a target="_blank" href="http://codepen.io/patrickhlauke/pen/BKWoaa">(8) Basic pointer events-driven fake slider with setPointerCapture and PEP</a></p>
 </div></section>
 
 <!-- -->
