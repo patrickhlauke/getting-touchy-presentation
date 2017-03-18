@@ -3577,6 +3577,72 @@ var element = document.getElementById('test_el');
 
 <!-- -->
 
+<section class="slide statement"><div>
+<div>
+    <p>no concept of <code>hover</code><br>on <strong>touch devices</strong><br>
+    <small>iOS fakes it, Samsung Galaxy Note II/Pro + stylus, ...</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios7/ios-faked-hover.png" alt="Diagrammatic flow of iOS' faked hover support - stopping event sequence if there's a 'change' on the page">
+    <p><a target=_blank href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html">iOS Developer Library - Safari Web Content Guide - Handling Events</a></p>
+    <p>while this works ok, Safari is the only browser doing it...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
+    <p><a target=_blank href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
+    <p>requires advanced stylus, which is uncommon...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/msdn-hover-touch-support.png" alt="">
+    <p><a target=_blank href="https://msdn.microsoft.com/library/dn265029(v=vs.85).aspx">MSDN: Hover touch support</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/msdn-channel9-ie11-touch-hover-movie.png" alt="">
+    <p><a target=_blank href="https://channel9.msdn.com/Blogs/IE/IE11-Using-Hover-Menus-with-Touch">Channel9 MSDN - IE11: Using Hover Menus with Touch</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/msdn-using-aria-haspopup.png" alt="">
+    <p><a target=_blank href="https://msdn.microsoft.com/library/jj152135(v=vs.85).aspx">MSDN: Using aria-haspopup to simulate hover on touch-enabled devices</a></p>
+    <p>non-standard use of the <code>aria-haspopup</code> attribute...</p>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><strong>avoid</strong> hover interfaces?</p>
+    <p><small>arguable ... it's a user experience decision</small></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide statement"><div>
+<div>
+    <p><strong>complement</strong> for touch!</p>
+    <p><small>same considerations as for keyboard users...</small></p>
+</div>
+</div></section>
+
+
+<!-- -->
+
 <section class="slide"><div>
     <img src="pictures/sites/wicg-github-io-inputdevicecapabilities.png" alt="">
     <p><a target="_blank" href="http://wicg.github.io/InputDeviceCapabilities/">Input Device Capabilities (Draft Community Group Report)</a></p>
