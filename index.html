@@ -3358,13 +3358,19 @@ if (window.PointerEvent) {
 <!-- -->
 
 <section class="slide code"><div>
-<pre><code class="html">/* adding jQuery PEP */
+<pre><code class="html">/* adding PEP from the jQuery CDN */
 
-&lt;script src="https://code.jquery.com/pep/0.4.1/pep.js">&lt;/script>
+&lt;script src="https://code.jquery.com/pep/0.4.2/pep.js">&lt;/script>
 
-/* need to use custom touch-action <strong>attribute</strong>, not CSS (yet) */
 
-&lt;button <mark>touch-action="none"</mark>>...&lt;/div></code></pre>
+/* doesn't parse CSS, needs custom touch-action attribute
+   (could inject this via custom JavaScript on load/mutation?) */
+
+&lt;button <mark>touch-action="none"</mark>>...&lt;/div>
+
+/* navigator.maxTouchPoints always returns 0
+   (real value would require hardware integration) */
+</code></pre>
 </div></section>
 
 <!-- -->
