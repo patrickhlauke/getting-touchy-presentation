@@ -3053,6 +3053,26 @@ MSPOINTER_TYPE_MOUSE: 0x00000004</code></pre>
 
 <section class="slide impact"><div>
 <div>
+    <p>for single pointer interactions, check <code>isPrimary</code></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">/* only do something if it's a primary pointer
+   (e.g. the first finger on the touchscreen) */
+
+foo.addEventListener('pointermove', function(e) {
+    <mark>if (e.isPrimary)</mark> {
+      ...
+    }
+} , false);</code></pre>
+</div></section>
+
+<!-- -->
+<section class="slide impact"><div>
+<div>
     <p>what about <strong>multitouch?</strong></p>
 </div>
 </div></section>
