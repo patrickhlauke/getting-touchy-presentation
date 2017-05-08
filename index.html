@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="highlight/styles/sunburst.css">
     <style>
         #yougotthetouch.slide { background-color: #000; }
-        .strike { text-decoration: line-through; }
     </style>
     <script src="highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -258,7 +257,7 @@ touchcancel</code></p>
 <section class="slide"><div>
     <img src="pictures/ios7/event-listener-all-no-timings-after.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html">patrickhlauke.github.io/touch/tests/event-listener_all-no-timings.html</a></p>
-    <p><small><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=128534"><span class="strike">Bug 128534 - 'mouseenter' mouse compat event not fired...</span></a></small></p>
+    <p><small><del><a target="_blank" href="https://bugs.webkit.org/show_bug.cgi?id=128534">Bug 128534 - 'mouseenter' mouse compat event not fired...</a></del></small></p>
 </div></section>
 
 <!-- -->
@@ -2221,12 +2220,12 @@ partial interface Touch {
 <pre><code class="js">interface Touch {
     readonly attribute long identifier;
     readonly attribute EventTarget target;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> screenY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> clientY;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageX;
-    readonly attribute <mark><span class="strike">long</span> float</mark> pageY;
+    readonly attribute <mark><del>long</del> float</mark> screenX;
+    readonly attribute <mark><del>long</del> float</mark> screenY;
+    readonly attribute <mark><del>long</del> float</mark> clientX;
+    readonly attribute <mark><del>long</del> float</mark> clientY;
+    readonly attribute <mark><del>long</del> float</mark> pageX;
+    readonly attribute <mark><del>long</del> float</mark> pageY;
 };</code></pre>
 </div></section>
 
