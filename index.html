@@ -174,7 +174,7 @@
 <section class="slide"><div>
     <img src="pictures/ios7/event-listener-show-delay-before.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
-    <p><small>less of a problem in modern browsers, but for <strong>iOS < 9.3 or older Androids</strong> still relevant</small></p>
+    <p><small>less of a problem in modern browsers, but for <strong>iOS &lt; 9.3 or older Androids</strong> still relevant</small></p>
 </div></section>
 
 <!-- -->
@@ -470,7 +470,7 @@ if (<mark>'ontouchstart' in window</mark>) {
 <section class="slide"><div>
 <div>
     <img src="pictures/backgrounds/windows-continuum.jpg" alt="Windows 10 Mobile phone using 'Continuum' - with a connected screen, mouse and keyboard">
-    <p><a target="_blank " href="https://www.microsoft.com/en-us/windows/Continuum">Windows 10 "Continuum"</a> <small>(mobile device acting as desktop)</small></p>
+    <p><a target="_blank" href="https://www.microsoft.com/en-us/windows/Continuum">Windows 10 "Continuum"</a> <small>(mobile device acting as desktop)</small></p>
 </div>
 </div></section>
 
@@ -479,7 +479,7 @@ if (<mark>'ontouchstart' in window</mark>) {
 <section class="slide"><div>
 <div>
     <img src="pictures/backgrounds/samsung-dex.jpg" alt="Samsung Galaxy S8 plugged into a DeX Station - with a connected screen, mouse and keyboard">
-    <p><a target="_blank " href="http://www.samsung.com/global/galaxy/apps/samsung-dex/">Samsung DeX</a> <small>(mobile device acting as desktop)</small></p>
+    <p><a target="_blank" href="http://www.samsung.com/global/galaxy/apps/samsung-dex/">Samsung DeX</a> <small>(mobile device acting as desktop)</small></p>
     <p><small><a target="_blank" href="https://medium.com/samsung-internet-dev/samsung-dex-brings-a-new-dimension-to-the-mobile-web-f80d7edcab29">Samsung DeX brings a new Dimension to the Mobile Web</a></small></p>
 </div>
 </div></section>
@@ -917,7 +917,7 @@ window.matchMedia("(any-pointer:coarse)")↵
 <section class="slide"><div>
     <img src="pictures/ios7/event-listener-show-delay-after.png" alt="">
     <p><a target="_blank" href="https://patrickhlauke.github.io/touch/tests/event-listener_show-delay.html">patrickhlauke.github.io/touch/tests/event-listener_show-delay.html</a></p>
-    <p><small>less of a problem in modern browsers, but for <strong>iOS < 9.3 or older Androids</strong> still relevant</small></p>
+    <p><small>less of a problem in modern browsers, but for <strong>iOS &lt; 9.3 or older Androids</strong> still relevant</small></p>
 </div></section>
 
 <!-- -->
@@ -1105,7 +1105,7 @@ foo.addEventListener('click', ...);
 
 <section class="slide impact"><div>
 <div>
-    <p>browsers working to remove <strong>double-tap to zoom</strong> delay</small></p>
+    <p>browsers working to remove <strong>double-tap to zoom</strong> delay</p>
 </div>
 </div></section>
 
@@ -1595,7 +1595,7 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 Δx = end.x - start.x;
 Δy = end.y - start.y;
 
-if ((<mark>Δt > timeThreshold</mark>) || (<mark>(Δx + Δy) < distanceThreshold</mark>)) {
+if ((<mark>Δt > timeThreshold</mark>) || (<mark>(Δx + Δy) &lt; distanceThreshold</mark>)) {
   /* too slow or movement too small */
 } else {
   /* it's a swipe!
@@ -2463,6 +2463,7 @@ click >
     <li>vendor-prefixed in IE10 (<code>MSPointerDown</code> ..., <code>navigator.msMaxTouchPoints</code>, <code>-ms-touch-action</code>)</li>
     <li>unprefixed in IE11 (but prefixed versions mapped for compatibility)</li>
     <li>event order (when <code>click</code> is fired) incorrect in IE10/IE11<br>see <a target="_blank" href="http://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></li>
+    </ul>
 </div></section>
 
 <!-- -->
@@ -2783,7 +2784,7 @@ touch-action: pan-x pan-down    /* can be combined */</code></pre>
 <section class="slide"><div>
     <img src="pictures/sites/w3c-pointer-events-touch-action-notes.png" alt="">
     <p><small>although it's called "<em>touch</em>-action", it applies to any pointer type that pans/zooms<br>(e.g. Samsung Note + stylus, Chrome &lt;58/Android + mouse)</small></p>
-    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors">w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors</p>
+    <p><a target="_blank" href="https://w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors">w3c.github.io/pointerevents/#declaring-candidate-regions-for-default-touch-behaviors</a></p>
 </div></section>
 
 <!-- -->
