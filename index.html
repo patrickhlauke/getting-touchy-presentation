@@ -2395,6 +2395,34 @@ partial interface Touch {
 
 <!-- -->
 
+<section class="slide statement"><div>
+<div>
+    <p><del>Apple Pencil currently indistinguishable from touch in browser / JavaScript<br><small>(no tilt information, fires touch events)</small></del></p>
+</div>
+</div></section>
+
+<!-- -->
+
+<section class="slide code"><div>
+<pre><code class="js">enum TouchType {
+    "direct",
+    "stylus"
+};
+
+
+interface Touch {
+    ...
+    <mark>readonly attribute float altitudeAngle;</mark>
+    <mark>readonly attribute float azimuthAngle;</mark>
+    <mark>readonly attribute TouchType touchType;</mark>
+};</code></pre>
+<p>Safari/iOS 10.3 exposes tilt and distinguishes touch and stylus</p>
+<p><a target="_blank" href="https://github.com/w3c/touch-events/pull/81">github.com/w3c/touch-events/pull/81</a></p>
+<p><a target="_blank" href="https://w3c.github.io/touch-events/#touch-interface">w3c.github.io/touch-events/#touch-interface</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>the anatomy of <strong>Pointer Events</strong><br><small>(sequence, event object, ...)</small></p>
