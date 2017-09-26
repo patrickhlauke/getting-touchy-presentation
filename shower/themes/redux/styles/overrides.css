@@ -252,3 +252,10 @@ header p {
 .slide.listing {
 	text-align: left;
 }
+
+/* performance optimization
+  (see https://twitter.com/jaffathecake/status/912622153786445825 and
+	https://bugs.chromium.org/p/chromium/issues/detail?id=768799)
+*/
+.shower.full .slide { display: none; }
+.shower.full .slide.active { display: block; }
