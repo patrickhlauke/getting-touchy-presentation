@@ -2178,7 +2178,7 @@ partial interface Touch {
 <section class="slide"><div>
     <img src="pictures/ios9/iphone6s-touch-events-force.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
-    <p>iPhone 6s with 3D Touch supports <code>force</code>...</p>
+    <p>iPhone 6s with "3D Touch" supports <code>force</code>...</p>
     <p><small>(<strong>Safari and WKWebView</strong>, e.g. Chrome/iOS, but <strong>not UIWebView</strong>, e.g. Firefox/iOS)</small></p>
 </div></section>
 
@@ -2188,6 +2188,16 @@ partial interface Touch {
     <img src="pictures/ios9/iphone5c-iphone6s-touch-events-force.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html">patrickhlauke.github.io/touch/tracker/tracker-force-pressure.html</a></p>
     <p>...while in non-3D Touch models (e.g. iPhone 5c) <code>force == 0</code></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/ios10/apple-3d-touch-peek-and-pop.gif" alt="Animation showing 3D Touch 'peek and pop' interaction">
+    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2016/228/">"Peek and Pop"</a></p>
+    <p>could easily be emulated using pressure ("3D touch") information</p>
+    <p>bit retro – Apple abandoned it for <strong>long-press</strong> ("haptic touch") in iOS13</p>
+    <p><small>(incidentally, why does Apple keep making up fancy/confusing terms?)</small></p>
 </div></section>
 
 <!-- -->
@@ -3960,6 +3970,19 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2014/05/A-More-Compatible-Smoother-Touch">Google Developers: A More Compatible, Smoother Touch</a></li>
 </ul>
 </div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+    <ul>
+    <li><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/deprecated_symbols/implementing_peek_and_pop">Apple Developer Documentation: Implementing Peek and Pop</a></li>
+    <li><a target="_blank" rel="noopener" href="https://darjeelingsteve.com/articles/Supporting-3D-Touch-%22Peek-and-Pop%22.html">Stephen Anthony – Supporting 3D Touch "Peek and Pop"</a></li>
+    <li><a target="_blank" rel="noopener" href="https://medium.com/flawless-app-stories/getting-started-with-3d-touch-peek-pop-swift-d498da57ae19">Ashok Kumar – Getting started with 3D Touch Peek & Pop— Swift</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.raywenderlich.com/6794-peek-and-pop-with-3d-touch">Andy Pereira – Peek and Pop With 3D Touch</a></li>
+    <li><a target="_blank" rel="noopener" href="https://9to5mac.com/2019/06/05/3d-touch-ios-13/">9to5Mac – iOS 13: 3D Touch’s features come to all devices, but 3D Touch itself is on the way out</a></li>
+    <li><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/handling_uikit_gestures/handling_long-press_gestures">Apple Developer Documentation: Handling Long-Press Gestures</a></li>
+    </ul>
+    </div></section>
 
 <!-- -->
 
