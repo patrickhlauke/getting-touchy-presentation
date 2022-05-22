@@ -27,7 +27,7 @@
         <h2>Getting <strong>touchy</strong></h2>
         <p>Everything you (n)ever wanted to know about <strong>touch and pointer</strong> events</p>
     </div>
-    <p class="info">Patrick H. Lauke / Last major changes: 8 May 2017</p>
+    <p class="info">Patrick H. Lauke / Last major changes: 2 May 2022</p>
     <img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
 </div></section>
 
@@ -36,7 +36,7 @@
 <section class="slide listing"><div>
     <h2>about me...</h2>
     <ul>
-    <li>co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/touch-events/">Touch Events Level 2</a></li>
+    <li>community group co-chair and co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/touch-events/">Touch Events Level 2</a></li>
     <li>working group chair and co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/pointerevents/">Pointer Events Level 3</a></li>
     </ul>
 </div></section>
@@ -2417,6 +2417,22 @@ interface Touch {
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/apple-safari13-release-notes-pointerevents.png" alt="Safari 13 release notes, showing the WebAPI section, with the bullet about support for Pointer Events API highlighted">
+    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/safari-release-notes/safari-13-release-notes">Safari 13 Release Notes</a><br><small>(September 2019)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/webkit-org-new-features-safari13.1.png" alt="New Webkit features in Safari 13.1, with the section on Pointer and Mouse events on iPadOS highlighted">
+    <p><a target="_blank" rel="noopener" href="https://webkit.org/blog/10247/new-webkit-features-in-safari-13-1/">New Webkit features in Safari 13.1</a></p>
+    <p><q>To ensure the best experience, web developers can use feature detection and adopt Pointer Events...</q></p>
+    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2019/203/">Video: Introducing Desktop-class Browsing on iPad</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>the anatomy of <strong>Pointer Events</strong><br><small>(sequence, event object, ...)</small></p>
@@ -3605,14 +3621,6 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win8/chrome-flags-touch-events-enable.png" alt="Touch Events can be explicitly enabled in Chrome's chrome://flags to test for sites/code that does the naive 'if it supports touch events i won't listen for click' assumptions">
-    <p>enable touch events even without a touchscreen<br><small>(to test "naive" <code>'ontouchstart' in window</code> code)</small></p>
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#touch-events">chrome://flags/#touch-events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/chrome-devtools-device-mode-pointer-events.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools/device-mode/">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
     <p>correctly emulates touch and pointer events</p>
@@ -3686,14 +3694,6 @@ var element = document.getElementById('test_el');
     <img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
     <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
     <p>requires advanced stylus, which is uncommon...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-flags-hover-capable-touchscreen.png" alt="chrome://flags setting to enable support for hover capable touchscreens">
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#enable-touch-hover">chrome://flags/#enable-touch-hover</a></p>
-    <p>requires hover-capable touchscreen, which is uncommon...</p>
 </div></section>
 
 <!-- -->
@@ -3799,13 +3799,6 @@ myButton.addEventListener('click', someFunction, false);
 <section class="slide"><div>
     <img src="pictures/sites/github-passive-event-listeners.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://github.com/WICG/EventListenerOptions">Passive Event Listeners (EventListenerOptions)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-flags-passive-event-listener-override.png" alt="chrome://flags setting to enable passive event listener override">
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#passive-listener-default">chrome://flags/#passive-listener-default</a></p>
 </div></section>
 
 <!-- -->
@@ -4028,6 +4021,7 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="https://alistapart.com/article/adapting-to-input">Jason Grigsby – Adapting to Input</a></li>
 <li><a target="_blank" rel="noopener" href="https://css-tricks.com/debouncing-throttling-explained-examples/">David Corbacho – Debouncing and Throttling Explained</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YO7jy1GXkmY">YouTube: Pre-Touch Sensing for Mobile Interaction (Microsoft)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=l8upftEWslM">YouTube: HTML5DevConf: Jacob Rossi, "Pointer Events, Panning &amp; Zooming, and Gestures"</a></li>
 </ul>
 </div></section>
 
@@ -4035,13 +4029,13 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 
 <section class="slide listing"><div>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=l8upftEWslM">YouTube: HTML5DevConf: Jacob Rossi, "Pointer Events, Panning &amp; Zooming, and Gestures"</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SCfVn4JY5yk">YouTube: Jacob Rossi, "Pointing Forward" at W3Conf 2013</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vzOy_ldZNXQ">YouTube: Tim Park: Pointing Forward (updated) – JSConf.Asia 2013</a></li>
 <li><a target="_blank" rel="noopener" href="https://flickity.metafizzy.co/">Flickity – touch, responsive, flickable carousels</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/addeventlistener-once">Google Developers / Update: Once Upon an Event Listener</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/06/passive-event-listeners">Google Developers / Update: Improving Scroll Performance with Passive Event Listeners</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2017/01/scrolling-intervention">Google Developers / Update: Making touch scrolling fast by default</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/pointer-events">Google Developers / Update: Pointing the Way Forward</a></li>
 </ul>
 </div></section>
 
@@ -4049,7 +4043,6 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 
 <section class="slide listing"><div>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/pointer-events">Google Developers / Update: Pointing the Way Forward</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/touch-action">Google Developers / Update: Touch Action Options</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.universalstylus.org/">Universal Stylus Initiative (USI)</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.adobe.com/creativecloud/holistic-adaptive-design/">Adobe Creative Cloud: Andrew Smyk – Holistic Adaptive Design: Factors to Consider in a Multi-Screen World</a></li>
@@ -4057,8 +4050,20 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="http://www.air.bar/">AirBar – Touch without a touchscreen</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/rafrex/detect-it">GitHub: Rafael Pedicini (Rafrex) – Detect It</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2017/03/08/scrolling-on-the-web/">MS Edge Dev Blog: Nolan Lawson – Scrolling on the web: A primer</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php">UXmatters: Steven Hoober
- – Design for Fingers, Touch, and People</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php">UXmatters: Steven Hoober – Design for Fingers, Touch, and People</a></li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/pointer-tracker">Jake Archibald - PointerTracker - npm</a></li>
+<li><a target="_blank" rel="noopener" href="https://css-tricks.com/when-a-click-is-not-just-a-click/">CSS Tricks: Travis Almand - When a Click is Not Just a Click</a></li>
+<li><a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/">Microsoft Edge Blog: Enhancing Inking on the Web</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5gBXW7uAU_I">YouTube: Robert Flack - Input 101 (Chrome University 2020) / BlinkOn</a></li>
+<li><a target="_blank" rel="noopener" href="https://openjsf.org/blog/2021/02/10/pointer-events-polyfill-pep-enters-emeritus-status-at-the-openjs-foundation/">Pointer Events Polyfill (PEP) enters emeritus status at the OpenJS Foundation</a></li>
+<li><a target="_blank" rel="noopener" href="https://pspdfkit.com/blog/2019/using-getcoalescedevents/">Miguel Calderon - Smoother Interactions on the Web: getCoalescedEvents()</a></li>
 </ul>
 </div></section>
 
