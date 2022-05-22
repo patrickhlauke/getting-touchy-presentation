@@ -520,7 +520,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide statement"><div>
 <div>
-    <p>iOS keyboard only works in same situations as on-screen keyboard<br>
+    <p>iOS keyboard by default only works in same situations as on-screen keyboard<br>
     <small>(e.g. text inputs, URL entry)</small></p>
 </div>
 </div></section>
@@ -528,25 +528,17 @@ mousedown > (focus) > mouseup > click</code></p>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/ios7/ipad-voiceover.png" alt="">
-    <p>VoiceOver enables full keyboard access on iOS</p>
+    <img src="pictures/ios13/ios-accessibility-keyboard.jpg" alt="">
+    <p>iOS13+ enable full keyboard access (equivalent to desktop keyboard support)</p>
+    <p><code>Settings > Accessibility > Keyboard > Full Keyboard Access</code></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/backgrounds/photo-ios-ipad-keyboard.jpg" alt="">
-    <p>iOS + keyboard – <strong>similar to touch</strong> (using <kbd>VO</kbd>+<kbd>SPACE</kbd>)</p>
-    <p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover >
-mousemove > mousedown > blur > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/backgrounds/photo-ios-ipad-keyboard-using-enter.jpg" alt="">
-    <p>iOS + keyboard – <strong>like desktop</strong> (using <kbd>ENTER</kbd>)</p>
-    <p><code class="json">focus / click / blur</code></p>
+    <img src="pictures/ios13/ios13-keyboard-button-events.png" alt="">
+    <p>iOS + keyboard – keyboard, touch, pointer, and mouse events</p>
+    <p><small><code class="json">focus > pointerover > pointerenter > touchstart > mouseover > mouseenter > gotpointercapture > pointerup > lostpointercapture > mouseout > mouseleave > pointerout > pointerleave > touchend > mousedown > mouseup > click</code></small></p>
 </div></section>
 
 <!-- -->
@@ -3667,191 +3659,6 @@ var element = document.getElementById('test_el');
 
 <section class="slide impact"><div>
 <div>
-    <p><strong>bonus</strong> material</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>no concept of <code>hover</code><br>on <strong>touch devices</strong><br>
-    <small>iOS fakes it, Samsung Galaxy Note II/Pro + stylus, ...</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/ios-faked-hover.png" alt="Diagrammatic flow of iOS' faked hover support - stopping event sequence if there's a 'change' on the page">
-    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html">iOS Developer Library - Safari Web Content Guide - Handling Events</a></p>
-    <p>while this works ok, Safari is the only browser doing it...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
-    <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
-    <p>requires advanced stylus, which is uncommon...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-hover-touch-support.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/library/dn265029(v=vs.85).aspx">MSDN: Hover touch support</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-channel9-ie11-touch-hover-movie.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://channel9.msdn.com/Blogs/IE/IE11-Using-Hover-Menus-with-Touch">Channel9 MSDN - IE11: Using Hover Menus with Touch</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-using-aria-haspopup.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/library/jj152135(v=vs.85).aspx">MSDN: Using aria-haspopup to simulate hover on touch-enabled devices</a></p>
-    <p>non-standard use of the <code>aria-haspopup</code> attribute...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><strong>avoid</strong> hover interfaces?</p>
-    <p><small>arguable ... it's a user experience decision</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><strong>complement</strong> for touch!</p>
-    <p><small>same considerations as for keyboard users...</small></p>
-</div>
-</div></section>
-
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/wicg-github-io-inputdevicecapabilities.png" alt="">
-    <p><a target="_blank" rel="noopener" href="http://wicg.github.io/InputDeviceCapabilities/">Input Device Capabilities (Draft Community Group Report)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Input Device Capabilities</h2>
-<ul>
-<li>currently limited usefulness - only has <code>firesTouchEvents</code> property</li>
-<li>limited use cases (see <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-touchevents/2015Jan/0002.html">Identifying touch events that will trigger a tap / click</a>, <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-touchevents/2014Sep/0000.html">Identifying mouse events derived from touch events</a> and <a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2015/10/inputdevicecapabilities">Google Developer: Input Device Capabilities</a>)</li>
-<li>easier to switch to Pointer Events (and add PEP)?</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', addHighlight, false);
-myButton.addEventListener('mouseup', removeHighlight, false);
-
-<mark>myButton.addEventListener('click', someFunction, false);</mark>
-
-/* addHighlight/removeHighlight will fire twice for touch
-  (first for touch, then for mouse compatibility events);
-  can't use e.preventDefault(), as we want to rely on 'click' */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    addHighlight(e);
-  } }</mark>, false);
-myButton.addEventListener('mouseup', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    removeHighlight(e);
-  } }</mark>, false);
-
-myButton.addEventListener('click', someFunction, false);
-
-/* same function for touch and mouse, but if mouse check if source
-   input fires touch events (i.e. this is a mouse compat event) */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-passive-event-listeners.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://github.com/WICG/EventListenerOptions">Passive Event Listeners (EventListenerOptions)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-    <div><a target="_blank" rel="noopener" href="https://www.leapmotion.com/product">Leap Motion Controller</a></div>
-    <img src="pictures/backgrounds/leapmotion.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Leap Motion</h2>
-<ul>
-<li>requires custom code (JavaScript, Java, C++, ...) using proprietary API (e.g. <a target="_blank" rel="noopener" href="https://developer.leapmotion.com/documentation/javascript/index.html">Leap Motion: JavaScript SDK Documentation</a>)</li>
-<li>does not fire touch nor mouse events (third party native apps in <a target="_blank" rel="noopener" href="https://apps.leapmotion.com/">Leap Motion App Store</a> available to simulate native mouse)</li>
-<li>(personally find it quite inaccurate and horrible)</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* rough proof of concept that fires programmatic
-   Pointer Events for each "pointable" (finger / tool) */
-
-e = new PointerEvent('pointermove', {
-    pointerId: ... , width: ... , height: ... ,
-    pressure: ... , tiltX: ... , tiltY: ... ,
-    pointerType: 'leap', isPrimary: false,
-    clientX: ... , clientY: ... ,
-    screenX: ... , screenY: ...
-});
-
-/* dispatch event to whatever element is at the coordinates
-   (no support for pointer capture at this stage) */
-
-document.elementFromPoint(x, y).dispatchEvent(e);
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/backgrounds/leapmotion-tracker.jpg" alt="">
-    <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aCqSW-chteM">YouTube: Leap Motion generating programmatic Pointer Events</a></p>
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
     <p><strong>further</strong> reading...</p>
 </div>
 </div></section>
@@ -4051,6 +3858,15 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="https://github.com/rafrex/detect-it">GitHub: Rafael Pedicini (Rafrex) – Detect It</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2017/03/08/scrolling-on-the-web/">MS Edge Dev Blog: Nolan Lawson – Scrolling on the web: A primer</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php">UXmatters: Steven Hoober – Design for Fingers, Touch, and People</a></li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aCqSW-chteM">YouTube: Leap Motion generating programmatic Pointer Events</a></li>
+<li><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></li>
 </ul>
 </div></section>
 
