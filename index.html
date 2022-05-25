@@ -2459,17 +2459,6 @@ click >
 
 <!-- -->
 
-<section class="slide listing"><div>
-    <h2>IE10/IE11 quirks</h2>
-    <ul>
-    <li>vendor-prefixed in IE10 (<code>MSPointerDown</code> ..., <code>navigator.msMaxTouchPoints</code>, <code>-ms-touch-action</code>)</li>
-    <li>unprefixed in IE11 (but prefixed versions mapped for compatibility)</li>
-    <li>event order (when <code>click</code> is fired) incorrect in IE10/IE11<br>see <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></li>
-    </ul>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
     <img src="pictures/sites/w3c-github-pointerevents-compatibility-mapping-with-mouse-events-note.png" alt="Compatibility mapping note for devices that support both Pointer Events and Touch Events">
     <p><small>Chrome, Edge (on mobile), <a target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/ie/2014/07/31/the-mobile-web-should-just-work-for-everyone/">IE11 (Windows Phone 8.1update1)</a> support<br><strong>both</strong> Touch Events and Pointer Events</small></p>
@@ -2891,14 +2880,6 @@ touch-action: pan-x pan-down    /* can be combined */</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win10mobile/win10mob-edge-pointer-mouse-event-sequence-timings.png" alt="Microsoft Edge removes the 300ms delay for width=device-width">
-    <p>Microsoft Edge removes delay for <code class="html">width=device-width</code></p>
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html">patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/sites/patrickhlauke-github-touch-results-300ms-delay.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay">patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay</a></p>
 </div></section>
@@ -2924,26 +2905,10 @@ touch-action: pan-x pan-down    /* can be combined */</code></pre>
 
 <!-- -->
 
-<section class="slide statement"><div>
-<div>
-    <p>you can "fake" it with<br><code>touch-action:none</code><br>and listen for mouse events...</p>
-</div>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
-    <img src="pictures/win8/ie10-particle-party2.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track' - mousemove is fired continuously as finger moves across canvas">
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/particle/2a">patrickhlauke.github.io/touch/particle/2a</a></p>
-    <p>(does <strong>not</strong> work in Microsoft Edge/Windows 10 Mobile<br>due to touch events support)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>better: just listen to <code>pointermove</code>...</p>
-</div>
+    <img src="pictures/win10/particle-party-3b.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track'">
+    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/particle/3b">patrickhlauke.github.io/touch/particle/3b</a></p>
+    <p>add <code>touch-action:none</code> - and just listen to <code>pointermove</code>...</p>
 </div></section>
 
 <!-- -->
@@ -3071,19 +3036,6 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
 
 <!-- -->
 
-<section class="slide code"><div>
-<pre><code class="js">
-/* in IE11/Edge, <mark>pointerType</mark> returns a <mark>string</mark>
-   in IE10, the return type is <mark>long</mark> */
-
-MSPOINTER_TYPE_TOUCH: 0x00000002
-MSPOINTER_TYPE_PEN:   0x00000003
-MSPOINTER_TYPE_MOUSE: 0x00000004</code></pre>
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-gb/library/hh772359(v=vs.85).aspx">MSDN: IE Dev Center - API reference - pointerType property</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>for single pointer interactions, check <code>isPrimary</code></p>
@@ -3151,7 +3103,7 @@ switch (e.type) {
 <section class="slide statement"><div>
 <div>
     <p>simultaneous use of inputs is hardware-dependent<br>
-    <small>(e.g. Surface 3 "palm blocking" prevents concurrent touch/stylus/mouse, but not<br>touch/external mouse/external stylus)</small></p>
+    <small>(e.g. Surface "palm blocking" prevents concurrent touch/stylus/mouse, but not<br>touch/external mouse/external stylus)</small></p>
 </div>
 </div></section>
 
@@ -3160,26 +3112,6 @@ switch (e.type) {
 <section class="slide"><div>
     <img src="pictures/win10/surface-pen-and-wacom-stylus-ms-edge.jpg" alt="">
     <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gRWbmAGh8Q0">YouTube: Pointer Events support multiple stylus/pen inputs simultaneously</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* like iOS/Safari, IE/Edge have <mark>higher-level gestures</mark>,
-   but these are <mark>not part of the W3C Pointer Events</mark> spec */
-
-foo.addEventListener("MSGestureStart", ... , false)
-foo.addEventListener("MSGestureEnd", ... , false)
-foo.addEventListener("MSGestureChange", ... , false)
-foo.addEventListener("MSInertiaStart", ... , false)
-foo.addEventListener("MSGestureTap", ... , false)
-foo.addEventListener("MSGestureHold", ... , false)
-
-/* not supported in other browsers, but potentially
-   useful for IE/Edge exclusive content
-   (e.g. <abbr title="Universal Windows Platform">UWP</abbr> packaged/hosted/hybrid web app);
-   for web, replicate these from basic principles again... */</code></pre>
-   <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-gb/library/hh673557(v=vs.85).aspx#Gesture_object_events">MSDN IE10 Developer Guide: Gesture object and events</a></p>
 </div></section>
 
 <!-- -->
@@ -3639,13 +3571,6 @@ var element = document.getElementById('test_el');
     <img src="pictures/win10/firefox-devtools-responsive-mode-touch-events.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode">Firefox Developer Tools > Responsive Design Mode</a></p>
     <p>correctly emulates touch events</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/win10/edge-F12-emulation-no-touch.png" alt="">
-    <p>no touch emulation, nor touch events + pointer events (like on real Windows 10 Mobile) emulation, in Edge/F12 Tools</p>
 </div></section>
 
 <!-- -->
