@@ -27,7 +27,7 @@
         <h2>Getting <strong>touchy</strong></h2>
         <p>Everything you (n)ever wanted to know about <strong>touch and pointer</strong> events</p>
     </div>
-    <p class="info">Patrick H. Lauke / Last major changes: 8 May 2017</p>
+    <p class="info">Patrick H. Lauke / Last major changes: 2 May 2022</p>
     <img src="pictures/backgrounds/background-cover.jpg" alt="" class="cover">
 </div></section>
 
@@ -36,7 +36,7 @@
 <section class="slide listing"><div>
     <h2>about me...</h2>
     <ul>
-    <li>co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/touch-events/">Touch Events Level 2</a></li>
+    <li>community group co-chair and co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/touch-events/">Touch Events Level 2</a></li>
     <li>working group chair and co-editor <a target="_blank" rel="noopener" href="https://w3c.github.io/pointerevents/">Pointer Events Level 3</a></li>
     </ul>
 </div></section>
@@ -67,13 +67,6 @@
 <section class="slide"><div>
     <img src="pictures/sites/patrickhlauke-github-touch-results.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tests/results/">Touch/pointer events test results</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/codepen-slider-collection.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://codepen.io/collection/AOyMpJ/">CodePen: Basic slider - from mouse-only to mouse/touch/stylus enabled</a></p>
 </div></section>
 
 <!-- -->
@@ -527,7 +520,7 @@ mousedown > (focus) > mouseup > click</code></p>
 
 <section class="slide statement"><div>
 <div>
-    <p>iOS keyboard only works in same situations as on-screen keyboard<br>
+    <p>iOS keyboard by default only works in same situations as on-screen keyboard<br>
     <small>(e.g. text inputs, URL entry)</small></p>
 </div>
 </div></section>
@@ -535,25 +528,17 @@ mousedown > (focus) > mouseup > click</code></p>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/ios7/ipad-voiceover.png" alt="">
-    <p>VoiceOver enables full keyboard access on iOS</p>
+    <img src="pictures/ios13/ios-accessibility-keyboard.jpg" alt="">
+    <p>iOS13+ enable full keyboard access (equivalent to desktop keyboard support)</p>
+    <p><code>Settings > Accessibility > Keyboard > Full Keyboard Access</code></p>
 </div></section>
 
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/backgrounds/photo-ios-ipad-keyboard.jpg" alt="">
-    <p>iOS + keyboard – <strong>similar to touch</strong> (using <kbd>VO</kbd>+<kbd>SPACE</kbd>)</p>
-    <p><code class="json">focus / touchstart > touchend > (mouseenter) > mouseover >
-mousemove > mousedown > blur > mouseup > click</code></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/backgrounds/photo-ios-ipad-keyboard-using-enter.jpg" alt="">
-    <p>iOS + keyboard – <strong>like desktop</strong> (using <kbd>ENTER</kbd>)</p>
-    <p><code class="json">focus / click / blur</code></p>
+    <img src="pictures/ios13/ios13-keyboard-button-events.png" alt="">
+    <p>iOS + keyboard – keyboard, touch, pointer, and mouse events</p>
+    <p><small><code class="json">focus > pointerover > pointerenter > touchstart > mouseover > mouseenter > gotpointercapture > pointerup > lostpointercapture > mouseout > mouseleave > pointerout > pointerleave > touchend > mousedown > mouseup > click</code></small></p>
 </div></section>
 
 <!-- -->
@@ -1527,6 +1512,13 @@ canvas.addEventListener('touchmove', positionHandler, false );</code></pre>
 <!-- -->
 
 <section class="slide"><div>
+    <img src="pictures/sites/codepen-slider-collection.png" alt="">
+    <p><a target="_blank" rel="noopener" href="https://codepen.io/collection/AOyMpJ/?grid_type=grid">CodePen: Basic slider - from mouse-only to mouse/touch/stylus enabled</a></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
     <img src="pictures/sites/codepen-slider-3-naive-mouse-driven.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://codepen.io/patrickhlauke/pen/yMpbXa">(3) Naive mouse-driven fake slider (doesn't "capture")</a></p>
     <p><strong>Demo:</strong> without tricks, slider won't work when moving mouse outside</p>
@@ -2417,6 +2409,22 @@ interface Touch {
 
 <!-- -->
 
+<section class="slide"><div>
+    <img src="pictures/sites/apple-safari13-release-notes-pointerevents.png" alt="Safari 13 release notes, showing the WebAPI section, with the bullet about support for Pointer Events API highlighted">
+    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/safari-release-notes/safari-13-release-notes">Safari 13 Release Notes</a><br><small>(September 2019)</small></p>
+</div></section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/webkit-org-new-features-safari13.1.png" alt="New Webkit features in Safari 13.1, with the section on Pointer and Mouse events on iPadOS highlighted">
+    <p><a target="_blank" rel="noopener" href="https://webkit.org/blog/10247/new-webkit-features-in-safari-13-1/">New Webkit features in Safari 13.1</a></p>
+    <p><q>To ensure the best experience, web developers can use feature detection and adopt Pointer Events...</q></p>
+    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2019/203/">Video: Introducing Desktop-class Browsing on iPad</a></p>
+</div></section>
+
+<!-- -->
+
 <section class="slide impact"><div>
 <div>
     <p>the anatomy of <strong>Pointer Events</strong><br><small>(sequence, event object, ...)</small></p>
@@ -2447,17 +2455,6 @@ click >
 <mark>pointerout</mark> > mouseout >
 <mark>pointerleave</mark> > mouseleave</code></pre>
 <p>mouse events fired “inline” with pointer events<br><small>(for a primary pointer, e.g. first finger on screen)</small></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-    <h2>IE10/IE11 quirks</h2>
-    <ul>
-    <li>vendor-prefixed in IE10 (<code>MSPointerDown</code> ..., <code>navigator.msMaxTouchPoints</code>, <code>-ms-touch-action</code>)</li>
-    <li>unprefixed in IE11 (but prefixed versions mapped for compatibility)</li>
-    <li>event order (when <code>click</code> is fired) incorrect in IE10/IE11<br>see <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-pointer-events/2014OctDec/0025.html">W3C Pointer Events WG mailing list - Jacob Rossi (Microsoft)</a></li>
-    </ul>
 </div></section>
 
 <!-- -->
@@ -2591,6 +2588,14 @@ if (<mark>navigator.maxTouchPoints > 1</mark>) {
 </div>
 </div>
 </section>
+
+<!-- -->
+
+<section class="slide"><div>
+    <img src="pictures/sites/touchscreen-detection.png" alt="Touchscreen detection page">
+    <p><a target="_blank" rel="noopener" href="hhttps://patrickhlauke.github.io/touch/touchscreen-detection/">patrickhlauke.github.io/touch/touchscreen-detection/</a></p>
+    <p><q>...the <em>presence</em> of a touchscreen still does not guarantee that a user will actually use the touchscreen...</q></p>
+</div></section>
 
 <!-- -->
 
@@ -2875,14 +2880,6 @@ touch-action: pan-x pan-down    /* can be combined */</code></pre>
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win10mobile/win10mob-edge-pointer-mouse-event-sequence-timings.png" alt="Microsoft Edge removes the 300ms delay for width=device-width">
-    <p>Microsoft Edge removes delay for <code class="html">width=device-width</code></p>
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html">patrickhlauke.github.io/touch/tests/event-listener_width-device-width.html</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/sites/patrickhlauke-github-touch-results-300ms-delay.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay">patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay</a></p>
 </div></section>
@@ -2908,26 +2905,10 @@ touch-action: pan-x pan-down    /* can be combined */</code></pre>
 
 <!-- -->
 
-<section class="slide statement"><div>
-<div>
-    <p>you can "fake" it with<br><code>touch-action:none</code><br>and listen for mouse events...</p>
-</div>
-</div></section>
-
-<!-- -->
-
 <section class="slide"><div>
-    <img src="pictures/win8/ie10-particle-party2.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track' - mousemove is fired continuously as finger moves across canvas">
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/particle/2a">patrickhlauke.github.io/touch/particle/2a</a></p>
-    <p>(does <strong>not</strong> work in Microsoft Edge/Windows 10 Mobile<br>due to touch events support)</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>better: just listen to <code>pointermove</code>...</p>
-</div>
+    <img src="pictures/win10/particle-party-3b.png" alt="By suppressing default touch action on the particle party canvas, pointer events now 'track'">
+    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/particle/3b">patrickhlauke.github.io/touch/particle/3b</a></p>
+    <p>add <code>touch-action:none</code> - and just listen to <code>pointermove</code>...</p>
 </div></section>
 
 <!-- -->
@@ -3055,19 +3036,6 @@ foo.addEventListener('<mark>pointermove</mark>', function(e) {
 
 <!-- -->
 
-<section class="slide code"><div>
-<pre><code class="js">
-/* in IE11/Edge, <mark>pointerType</mark> returns a <mark>string</mark>
-   in IE10, the return type is <mark>long</mark> */
-
-MSPOINTER_TYPE_TOUCH: 0x00000002
-MSPOINTER_TYPE_PEN:   0x00000003
-MSPOINTER_TYPE_MOUSE: 0x00000004</code></pre>
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-gb/library/hh772359(v=vs.85).aspx">MSDN: IE Dev Center - API reference - pointerType property</a></p>
-</div></section>
-
-<!-- -->
-
 <section class="slide impact"><div>
 <div>
     <p>for single pointer interactions, check <code>isPrimary</code></p>
@@ -3135,7 +3103,7 @@ switch (e.type) {
 <section class="slide statement"><div>
 <div>
     <p>simultaneous use of inputs is hardware-dependent<br>
-    <small>(e.g. Surface 3 "palm blocking" prevents concurrent touch/stylus/mouse, but not<br>touch/external mouse/external stylus)</small></p>
+    <small>(e.g. Surface "palm blocking" prevents concurrent touch/stylus/mouse, but not<br>touch/external mouse/external stylus)</small></p>
 </div>
 </div></section>
 
@@ -3144,26 +3112,6 @@ switch (e.type) {
 <section class="slide"><div>
     <img src="pictures/win10/surface-pen-and-wacom-stylus-ms-edge.jpg" alt="">
     <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gRWbmAGh8Q0">YouTube: Pointer Events support multiple stylus/pen inputs simultaneously</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* like iOS/Safari, IE/Edge have <mark>higher-level gestures</mark>,
-   but these are <mark>not part of the W3C Pointer Events</mark> spec */
-
-foo.addEventListener("MSGestureStart", ... , false)
-foo.addEventListener("MSGestureEnd", ... , false)
-foo.addEventListener("MSGestureChange", ... , false)
-foo.addEventListener("MSInertiaStart", ... , false)
-foo.addEventListener("MSGestureTap", ... , false)
-foo.addEventListener("MSGestureHold", ... , false)
-
-/* not supported in other browsers, but potentially
-   useful for IE/Edge exclusive content
-   (e.g. <abbr title="Universal Windows Platform">UWP</abbr> packaged/hosted/hybrid web app);
-   for web, replicate these from basic principles again... */</code></pre>
-   <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-gb/library/hh673557(v=vs.85).aspx#Gesture_object_events">MSDN IE10 Developer Guide: Gesture object and events</a></p>
 </div></section>
 
 <!-- -->
@@ -3597,14 +3545,6 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win8/chrome-flags-touch-events-enable.png" alt="Touch Events can be explicitly enabled in Chrome's chrome://flags to test for sites/code that does the naive 'if it supports touch events i won't listen for click' assumptions">
-    <p>enable touch events even without a touchscreen<br><small>(to test "naive" <code>'ontouchstart' in window</code> code)</small></p>
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#touch-events">chrome://flags/#touch-events</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/win10/chrome-devtools-device-mode-pointer-events.png" alt="">
     <p><a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools/device-mode/">Chrome DevTools / Device Mode &amp; Mobile Emulation</a></p>
     <p>correctly emulates touch and pointer events</p>
@@ -3636,215 +3576,8 @@ var element = document.getElementById('test_el');
 <!-- -->
 
 <section class="slide"><div>
-    <img src="pictures/win10/edge-F12-emulation-no-touch.png" alt="">
-    <p>no touch emulation, nor touch events + pointer events (like on real Windows 10 Mobile) emulation, in Edge/F12 Tools</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
     <img src="pictures/osx/safari-responsive-design-mode-no-touch.png" alt="">
     <p>no touch emulation in Safari "Responsive Design Mode"</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide impact"><div>
-<div>
-    <p><strong>bonus</strong> material</p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p>no concept of <code>hover</code><br>on <strong>touch devices</strong><br>
-    <small>iOS fakes it, Samsung Galaxy Note II/Pro + stylus, ...</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/ios7/ios-faked-hover.png" alt="Diagrammatic flow of iOS' faked hover support - stopping event sequence if there's a 'change' on the page">
-    <p><a target="_blank" rel="noopener" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html">iOS Developer Library - Safari Web Content Guide - Handling Events</a></p>
-    <p>while this works ok, Safari is the only browser doing it...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/samsung-galaxy-note-pro-12.2-stylus-hover.jpg" alt="Samsung Galaxy Note Pro with stylus has a near-field hover effect that fires mousemove events even when not touching the screen">
-    <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=43MfWGGz8UE">YouTube: Samsung Galaxy Note Pro 12.2 stylus hover</a></p>
-    <p>requires advanced stylus, which is uncommon...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-flags-hover-capable-touchscreen.png" alt="chrome://flags setting to enable support for hover capable touchscreens">
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#enable-touch-hover">chrome://flags/#enable-touch-hover</a></p>
-    <p>requires hover-capable touchscreen, which is uncommon...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-hover-touch-support.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/library/dn265029(v=vs.85).aspx">MSDN: Hover touch support</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-channel9-ie11-touch-hover-movie.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://channel9.msdn.com/Blogs/IE/IE11-Using-Hover-Menus-with-Touch">Channel9 MSDN - IE11: Using Hover Menus with Touch</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/msdn-using-aria-haspopup.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://msdn.microsoft.com/library/jj152135(v=vs.85).aspx">MSDN: Using aria-haspopup to simulate hover on touch-enabled devices</a></p>
-    <p>non-standard use of the <code>aria-haspopup</code> attribute...</p>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><strong>avoid</strong> hover interfaces?</p>
-    <p><small>arguable ... it's a user experience decision</small></p>
-</div>
-</div></section>
-
-<!-- -->
-
-<section class="slide statement"><div>
-<div>
-    <p><strong>complement</strong> for touch!</p>
-    <p><small>same considerations as for keyboard users...</small></p>
-</div>
-</div></section>
-
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/wicg-github-io-inputdevicecapabilities.png" alt="">
-    <p><a target="_blank" rel="noopener" href="http://wicg.github.io/InputDeviceCapabilities/">Input Device Capabilities (Draft Community Group Report)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Input Device Capabilities</h2>
-<ul>
-<li>currently limited usefulness - only has <code>firesTouchEvents</code> property</li>
-<li>limited use cases (see <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-touchevents/2015Jan/0002.html">Identifying touch events that will trigger a tap / click</a>, <a target="_blank" rel="noopener" href="https://lists.w3.org/Archives/Public/public-touchevents/2014Sep/0000.html">Identifying mouse events derived from touch events</a> and <a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2015/10/inputdevicecapabilities">Google Developer: Input Device Capabilities</a>)</li>
-<li>easier to switch to Pointer Events (and add PEP)?</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', addHighlight, false);
-myButton.addEventListener('mouseup', removeHighlight, false);
-
-<mark>myButton.addEventListener('click', someFunction, false);</mark>
-
-/* addHighlight/removeHighlight will fire twice for touch
-  (first for touch, then for mouse compatibility events);
-  can't use e.preventDefault(), as we want to rely on 'click' */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">myButton.addEventListener('touchstart', addHighlight, false);
-myButton.addEventListener('touchend', removeHighlight, false);
-
-myButton.addEventListener('mousedown', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    addHighlight(e);
-  } }</mark>, false);
-myButton.addEventListener('mouseup', <mark>function(e) {
-  if (!e.sourceCapabilities.firesTouchEvents) {
-    removeHighlight(e);
-  } }</mark>, false);
-
-myButton.addEventListener('click', someFunction, false);
-
-/* same function for touch and mouse, but if mouse check if source
-   input fires touch events (i.e. this is a mouse compat event) */
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/sites/github-passive-event-listeners.png" alt="">
-    <p><a target="_blank" rel="noopener" href="https://github.com/WICG/EventListenerOptions">Passive Event Listeners (EventListenerOptions)</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/android/chrome-flags-passive-event-listener-override.png" alt="chrome://flags setting to enable passive event listener override">
-    <p><a target="_blank" rel="noopener" href="chrome://flags/#passive-listener-default">chrome://flags/#passive-listener-default</a></p>
-</div></section>
-
-<!-- -->
-
-<section class="slide cover impact"><div>
-    <div><a target="_blank" rel="noopener" href="https://www.leapmotion.com/product">Leap Motion Controller</a></div>
-    <img src="pictures/backgrounds/leapmotion.jpg" class="cover" alt="">
-</div></section>
-
-<!-- -->
-
-<section class="slide listing"><div>
-<h2>Leap Motion</h2>
-<ul>
-<li>requires custom code (JavaScript, Java, C++, ...) using proprietary API (e.g. <a target="_blank" rel="noopener" href="https://developer.leapmotion.com/documentation/javascript/index.html">Leap Motion: JavaScript SDK Documentation</a>)</li>
-<li>does not fire touch nor mouse events (third party native apps in <a target="_blank" rel="noopener" href="https://apps.leapmotion.com/">Leap Motion App Store</a> available to simulate native mouse)</li>
-<li>(personally find it quite inaccurate and horrible)</li>
-</ul>
-</div></section>
-
-<!-- -->
-
-<section class="slide code"><div>
-<pre><code class="js">/* rough proof of concept that fires programmatic
-   Pointer Events for each "pointable" (finger / tool) */
-
-e = new PointerEvent('pointermove', {
-    pointerId: ... , width: ... , height: ... ,
-    pressure: ... , tiltX: ... , tiltY: ... ,
-    pointerType: 'leap', isPrimary: false,
-    clientX: ... , clientY: ... ,
-    screenX: ... , screenY: ...
-});
-
-/* dispatch event to whatever element is at the coordinates
-   (no support for pointer capture at this stage) */
-
-document.elementFromPoint(x, y).dispatchEvent(e);
-</code></pre>
-</div></section>
-
-<!-- -->
-
-<section class="slide"><div>
-    <img src="pictures/backgrounds/leapmotion-tracker.jpg" alt="">
-    <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aCqSW-chteM">YouTube: Leap Motion generating programmatic Pointer Events</a></p>
-    <p><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></p>
 </div></section>
 
 <!-- -->
@@ -4020,6 +3753,7 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="https://alistapart.com/article/adapting-to-input">Jason Grigsby – Adapting to Input</a></li>
 <li><a target="_blank" rel="noopener" href="https://css-tricks.com/debouncing-throttling-explained-examples/">David Corbacho – Debouncing and Throttling Explained</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YO7jy1GXkmY">YouTube: Pre-Touch Sensing for Mobile Interaction (Microsoft)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=l8upftEWslM">YouTube: HTML5DevConf: Jacob Rossi, "Pointer Events, Panning &amp; Zooming, and Gestures"</a></li>
 </ul>
 </div></section>
 
@@ -4027,13 +3761,13 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 
 <section class="slide listing"><div>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=l8upftEWslM">YouTube: HTML5DevConf: Jacob Rossi, "Pointer Events, Panning &amp; Zooming, and Gestures"</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SCfVn4JY5yk">YouTube: Jacob Rossi, "Pointing Forward" at W3Conf 2013</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vzOy_ldZNXQ">YouTube: Tim Park: Pointing Forward (updated) – JSConf.Asia 2013</a></li>
 <li><a target="_blank" rel="noopener" href="https://flickity.metafizzy.co/">Flickity – touch, responsive, flickable carousels</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/addeventlistener-once">Google Developers / Update: Once Upon an Event Listener</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/06/passive-event-listeners">Google Developers / Update: Improving Scroll Performance with Passive Event Listeners</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2017/01/scrolling-intervention">Google Developers / Update: Making touch scrolling fast by default</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/pointer-events">Google Developers / Update: Pointing the Way Forward</a></li>
 </ul>
 </div></section>
 
@@ -4041,7 +3775,6 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 
 <section class="slide listing"><div>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/pointer-events">Google Developers / Update: Pointing the Way Forward</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2016/10/touch-action">Google Developers / Update: Touch Action Options</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.universalstylus.org/">Universal Stylus Initiative (USI)</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.adobe.com/creativecloud/holistic-adaptive-design/">Adobe Creative Cloud: Andrew Smyk – Holistic Adaptive Design: Factors to Consider in a Multi-Screen World</a></li>
@@ -4049,8 +3782,29 @@ document.elementFromPoint(x, y).dispatchEvent(e);
 <li><a target="_blank" rel="noopener" href="http://www.air.bar/">AirBar – Touch without a touchscreen</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/rafrex/detect-it">GitHub: Rafael Pedicini (Rafrex) – Detect It</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2017/03/08/scrolling-on-the-web/">MS Edge Dev Blog: Nolan Lawson – Scrolling on the web: A primer</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php">UXmatters: Steven Hoober
- – Design for Fingers, Touch, and People</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php">UXmatters: Steven Hoober – Design for Fingers, Touch, and People</a></li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aCqSW-chteM">YouTube: Leap Motion generating programmatic Pointer Events</a></li>
+<li><a target="_blank" rel="noopener" href="https://patrickhlauke.github.io/touch/leapmotion/tracker/">patrickhlauke.github.io/touch/leapmotion/tracker</a></li>
+</ul>
+</div></section>
+
+<!-- -->
+
+<section class="slide listing"><div>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/pointer-tracker">Jake Archibald - PointerTracker - npm</a></li>
+<li><a target="_blank" rel="noopener" href="https://css-tricks.com/when-a-click-is-not-just-a-click/">CSS Tricks: Travis Almand - When a Click is Not Just a Click</a></li>
+<li><a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/">Microsoft Edge Blog: Enhancing Inking on the Web</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5gBXW7uAU_I">YouTube: Robert Flack - Input 101 (Chrome University 2020) / BlinkOn</a></li>
+<li><a target="_blank" rel="noopener" href="https://openjsf.org/blog/2021/02/10/pointer-events-polyfill-pep-enters-emeritus-status-at-the-openjs-foundation/">Pointer Events Polyfill (PEP) enters emeritus status at the OpenJS Foundation</a></li>
+<li><a target="_blank" rel="noopener" href="https://pspdfkit.com/blog/2019/using-getcoalescedevents/">Miguel Calderon - Smoother Interactions on the Web: getCoalescedEvents()</a></li>
 </ul>
 </div></section>
 
